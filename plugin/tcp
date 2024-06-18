@@ -1,4 +1,5 @@
 #!/bin/sh
+now=$(date +'%s' )
 
 : <<EOF
 
@@ -25,16 +26,16 @@ if [ -e /proc/net ]; then
 	  }
 
 	  END {
-	      printf \"$HOST:tcp.established:%d:GAUGE\n\", STATE[\"01\"];
-	      printf \"$HOST:tcp.syn_sent:%d:GAUGE\n\",    STATE[\"02\"];
-	      printf \"$HOST:tcp.syn_recv:%d:GAUGE\n\",    STATE[\"03\"];
-	      printf \"$HOST:tcp.fin_wait1:%d:GAUGE\n\",   STATE[\"04\"];
-	      printf \"$HOST:tcp.fin_wait2:%d:GAUGE\n\",   STATE[\"05\"];
-	      printf \"$HOST:tcp.time_wait:%d:GAUGE\n\",   STATE[\"06\"];
-	      printf \"$HOST:tcp.close:%d:GAUGE\n\",       STATE[\"07\"];
-	      printf \"$HOST:tcp.close_wait:%d:GAUGE\n\",  STATE[\"08\"];
-	      printf \"$HOST:tcp.last_ack:%d:GAUGE\n\",    STATE[\"09\"];
-	      printf \"$HOST:tcp.listen:%d:GAUGE\n\",      STATE[\"0A\"];
-	      printf \"$HOST:tcp.closing:%d:GAUGE\n\",     STATE[\"0B\"];
+	      printf \"$HOST:$now:tcp.established:%d:GAUGE\n\", STATE[\"01\"];
+	      printf \"$HOST:$now:tcp.syn_sent:%d:GAUGE\n\",    STATE[\"02\"];
+	      printf \"$HOST:$now:tcp.syn_recv:%d:GAUGE\n\",    STATE[\"03\"];
+	      printf \"$HOST:$now:tcp.fin_wait1:%d:GAUGE\n\",   STATE[\"04\"];
+	      printf \"$HOST:$now:tcp.fin_wait2:%d:GAUGE\n\",   STATE[\"05\"];
+	      printf \"$HOST:$now:tcp.time_wait:%d:GAUGE\n\",   STATE[\"06\"];
+	      printf \"$HOST:$now:tcp.close:%d:GAUGE\n\",       STATE[\"07\"];
+	      printf \"$HOST:$now:tcp.close_wait:%d:GAUGE\n\",  STATE[\"08\"];
+	      printf \"$HOST:$now:tcp.last_ack:%d:GAUGE\n\",    STATE[\"09\"];
+	      printf \"$HOST:$now:tcp.listen:%d:GAUGE\n\",      STATE[\"0A\"];
+	      printf \"$HOST:$now:tcp.closing:%d:GAUGE\n\",     STATE[\"0B\"];
 	  }"
 fi

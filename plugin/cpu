@@ -1,14 +1,15 @@
 #!/usr/bin/env bash
 #linux
+now=$(date +'%s' )
 if [ -e "/proc/loadavg" ]; then
     for (( i ; i<3;i++)); do
-        echo $( hostname ):load_$(( 5 * ( i + 1) )):$( cat /proc/loadavg | cut -d " " -f $(( i + 1 )) ):GAUGE
+        echo $( hostname ):$now:load_$(( 5 * ( i + 1) )):$( cat /proc/loadavg | cut -d " " -f $(( i + 1 )) ):GAUGE
         sleep .1
     done
 fi
 # BSD
 if $( sysctl vm.loadavg &>/dev/null ); then
     for (( i=0 ; i<3;i++)); do
-            echo $( hostname ):load_$(( 5 * ( i + 1) )):$( sysctl vm.loadavg | cut -d " " -f $(( i + 3 )) ):GAUGE
+            echo $( hostname ):$now:load_$(( 5 * ( i + 1) )):$( sysctl vm.loadavg | cut -d " " -f $(( i + 3 )) ):GAUGE
     done
 fi
