@@ -1,9 +1,23 @@
 #!/usr/bin/env bash
-TICK=${TICK:-20}
-./stop.sh 
-rm *csv *rrd this.log
-export DAEMON=1
-stdbuf -i0 -o0 -e0  ./mkhtml.sh &
-unset DAEMON
- stdbuf -i0 -o0 -e0 socat EXEC:"./lurker.sh $TICK" UDP4-DATAGRAM:192.168.1.255:6666,broadcast,range=192.168.1.255/24 &
-stdbuf -i0 -o0 -e0 socat UDP4-RECVFROM:6666,broadcast,fork EXEC:"./writer.sh $TICK" &
+LURKER=${LURKER:-}
+cd $( dirname $0 )
+HERE="."
+SINCE=${SINCE:-900}
+MASTER=${MASTER:-}
+TICK=${TICK:-2}
+BROADCAST=${BROADCAST:-"192.168.1.255"}
+RANGE=24
+export TICK
+$HERE/stop.sh 
+echo $$ > $HERE/pid/$( basename $0).pid
+[ -e pid ] || mkdir pid
+[ -e log ] || mkdir log
+[ -e run ] || mkdir run
+[ -e data ] || mkdir data
+if [ ! -z "$LURKER" ]; then
+    SINCE=$SINCE DAEMON=1 $HERE/bin/mkhtml.sh &
+    LURKER=$LURKER $HERE/bin/launch_lurker.sh &
+fi
+BROADCAST=$BROADCAST RANGE=$RANGE TICK=$TICK $HERE/bin/launch_writer.sh &
+TICK=$TICK $HERE/bin/clock.sh &
+

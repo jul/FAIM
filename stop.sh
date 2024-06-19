@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
+for l in pid/*;
+do 
+    echo killing $l
+    kill $( cat $l )
+    rm $l
+done
 killall socat
-
-for p in $( ps aux | grep "[c]lock.sh" | tr -s " " | cut -f2 -d" " );
-do
-    kill $p
-done
-for p in $( ps aux | grep "[m]khtml.sh" | tr -s " " | cut -f2 -d" " );
-do
-    kill $p
-done
+#rm run/*
+rm pid/*
+#rm log/*
