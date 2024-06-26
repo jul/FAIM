@@ -26,12 +26,10 @@ EOF
 	this=$( echo $l | cut -d"~"  -f2 )
         WHERE=$( basename  "$this" .csv )
 
-        X=100 SINCE=$SINCE DS=x ../bin/plot_rrd2.sh "$( basename "$l" .csv ).rrd" &> /dev/null
         SINCE=$SINCE DS=x ../bin/basic_plot.sh "$l"  &> /dev/null
         X=400 Y=220 SCALE=100 SINCE=$SINCE DS=x ../bin/plot_histo_g.sh "$l"  &> /dev/null
         OUT="$OUT <td>$WHAT</td><td><br><br>$WHERE</td>"
         OUT="$OUT <td><pre>$( X=60 Y=20 ../bin/asci_plot.sh "$l" )</pre></td>"
-        OUT="$OUT <td><img src="./$( basename "$l" .csv).png" /></td>"
         OUT="$OUT <td><img src="./$( basename "$l" .csv).g.png" /></td>"
         OUT="$OUT <td><img src="./$( basename "$l" .csv).h.png" /></td>"
         OUT="$OUT <td><img src="./$( basename "$l" .csv).diff.png" /></td>"

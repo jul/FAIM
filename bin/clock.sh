@@ -30,13 +30,6 @@ while [ 1 ]; do
         sleep 3
         TICK=5 LURKER=1 RANGE=$RANGE BROADCAST=$BROADCAST $HERE/../start.sh
     fi
-    ps aux | grep "[l]urker"
-    ps -p $( cat $HERE/../pid/lurker.sh.pid ) &> /dev/null
-    if [ ! $? -eq 0 ] ; then
-        echo restarting lurker absent
-        sleep 3
-        TICK=5 LURKER=1 RANGE=$RANGE BROADCAST=$BROADCAST $HERE/../start.sh
-    fi
     if [[ "$CHANGE" == "speed" ]]; then
         CHANGE=""
         echo "speed"
