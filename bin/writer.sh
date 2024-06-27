@@ -17,7 +17,7 @@ function log() {
 }
 function answer() {
     RES=""
-    for i in $HERE/plugin/*_enabled; do
+    for i in $HERE/../plugin/*_enabled; do
        RES+=$( ./$i )
        RES+="\n"
     done
