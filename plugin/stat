@@ -1,0 +1,38 @@
+#!/bin/sh
+# -*- sh -*-
+
+: << =cut
+
+=head1 NAME
+
+interrupts - Plugin to monitor the number of interrupts and context
+switches on a system.
+
+=head1 CONFIGURATION
+
+No configuration
+
+=head1 AUTHOR
+
+Idea and base from Ragnar Wisløff.
+
+=head1 LICENSE
+
+GPLv2
+
+=head1 MAGIC MARKERS
+
+ #%# family=auto
+ #%# capabilities=autoconf
+
+=cut
+NOW=$(date +'%s' )
+
+if [ -f '/proc/stat' ]; then
+    for field in procs_running procs_blocked; do
+         echo $NOW:$( hostname ):stat.$field:$( awk "\$1 == \"$field\" { print \$2 }" /proc/stat ):GAUGE
+    done
+    for field in intr ctxt processes ; do
+        echo $NOW:$( hostname ):stat.$field:$( awk "\$1 == \"$field\" { print \$2 }" /proc/stat ):DERIVE
+    done
+fi
