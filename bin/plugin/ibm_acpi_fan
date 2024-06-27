@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+# -*- sh -*-
+: <<=cut
+
+=head1 NAME
+
+acpi_ibm - Munin plugin to monitor the fan speed returned by ACPI probe.
+
+=head1 APPLICABLE SYSTEMS
+
+FreeBSD systems with ACPI support. man acpi_ibm(4)
+
+=head1 CONFIGURATION
+
+add ibm_acpi in loader.conf
+
+=head1 USAGE
+
+Link this plugin to @@CONFDIR@@/plugins/ and restart the munin-node.
+
+=head1 INTERPRETATION
+
+The plugin shows the fans' speeds.
+
+=head1 MAGIC MARKERS
+
+ #%# family=auto
+ #%# capabilities=autoconf
+
+=head1 BUGS
+
+None known.
+
+=head1 VERSION
+
+v1.1 - 2024-03-24
+
+=head1 AUTHOR
+
+Julien Tayon (julien@tayon.net)
+
+=head1 LICENSE
+
+GPLv2
+
+=cut
+
+if sysctl dev.acpi_ibm.0.fan_speed &> /dev/null; then
+	NB_FAN=$( sysctl -a | grep fan_speed | wc -l )
+
+# man acpi_ibm
+	HERE=$( hostname )
+	NOW=$( date +'%s' )
+
+	for ((i=0;i<$NB_FAN;i++)); do 
+		echo "$HERE:$NOW:fan_rpm$i:$(sysctl dev.acpi_ibm.$i.fan_speed | cut -d " " -f2):GAUGE"
+	done
+fi
+
+exit 0
+
+

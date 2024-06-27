@@ -1,0 +1,32 @@
+#!/bin/sh
+# -*- sh -*-
+
+: << =cut
+
+=head1 NAME
+
+interrupts - list number of interrupts since boot (linux) or the interrupt rate per interrupt
+
+=head1 CONFIGURATION
+
+No configuration
+
+=head1 AUTHOR
+
+Idea and base from Ragnar Wisløff.
+
+=head1 LICENSE
+
+GPLv2
+
+=head1 MAGIC MARKERS
+
+ #%# family=auto
+ #%# capabilities=autoconf
+
+=cut
+NOW=$( date +'%s' )
+HOST=$( hostname )
+if vmstat -i 1> /dev/null 2> /dev/null; then
+	vmstat -i | awk "{if (\$1 != \"interrupt\" && \$1 != \"Total\" )  {print \"$NOW;$HOST;irq.\" \$1  \$2 \";\" \$NF \";GAUGE\" }}" | tr ":" "." | tr ";" ":"
+fi
