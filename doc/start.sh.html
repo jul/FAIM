@@ -1,0 +1,83 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@localhost" />
+</head>
+
+<body>
+
+
+
+<ul id="index">
+  <li><a href="#NAME">NAME</a>
+    <ul>
+      <li><a href="#DESCRIPTION">DESCRIPTION</a></li>
+      <li><a href="#SYNOPSIS">SYNOPSIS</a></li>
+      <li><a href="#OPTIONS">OPTIONS</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="NAME">NAME</h1>
+
+<p>start.sh</p>
+
+<p><a href="file:./plugin/cpu.html">file:./plugin/cpu.html</a></p>
+
+<h2 id="DESCRIPTION">DESCRIPTION</h2>
+
+<p>Launches the networked apparatus of measures. It is the reciprocal function of stop.sh</p>
+
+<h2 id="SYNOPSIS">SYNOPSIS</h2>
+
+<p>All arguments are passed by environment variables</p>
+
+<pre><code>[TICK=2] [LURKER=] [BROADCAST=192.168.1.255] [RANGE=24] [SINCE=900] start.sh</code></pre>
+
+<h2 id="OPTIONS">OPTIONS</h2>
+
+<dl>
+
+<dt id="TICK">TICK</dt>
+<dd>
+
+<p>TICK is the initial clock given to the system. It will however converge to its computed value.</p>
+
+</dd>
+<dt id="LURKER">LURKER</dt>
+<dd>
+
+<p>When LURKER is set, the data collecting agent is launched and process all probes sent on the given broadcast address</p>
+
+</dd>
+<dt id="BROADCAST">BROADCAST</dt>
+<dd>
+
+<p>UDP BROADCAST address to use</p>
+
+</dd>
+<dt id="RANGE">RANGE</dt>
+<dd>
+
+<p>Range in the form [0-32] to specify the BROADCAST range.</p>
+
+<p>Ex: 24 will specify $BROADCAST/24</p>
+
+</dd>
+<dt id="SINCE">SINCE</dt>
+<dd>
+
+<p>Argument given to the html generator to know how much seconds since NOW must be shown in the graph.</p>
+
+</dd>
+</dl>
+
+
+</body>
+
+</html>
+
+

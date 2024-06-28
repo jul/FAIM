@@ -43,7 +43,7 @@ function answer() {
             echo "$NOW:$HOST:clock.live_tick:$LIVING_TICK:GAUGE"
         fi
         OLD_TICK=$( cat "$HERE/../run/last_tick.value" || echo 0 )
-        RES+="$NOW:$HOST:tick:${OLD_TICK}:DERIVE\,"
+        RES+="$NOW:$HOST:tick:${OLD_TICK}:DERIVE\n"
         echo -n $(( $OLD_TICK +1 )) > "$HERE/../run/last_tick.value"
     fi
     RES="${RES::-2}"

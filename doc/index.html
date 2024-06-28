@@ -1,38 +1,21 @@
-Agent Oriented Prgramming
-=========================
-
-1. EverythingIsAnAgent
-
-2. Agent communicate by sending and receiving messages (the way they prefer as long as they send messages).
-
-3. Agent have their own memory and autonomy
-
-4. Every Agent is an instance of an artifact (which then as to be accounted as an agent).
-
-5. The Agent is accountable for maintaining its consistency as a state/transition agent
-
-6. The topology is more important than the code.
-
-7. each state machine is on a plane for which an uncoupled state machine lays.
-
-8. violation of uncoupling between layers is bad so it has to be handled with care.
-
-
-This project is an implementation of such a way of thinking distributed system.
-For sake of education I took the most compact language for the task : *bash*
-
-We are gonne realize on this principle a Fast Adaptative Insecure Monitoring system.
-
-FAIM is designed as a funny experiment of doing a munin clone (doing less) in bash only that is specialized in high speed (~1 seconde / measure) distributed measuring system without a centralized collector.
-
-No broker, no Zmq, no webrtc, no QUIC, no rabbitMQ are used for transport but ... BROADCAST UDP.
-
-Hence, well, this toy is fondamentally insecure and can hardly be ciphered in its current form.
-
-But, it enables a category of software that are both educational for doing your own tool AND 
-for deploying an adhoc measuring system.
-```
-  +----------------------------------------------------------------------+
+<h1 id="agent-oriented-prgramming">Agent Oriented Prgramming</h1>
+<ol type="1">
+<li><p>EverythingIsAnAgent</p></li>
+<li><p>Agent communicate by sending and receiving messages (the way they prefer as long as they send messages).</p></li>
+<li><p>Agent have their own memory and autonomy</p></li>
+<li><p>Every Agent is an instance of an artifact (which then as to be accounted as an agent).</p></li>
+<li><p>The Agent is accountable for maintaining its consistency as a state/transition agent</p></li>
+<li><p>The topology is more important than the code.</p></li>
+<li><p>each state machine is on a plane for which an uncoupled state machine lays.</p></li>
+<li><p>violation of uncoupling between layers is bad so it has to be handled with care.</p></li>
+</ol>
+<p>This project is an implementation of such a way of thinking distributed system. For sake of education I took the most compact language for the task : <em>bash</em></p>
+<p>We are gonne realize on this principle a Fast Adaptative Insecure Monitoring system.</p>
+<p>FAIM is designed as a funny experiment of doing a munin clone (doing less) in bash only that is specialized in high speed (~1 seconde / measure) distributed measuring system without a centralized collector.</p>
+<p>No broker, no Zmq, no webrtc, no QUIC, no rabbitMQ are used for transport but … BROADCAST UDP.</p>
+<p>Hence, well, this toy is fondamentally insecure and can hardly be ciphered in its current form.</p>
+<p>But, it enables a category of software that are both educational for doing your own tool AND for deploying an adhoc measuring system.</p>
+<pre><code>  +----------------------------------------------------------------------+
   |                                                                      |
   |                END:kills                                             |
   |    +---------------------------------------------+                   +--------------------------------------------------------+
@@ -40,7 +23,7 @@ for deploying an adhoc measuring system.
   |  +-----------+   exec itself each n seconds    +------------------+              +------------------+                       +----------------------------------------+
   |  |           | -----------------------------+  |                  |              |                  |                       |                                        |
   |  | mkhtml.sh |                              |  |     stop.sh      |  END:kills   | launch\_lurker.sh|  BEGIN:launches       |                start.sh                |
-  |  |           | <----------------------------+  |                  | -----------> |                  | <-------------------- |                                        | -----------------------------------------------+
+  |  |           | &lt;----------------------------+  |                  | -----------&gt; |                  | &lt;-------------------- |                                        | -----------------------------------------------+
   |  +-----------+                                 +------------------+              +------------------+                       +----------------------------------------+                                                |
   |    ^                                             |                                 |                                          |                                                                                       |
   |    | launches                                    | END:kills                       |                                          | launches                                                                              |
@@ -48,23 +31,48 @@ for deploying an adhoc measuring system.
   |    |                                           +------------------+                |                     0-n:sleep          +----------------------------------------+                                                |
   |    |                                           |                  |                |                   +------------------- |                                        |                                                |
   |    |           BEGIN:launches                  | launch\_writer.sh|                |                   |                    |                clock.sh                |                                                |
-  +----+-----------------------------------------> |                  |                |                   +------------------> |                                        | <+                                             |
+  +----+-----------------------------------------&gt; |                  |                |                   +------------------&gt; |                                        | &lt;+                                             |
        |                                           +------------------+                |                                        +----------------------------------------+  |                                             |
        |                                             |                                 |                                          |                                         |                                             |
        |                                             |                                 |                                          | 1:signals                               | 3:writer:on competion:signal speed change   |
        |                                             |                                 |                                          v                                         |                                             |
        |                                             |                                 |                  connect to network    +----------------------------------------+  |                                             |
-       |                                             +---------------------------------+--------------------------------------> |               writer.sh                | -+                                             |
+       |                                             +---------------------------------+--------------------------------------&gt; |               writer.sh                | -+                                             |
        |                                                                               |                                        +----------------------------------------+                                                |
        |                                                                               |                                          |                                                                                       |
        |                                                                               |                                          | 2:writer:on clock signal:send measure                                                 |
        |                                                                               |                                          v                                                                                       |
        |                                                                               |                  connect to network    +----------------------------------------+                                                |
-       |                                                                               +--------------------------------------> |               lurker.sh                |                                                |
+       |                                                                               +--------------------------------------&gt; |               lurker.sh                |                                                |
        |                                                                                                                        +----------------------------------------+                                                |
        |                                                                                                                                                                                                                  |
-       +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-```
-
-![diag](./img/diag.png)
-
+       +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</code></pre>
+<figure>
+<img src="./img/diag.png" alt="" /><figcaption>diag</figcaption>
+</figure>
+<ul>
+<li><a href=./bin/asci_plot.sh.html > ./bin/asci_plot.sh</a></li>
+<li><a href=./bin/basic_plot.sh.html > ./bin/basic_plot.sh</a></li>
+<li><a href=./bin/clock.sh.html > ./bin/clock.sh</a></li>
+<li><a href=./bin/launch_lurker.sh.html > ./bin/launch_lurker.sh</a></li>
+<li><a href=./bin/launch_writer.sh.html > ./bin/launch_writer.sh</a></li>
+<li><a href=./bin/lurker.sh.html > ./bin/lurker.sh</a></li>
+<li><a href=./bin/mkhtml.sh.html > ./bin/mkhtml.sh</a></li>
+<li><a href=./bin/plot_histo.sh.html > ./bin/plot_histo.sh</a></li>
+<li><a href=./bin/plot_histo_g.sh.html > ./bin/plot_histo_g.sh</a></li>
+<li><a href=./bin/plot_rrd2.sh.html > ./bin/plot_rrd2.sh</a></li>
+<li><a href=./bin/writer.sh.html > ./bin/writer.sh</a></li>
+<li><a href=./index.html > ./index</a></li>
+<li><a href=./mkdoc.sh.html > ./mkdoc.sh</a></li>
+<li><a href=./plugin/cpu.html > ./plugin/cpu</a></li>
+<li><a href=./plugin/ibm_acpi.html > ./plugin/ibm_acpi</a></li>
+<li><a href=./plugin/ibm_acpi_fan.html > ./plugin/ibm_acpi_fan</a></li>
+<li><a href=./plugin/irq.html > ./plugin/irq</a></li>
+<li><a href=./plugin/open_files.html > ./plugin/open_files</a></li>
+<li><a href=./plugin/processes.html > ./plugin/processes</a></li>
+<li><a href=./plugin/stat.html > ./plugin/stat</a></li>
+<li><a href=./plugin/tcp.html > ./plugin/tcp</a></li>
+<li><a href=./pubsub.sh.html > ./pubsub.sh</a></li>
+<li><a href=./start.sh.html > ./start.sh</a></li>
+<li><a href=./stop.sh.html > ./stop.sh</a></li>
+</ul>
