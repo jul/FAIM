@@ -28,5 +28,6 @@ GPLv2
 NOW=$( date +'%s' )
 HOST=$( hostname )
 if vmstat -i 1> /dev/null 2> /dev/null; then
-	vmstat -i | awk "{if (\$1 != \"interrupt\" && \$1 != \"Total\" )  {print \"$NOW;$HOST;irq.\" \$1  \$2 \";\" \$NF \";GAUGE\" }}" | tr ":" "." | tr ";" ":"
+	vmstat -i | perl -ane "/^([^:]+):.*\d+\s+(\d+)/ and print \"$NOW:$HOST:\$1:\$2:GAUGE\n\"" 
+
 fi
