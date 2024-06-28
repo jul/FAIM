@@ -37,5 +37,7 @@ for i in $( find . -name "*html" -a -not -path ".*.git*" | sort ); do
 done
 echo "</ul>" >> index.html
 for i in $( find . -name "*html" -a -not -path ".*.git*" | sort ); do
-    pandoc $i -o "$(dirname $i)/$( basename $i .html ).md"
+    OUT="$(dirname $i)/$( basename $i .html ).md"
+    pandoc $i -o "$OUT"
+    perl -i -ane 's/\((.*).html\)/\($1.md\)/ and print $_ or print $_'  $OUT 
 done
