@@ -1,0 +1,50 @@
+-   [NAME](#NAME)
+    -   [DESCRIPTION](#DESCRIPTION)
+    -   [SYNOPSIS](#SYNOPSIS)
+    -   [OPTIONS](#OPTIONS)
+
+NAME {#NAME}
+====
+
+start.sh
+
+DESCRIPTION {#DESCRIPTION}
+-----------
+
+Launches the networked apparatus of measures. It is the reciprocal
+function of stop.sh
+
+SYNOPSIS {#SYNOPSIS}
+--------
+
+All arguments are passed by environment variables
+
+    [TICK=2] [LURKER=] [BROADCAST=192.168.1.255] [RANGE=24] [SINCE=900] start.sh
+
+OPTIONS {#OPTIONS}
+-------
+
+TICK
+
+:   TICK is the initial clock given to the system. It will however
+    converge to its computed value.
+
+LURKER
+
+:   When LURKER is set, the data collecting agent is launched and
+    process all probes sent on the given broadcast address
+
+BROADCAST
+
+:   UDP BROADCAST address to use
+
+RANGE
+
+:   Range in the form \[0-32\] to specify the BROADCAST range.
+
+    Ex: 24 will specify \$BROADCAST/24
+
+SINCE
+
+:   Argument given to the html generator to know how much seconds since
+    NOW must be shown in the graph.

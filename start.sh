@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-:<< '=cut'
+<< '=cut'
 =head1 NAME
 
 start.sh

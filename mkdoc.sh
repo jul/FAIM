@@ -1,15 +1,18 @@
 #!/usr/bin/env bash
-:<< =cut
+<< =cut
 
 =head1 NAME
 
 mkdoc.sh
 
-=head2 USAGE
+=head2 SYNOPSIS
 
 Generates the doc. Requires pandoc for markdown to html conversion
 
+    ./mkdoc.sh
+
 =cut
+
 rm doc -rf
 [ -d doc ] || mkdir -p doc/img
 cp img/* doc/img/
@@ -33,3 +36,6 @@ for i in $( find . -name "*html" -a -not -path ".*.git*" | sort ); do
     echo "<li><a href=$i > $(dirname $i)/$( basename $i .html )</a></li>" >> index.html ;
 done
 echo "</ul>" >> index.html
+for i in $( find . -name "*html" -a -not -path ".*.git*" | sort ); do
+    pandoc $i -o "$(dirname $i)/$( basename $i .html ).md"
+done
