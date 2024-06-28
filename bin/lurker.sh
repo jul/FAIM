@@ -1,10 +1,29 @@
 #!/usr/bin/env bash
-TICK=${1:-2}
-SINCE=${SINCE:-900}
+<< =cut
+
+=head1 NAME
+
+    lurker.sh
+
+=head2 SYNOPSIS
+
+Collector of data
+
+    ./lurker.sh
+
+Can be used as 
+
+    while [ 1 ]; do writer.sh | lurker.sh; sleep 30; done
+
+To collect data emitted locally about the machine.
+
+Results are written in ../data
+
+
+=cut
 HERE="$( dirname $0 )"
 echo ping;
 echo $$ > "$HERE/../pid/$( basename $0 ).pid"
-echo "$TICK" > "$HERE/../run/tick.value"
 trap "echo ping" SIGUSR1
 i=0;
 while read -r p; do

@@ -1,4 +1,38 @@
 #!/usr/bin/env bash
+<< =cut
+=head1 NAME
+
+    mkhtml
+
+    HTML maker
+
+=head2 SYNOPSIS
+
+Generator of HTML output from data collected in ../data
+
+    [DAEMON=] [SINCE=3600] mkhtml.sh
+
+Can be used as 
+
+    ./mkhtml.sh 
+
+to generate the web page in ../data
+
+=head2 OPTIONS
+
+=over
+
+=item DAEMON
+
+This code will run permanently waking itself up to update the web page.
+
+=item SINCE
+
+The window span time you are interested in in seconds from NOW
+
+=back
+
+=cut
 DAEMON=${DAEMON:-}
 DEST=${DEST:-}
 cd $( dirname $0 )
@@ -7,7 +41,7 @@ cd ../data
 function main() { 
     trap "" SIGUSR1
     SINCE=${SINCE:-3600}
-OUT=$( cat <<EOF
+    OUT=$( cat <<EOF
         <!DOCTYPE html>
         <html>
         <head>
