@@ -1,5 +1,5 @@
-Agent Oriented Prgramming
-=========================
+Agent Oriented Programming
+==========================
 
 1. EverythingIsAnAgent
 
