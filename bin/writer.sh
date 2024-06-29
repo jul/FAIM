@@ -35,12 +35,10 @@ function log() {
     echo "$@" >> "$HERE/../log/alarm.txt"
 }
 function answer() {
-    RES=""
     for i in $HERE/../plugin/*_enabled; do
-       RES+=$( ./$i )
-       RES+="\n"
+       ./$i
     done
-    RES+="$NOW:$HOST:writer.proctime:$PROCESSING_TIME_HRES:GAUGE\n"
+    echo "$NOW:$HOST:writer.proctime:$PROCESSING_TIME_HRES:GAUGE"
     NOW=$( date +'%s' )
 
     if [ ! -z "$TICK" ]; then 
@@ -62,11 +60,9 @@ function answer() {
             echo "$NOW:$HOST:clock.live_tick:$LIVING_TICK:GAUGE"
         fi
         OLD_TICK=$( cat "$HERE/../run/last_tick.value" || echo 0 )
-        RES+="$NOW:$HOST:tick:${OLD_TICK}:DERIVE\n"
+        echo "$NOW:$HOST:tick:${OLD_TICK}:DERIVE"
         echo -n $(( $OLD_TICK +1 )) > "$HERE/../run/last_tick.value"
     fi
-    RES="${RES::-2}"
-    echo -e "$RES"
 }
 trap answer SIGUSR1
 if [ "$TICK"  ]; then

@@ -14,6 +14,7 @@ stops all agent launched by start
 None
 
 =cut
+cd $( dirname $0 )
 for l in pid/*;
 do 
     echo killing $l

@@ -22,13 +22,20 @@ while [ 1 ]; do
     echo -n "$TICK" > $HERE/../run/living_tick.value
     sleep $TICK
     i=$(( i + 1 ))
+    #ps -p "$MASTERID" &> /dev/null
+    KILL=0
+    echo clock tick $i
     MASTERID=$( cat $HERE/../pid/writer.sh.pid )
     kill -s SIGUSR1 $MASTERID 
-    #ps -p "$MASTERID" &> /dev/null
-    if [ ! $? -eq 0 ] || [ $i -eq 100 ] ; then
+    [ $? -eq 0 ] || KILL=1
+    MASTERID=$( cat $HERE/../pid/launch_lurker.py.pid )
+    #kill -s SIGUSR1 $MASTERID 
+    #[ $? -eq 0 ] || KILL=1
+
+
+    if [ $KILL -eq 1 ] || [ $i -eq 100 ] ; then
         echo restarting everyone just in case
         i=0
-        sleep 3
         TICK=5 LURKER=1 RANGE=$RANGE BROADCAST=$BROADCAST $HERE/../start.sh
     fi
     if [[ "$CHANGE" == "speed" ]]; then

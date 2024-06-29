@@ -15,7 +15,7 @@ of stop.sh
 
 All arguments are passed by environment variables
 
-    [TICK=2] [LURKER=] [BROADCAST=192.168.1.255] [RANGE=24] [SINCE=900] start.sh
+    [HOST=0.0.0.0] [PORT=6666] [TICK=2] [LURKER=] [BROADCAST=192.168.1.255] [RANGE=24] [SINCE=900] start.sh
 
 
 =head2 OPTIONS
@@ -56,6 +56,8 @@ cd $( dirname $0 )
 HERE="."
 SINCE=${SINCE:-900}
 TICK=${TICK:-2}
+PORT=${PORT:-6666}
+HOST=${HOST:-0.0.0.0}
 BROADCAST=${BROADCAST:-"192.168.1.255"}
 RANGE=24
 export TICK
@@ -67,8 +69,8 @@ echo $$ > $HERE/pid/$( basename $0).pid
 [ -e data ] || mkdir data
 if [ ! -z "$LURKER" ]; then
     SINCE=$SINCE DAEMON=1 $HERE/bin/mkhtml.sh &
-    LURKER=$LURKER $HERE/bin/launch_lurker.sh &
+    HOST=$HOST PORT=$PORT $HERE/bin/launch_lurker.py &
 fi
-BROADCAST=$BROADCAST RANGE=$RANGE TICK=$TICK $HERE/bin/launch_writer.sh &
+PORT=$PORT BROADCAST=$BROADCAST RANGE=$RANGE TICK=$TICK $HERE/bin/launch_writer.sh &
 TICK=$TICK $HERE/bin/clock.sh &
 

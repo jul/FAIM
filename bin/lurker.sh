@@ -22,9 +22,7 @@ Results are written in ../data
 
 =cut
 HERE="$( dirname $0 )"
-echo ping;
 echo $$ > "$HERE/../pid/$( basename $0 ).pid"
-trap "echo ping" SIGUSR1
 i=0;
 while read -r p; do
     i=$(( i + 1 ))
