@@ -61,11 +61,9 @@ EOF
         WHERE=$( basename  "$this" .csv )
 
         SINCE=$SINCE DS=x ../bin/basic_plot.sh "$l"  &> /dev/null
-        X=400 Y=220 SCALE=100 SINCE=$SINCE DS=x ../bin/plot_histo_g.sh "$l"  &> /dev/null
         OUT="$OUT <td>$WHAT</td><td><br><br>$WHERE</td>"
         OUT="$OUT <td><pre>$( X=60 Y=20 ../bin/asci_plot.sh "$l" )</pre></td>"
         OUT="$OUT <td><img src="./$( basename "$l" .csv).g.png" /></td>"
-        OUT="$OUT <td><img src="./$( basename "$l" .csv).h.png" /></td>"
         OUT="$OUT <td><img src="./$( basename "$l" .csv).diff.png" /></td>"
         OUT="$OUT </tr>"
 
@@ -88,7 +86,7 @@ if [ ! -z "$DAEMON" ]; then
             DAEMON= DEST=./index.html ../bin/$( basename $0 ) 
         fi
 
-        sleep 20
+        sleep 30
     done
 else 
     main
