@@ -16,6 +16,7 @@ Generates the doc. Requires pandoc for markdown to html conversion
 rm doc -rf
 [ -d doc ] || mkdir -p doc/img
 cp img/* doc/img/
+cp *md doc/
 
 for i in $( find . -name "*sh" ); do 
     DST="doc/$( dirname $i)"
@@ -28,16 +29,25 @@ for i in $( find ./plugin -type f -not -path "./plugin/*enabled" ); do
     pod2html "$i" > "$DST/$( basename $i).html"
 done
 RES=""
-cd doc
-pandoc ../README.md -o index.html
-echo "<ul>" >> index.html
 
-for i in $( find . -name "*html" -a -not -path ".*.git*" | sort ); do
-    echo "<li><a href=$i > $(dirname $i)/$( basename $i .html )</a></li>" >> index.html ;
+cd doc
+cat <<EOF > API.md
+
+Documentation of each scripts
+=============================
+
+API of each components.
+
+EOF
+for i in $( find . -name "*html" -a -not -path ".*.git*" -a -not -name "README*" | sort ); do
+    echo "- [$(dirname $i)/$( basename $i .html )](file:./$i)" >> API.md
 done
-echo "</ul>" >> index.html
-for i in $( find . -name "*html" -a -not -path ".*.git*" | sort ); do
-    OUT="$(dirname $i)/$( basename $i .html ).md"
-    pandoc $i -o "$OUT"
-    perl -i -ane 's/\((.*).html\)/\($1.md\)/ and print $_ or print $_'  $OUT 
-done
+cat ../*md API.md > _index.md
+pandoc -f gfm --toc -s _index.md -o index.md
+
+pandoc index.md -o "index.html"
+#for i in $( find . -name "*html" -a -not -path ".*.git*" | sort ); do
+#    OUT="$(dirname $i)/$( basename $i .html ).md"
+#    pandoc $i -o "$OUT"
+#    perl -i -ane 's/\((.*).html\)/\($1.md\)/ and print $_ or print $_'  $OUT 
+#done

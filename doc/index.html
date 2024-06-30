@@ -1,20 +1,45 @@
-<h1 id="agent-oriented-programming">Agent Oriented Programming</h1>
-<ol type="1">
-<li><p>EverythingIsAnAgent</p></li>
-<li><p>Agent communicate by sending and receiving messages (the way they prefer as long as they send messages).</p></li>
-<li><p>Agent have their own memory and autonomy</p></li>
-<li><p>Every Agent is an instance of an artifact (which then as to be accounted as an agent).</p></li>
-<li><p>The Agent is accountable for maintaining its consistency as a state/transition agent</p></li>
-<li><p>The topology is more important than the code.</p></li>
-<li><p>each state machine is on a plane for which an uncoupled state machine lays.</p></li>
-<li><p>violation of uncoupling between layers is bad so it has to be handled with care.</p></li>
-</ol>
+<ul>
+<li><a href="#intro">Intro</a></li>
+<li><a href="#quickstart">Quickstart</a>
+<ul>
+<li><a href="#requirements">Requirements</a></li>
+<li><a href="#starting-the-probe">Starting the probe</a></li>
+<li><a href="#starting-the-collect-of-data">Starting the collect of data</a></li>
+</ul></li>
+<li><a href="#state-machine-of-the-system">State Machine of the system</a></li>
+<li><a href="#agent-oriented-programming">Agent Oriented Programming</a></li>
+<li><a href="#documentation-of-each-scripts">Documentation of each scripts</a></li>
+</ul>
+<h1 id="intro">Intro</h1>
 <p>This project is an implementation of such a way of thinking distributed system. For sake of education I took the most compact language for the task : <em>bash</em></p>
 <p>We are gonne realize on this principle a Fast Adaptative Insecure Monitoring system.</p>
 <p>FAIM is designed as a funny experiment of doing a munin clone (doing less) in bash only that is specialized in high speed (~1 seconde / measure) distributed measuring system without a centralized collector.</p>
-<p>No broker, no Zmq, no webrtc, no QUIC, no rabbitMQ are used for transport but … BROADCAST UDP.</p>
-<p>Hence, well, this toy is fondamentally insecure and can hardly be ciphered in its current form.</p>
-<p>But, it enables a category of software that are both educational for doing your own tool AND for deploying an adhoc measuring system.</p>
+<p>No broker, no Zmq, no webrtc, no QUIC, no rabbitMQ are used for transport but ... BROADCAST UDP.</p>
+<p>Hence, well, this toy is fondamentally insecure and can hardly be ciphered in its current form. But, it enables a category of software that are both educational for doing your own tool AND for deploying an adhoc measuring system.</p>
+<figure>
+<img src="./img/example.png" alt="" /><figcaption>example</figcaption>
+</figure>
+<h1 id="quickstart">Quickstart</h1>
+<h2 id="requirements">Requirements</h2>
+<p>Perl, python3, gnuplot (gnuplot-lite maybe enough if 1Gb dependency rebukes you), bash, socat, and whatever the plugins have dependencies upon.</p>
+<h2 id="starting-the-probe">Starting the probe</h2>
+<pre><code>./start.sh</code></pre>
+<p>Starts the probe. It will emit (see API of start for network parameters) on the UDP broadcast address in ASCII excactly what <code>bin/writer.sh</code> emits on stdout.</p>
+<p>To stop the probe simply type</p>
+<pre><code>./stop.sh</code></pre>
+<h2 id="starting-the-collect-of-data">Starting the collect of data</h2>
+<pre><code>LURKER=1 ./start.sh</code></pre>
+<p>Will start the probe AND the data collector. The data collector can also be caught in a standalone mode with <code>./bin/launch_lurker.sh</code> or <code>./bin/launch_lurker.py</code>.</p>
+<p>if you go in ./data/ you will see both csv where data are stored accumulating and the making of the html resume.</p>
+<p>Just open ./data/index.html to view the graphs.</p>
+<p>You can erase the content of data at any moment, everything will reconstruct itself.</p>
+<p>What the lurker sees from the broadcast is log into ./log/journal.txt.</p>
+<p>CSV files and html can be reconstructed by typing</p>
+<pre><code> cat log/journal.log | bin/lurker
+ bin/mkhtml.sh</code></pre>
+<p>mkhtml is the bash equivalent of PHP or using jinja in python : dynamic html generation.</p>
+<p>I seriously advise to install tcpdump, and remember that <code>tcpdump -A [-i interface] -s0 udp and port 6666</code> can be a serious life saviour while troubleshooting.</p>
+<h1 id="state-machine-of-the-system">State Machine of the system</h1>
 <pre><code>  +----------------------------------------------------------------------+
   |                                                                      |
   |                END:kills                                             |
@@ -50,29 +75,41 @@
 <figure>
 <img src="./img/diag.png" alt="" /><figcaption>diag</figcaption>
 </figure>
+<h1 id="agent-oriented-programming">Agent Oriented Programming</h1>
+<ol type="1">
+<li><p>EverythingIsAnAgent</p></li>
+<li><p>Agent communicate by sending and receiving messages (the way they prefer as long as they send messages).</p></li>
+<li><p>Agent have their own memory and autonomy</p></li>
+<li><p>Every Agent is an instance of an artifact (which then as to be accounted as an agent).</p></li>
+<li><p>The Agent is accountable for maintaining its consistency as a state/transition agent</p></li>
+<li><p>The topology is more important than the code.</p></li>
+<li><p>each state machine is on a plane for which an uncoupled state machine lays.</p></li>
+<li><p>violation of uncoupling between layers is bad so it has to be handled with care.</p></li>
+</ol>
+<h1 id="documentation-of-each-scripts">Documentation of each scripts</h1>
+<p>API of each components.</p>
 <ul>
-<li><a href=./bin/asci_plot.sh.html > ./bin/asci_plot.sh</a></li>
-<li><a href=./bin/basic_plot.sh.html > ./bin/basic_plot.sh</a></li>
-<li><a href=./bin/clock.sh.html > ./bin/clock.sh</a></li>
-<li><a href=./bin/launch_lurker.sh.html > ./bin/launch_lurker.sh</a></li>
-<li><a href=./bin/launch_writer.sh.html > ./bin/launch_writer.sh</a></li>
-<li><a href=./bin/lurker.sh.html > ./bin/lurker.sh</a></li>
-<li><a href=./bin/mkhtml.sh.html > ./bin/mkhtml.sh</a></li>
-<li><a href=./bin/plot_histo.sh.html > ./bin/plot_histo.sh</a></li>
-<li><a href=./bin/plot_histo_g.sh.html > ./bin/plot_histo_g.sh</a></li>
-<li><a href=./bin/plot_rrd2.sh.html > ./bin/plot_rrd2.sh</a></li>
-<li><a href=./bin/writer.sh.html > ./bin/writer.sh</a></li>
-<li><a href=./index.html > ./index</a></li>
-<li><a href=./mkdoc.sh.html > ./mkdoc.sh</a></li>
-<li><a href=./plugin/cpu.html > ./plugin/cpu</a></li>
-<li><a href=./plugin/ibm_acpi.html > ./plugin/ibm_acpi</a></li>
-<li><a href=./plugin/ibm_acpi_fan.html > ./plugin/ibm_acpi_fan</a></li>
-<li><a href=./plugin/irq.html > ./plugin/irq</a></li>
-<li><a href=./plugin/open_files.html > ./plugin/open_files</a></li>
-<li><a href=./plugin/processes.html > ./plugin/processes</a></li>
-<li><a href=./plugin/stat.html > ./plugin/stat</a></li>
-<li><a href=./plugin/tcp.html > ./plugin/tcp</a></li>
-<li><a href=./pubsub.sh.html > ./pubsub.sh</a></li>
-<li><a href=./start.sh.html > ./start.sh</a></li>
-<li><a href=./stop.sh.html > ./stop.sh</a></li>
+<li><a href="file:././bin/asci_plot.sh.html">./bin/asci_plot.sh</a></li>
+<li><a href="file:././bin/basic_plot.sh.html">./bin/basic_plot.sh</a></li>
+<li><a href="file:././bin/clock.sh.html">./bin/clock.sh</a></li>
+<li><a href="file:././bin/launch_lurker.sh.html">./bin/launch_lurker.sh</a></li>
+<li><a href="file:././bin/launch_writer.sh.html">./bin/launch_writer.sh</a></li>
+<li><a href="file:././bin/lurker.sh.html">./bin/lurker.sh</a></li>
+<li><a href="file:././bin/mkhtml.sh.html">./bin/mkhtml.sh</a></li>
+<li><a href="file:././bin/plot_histo.sh.html">./bin/plot_histo.sh</a></li>
+<li><a href="file:././bin/plot_histo_g.sh.html">./bin/plot_histo_g.sh</a></li>
+<li><a href="file:././bin/plot_rrd2.sh.html">./bin/plot_rrd2.sh</a></li>
+<li><a href="file:././bin/writer.sh.html">./bin/writer.sh</a></li>
+<li><a href="file:././mkdoc.sh.html">./mkdoc.sh</a></li>
+<li><a href="file:././plugin/cpu.html">./plugin/cpu</a></li>
+<li><a href="file:././plugin/ibm_acpi.html">./plugin/ibm_acpi</a></li>
+<li><a href="file:././plugin/ibm_acpi_fan.html">./plugin/ibm_acpi_fan</a></li>
+<li><a href="file:././plugin/irq.html">./plugin/irq</a></li>
+<li><a href="file:././plugin/open_files.html">./plugin/open_files</a></li>
+<li><a href="file:././plugin/processes.html">./plugin/processes</a></li>
+<li><a href="file:././plugin/stat.html">./plugin/stat</a></li>
+<li><a href="file:././plugin/tcp.html">./plugin/tcp</a></li>
+<li><a href="file:././pubsub.sh.html">./pubsub.sh</a></li>
+<li><a href="file:././start.sh.html">./start.sh</a></li>
+<li><a href="file:././stop.sh.html">./stop.sh</a></li>
 </ul>

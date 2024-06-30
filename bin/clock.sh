@@ -28,9 +28,6 @@ while [ 1 ]; do
     MASTERID=$( cat $HERE/../pid/writer.sh.pid )
     kill -s SIGUSR1 $MASTERID 
     [ $? -eq 0 ] || KILL=1
-    MASTERID=$( cat $HERE/../pid/launch_lurker.py.pid )
-    #kill -s SIGUSR1 $MASTERID 
-    #[ $? -eq 0 ] || KILL=1
 
 
     if [ $KILL -eq 1 ] || [ $i -eq 100 ] ; then

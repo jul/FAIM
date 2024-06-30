@@ -52,7 +52,7 @@ function answer() {
         fi
         log "cond 2 $( echo " ( $PRUDENCE * $PROCESSING_TIME_HRES ) > $LIVING_TICK" | bc )"
         if [ $( echo "$PROCESSING_TIME_HRES < ( $PRUDENCE * $LIVING_TICK )" | bc ) -eq 1  ]; then
-            if [ $( echo "( $PRUDENCE * $LIVING_TICK ) > 1" | bc ) -eq 1 ]; then
+            if [ $( echo "( $LIVING_TICK ) >= 1" | bc ) -eq 1 ]; then
                 ALARM="UNDERRUN $PROCESSING_TIME_HRES < $LIVING_TICK speeding clock"
                 log "$ALARM $LIVING_TICK" 
                 kill -s SIGUSR1 $CLOCK_PID;
