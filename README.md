@@ -14,7 +14,10 @@ No broker, no Zmq, no webrtc, no QUIC, no rabbitMQ are used for transport but ..
 Hence, well, this toy is fondamentally insecure and can hardly be ciphered in its current form.  But, it enables a category of software that are both educational for doing your own tool AND 
 for deploying an adhoc measuring system.
 
+[Read full documentation here](https://github.com/jul/FAIM/tree/main/doc)
+
 ![example](./img/example.png)
+
 
 
 

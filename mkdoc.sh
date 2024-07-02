@@ -43,9 +43,13 @@ for i in $( find . -name "*html" -a -not -path ".*.git*" -a -not -name "README*"
     echo "- [$(dirname $i)/$( basename $i .html )](file:./$i)" >> API.md
 done
 cat ../*md API.md > _index.md
-pandoc -f gfm --toc -s _index.md -o index.md
+pandoc -f gfm --toc -s _index.md -o ../index.md
 
-pandoc index.md -o "index.html"
+rm *md
+
+mv ../index.md ./README.md
+
+pandoc README.md -o "index.html"
 #for i in $( find . -name "*html" -a -not -path ".*.git*" | sort ); do
 #    OUT="$(dirname $i)/$( basename $i .html ).md"
 #    pandoc $i -o "$OUT"
