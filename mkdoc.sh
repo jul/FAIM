@@ -40,7 +40,7 @@ API of each components.
 
 EOF
 for i in $( find . -name "*html" -a -not -path ".*.git*" -a -not -name "README*" | sort ); do
-    echo "- [$(dirname $i)/$( basename $i .html )](file:./$i)" >> API.md
+    echo "- [$(dirname $i)/$( basename $i .html )](http:./$i)" >> API.md
 done
 cat ../*md API.md > _index.md
 pandoc -f gfm --toc -s _index.md -o ../index.md
