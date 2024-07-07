@@ -1,6 +1,4 @@
-Intro
-=====
-
+# Intro
 
 This project is an implementation of such a way of thinking distributed system.
 For sake of education I took the most compact language for the task : *bash*

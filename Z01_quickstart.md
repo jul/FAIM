@@ -1,15 +1,12 @@
-Quickstart
-==========
+# Quickstart
 
-Requirements
-------------
+## Requirements
 
 Perl, python3, gnuplot (gnuplot-lite maybe enough if 1Gb dependency rebukes you),
 bash, socat, and whatever the plugins have dependencies upon.
 
 
-Starting the probe
-------------------
+## Starting the probe
 
 ```
 ./start.sh
@@ -22,8 +19,7 @@ To stop the probe simply type
 ./stop.sh
 ```
 
-Starting the collect of data
-----------------------------
+## Starting the collect of data
 
 ```
 LURKER=1 ./start.sh
