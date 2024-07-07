@@ -1,0 +1,16 @@
+NAME
+    open_files - Plugin to monitor the number of open files in the system
+
+CONFIGURATION
+    No configuration
+
+AUTHOR
+    Unknown author
+
+LICENSE
+    GPLv2
+
+MAGIC MARKERS
+     #%# family=auto
+     #%# capabilities=autoconf
+

@@ -1,0 +1,6 @@
+NAME
+    tcp - Plugin to monitor IPV4/6 TCP socket status on a Linux host.
+
+LICENSE
+    GPLv2
+

@@ -1,0 +1,17 @@
+NAME
+    interrupts - list number of interrupts since boot (linux) or the
+    interrupt rate per interrupt
+
+CONFIGURATION
+    No configuration
+
+AUTHOR
+    Idea and base from Ragnar Wisløff.
+
+LICENSE
+    GPLv2
+
+MAGIC MARKERS
+     #%# family=auto
+     #%# capabilities=autoconf
+

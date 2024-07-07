@@ -1,0 +1,32 @@
+NAME
+    acpii_ibm - Munin plugin to monitor the temperature in different ACPI
+    Thermal zones.
+
+APPLICABLE SYSTEMS
+    FreeBSD systems with ACPI support. man acpi_ibm(4)
+
+CONFIGURATION
+    add ibm_acpi in loader.conf
+
+USAGE
+    Link this plugin to @@CONFDIR@@/plugins/ and restart the munin-node.
+
+INTERPRETATION
+    The plugin shows the temperature from the different thermal zones.
+
+MAGIC MARKERS
+     #%# family=auto
+     #%# capabilities=autoconf
+
+BUGS
+    None known.
+
+VERSION
+    v1.1 - 2024-03-24
+
+AUTHOR
+    Julien Tayon (julien@tayon.net)
+
+LICENSE
+    GPLv2
+

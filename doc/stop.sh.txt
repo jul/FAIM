@@ -1,0 +1,9 @@
+NAME
+    stop.sh
+
+  DESCRIPTION
+    stops all agent launched by start
+
+  OPTIONS
+    None
+

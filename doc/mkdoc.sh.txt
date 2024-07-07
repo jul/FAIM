@@ -1,0 +1,8 @@
+NAME
+    mkdoc.sh
+
+  SYNOPSIS
+    Generates the doc. Requires pandoc for markdown to html conversion
+
+        ./mkdoc.sh
+

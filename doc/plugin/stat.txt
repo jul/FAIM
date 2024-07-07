@@ -1,0 +1,17 @@
+NAME
+    interrupts - Plugin to monitor the number of interrupts and context
+    switches on a system.
+
+CONFIGURATION
+    No configuration
+
+AUTHOR
+    Idea and base from Ragnar Wisløff.
+
+LICENSE
+    GPLv2
+
+MAGIC MARKERS
+     #%# family=auto
+     #%# capabilities=autoconf
+
