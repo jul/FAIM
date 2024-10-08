@@ -3,43 +3,58 @@
 % 2024-07-07
 
 
--   [Intro](#intro)
--   [Quickstart](#quickstart)
-    -   [Requirements](#requirements)
-    -   [Starting the probe](#starting-the-probe)
-    -   [Starting the collect of data](#starting-the-collect-of-data)
--   [State Machine of the system](#state-machine-of-the-system)
--   [Agent Oriented Programming](#agent-oriented-programming)
--   [Documentation of each scripts](#documentation-of-each-scripts)
-    -   [./bin/asci\_plot.sh.txt](#binasci_plotshtxt)
-    -   [./bin/basic\_plot.sh.txt](#binbasic_plotshtxt)
-    -   [./bin/clock.sh.txt](#binclockshtxt)
-    -   [./bin/launch\_lurker.sh.txt](#binlaunch_lurkershtxt)
-    -   [./bin/launch\_writer.sh.txt](#binlaunch_writershtxt)
-    -   [./bin/lurker.sh.txt](#binlurkershtxt)
-    -   [./bin/mkhtml.sh.txt](#binmkhtmlshtxt)
-    -   [./bin/plot\_histo.sh.txt](#binplot_histoshtxt)
-    -   [./bin/plot\_histo\_g.sh.txt](#binplot_histo_gshtxt)
-    -   [./bin/plot\_rrd2.sh.txt](#binplot_rrd2shtxt)
-    -   [./bin/writer.sh.txt](#binwritershtxt)
-    -   [./mkdoc.sh.txt](#mkdocshtxt)
-    -   [./plugin/cpu.txt](#plugincputxt)
-    -   [./plugin/ibm\_acpi.txt](#pluginibm_acpitxt)
-    -   [./plugin/ibm\_acpi\_fan.txt](#pluginibm_acpi_fantxt)
-    -   [./plugin/irq.txt](#pluginirqtxt)
-    -   [./plugin/open\_files.txt](#pluginopen_filestxt)
-    -   [./plugin/processes.txt](#pluginprocessestxt)
-    -   [./plugin/stat.txt](#pluginstattxt)
-    -   [./plugin/tcp.txt](#plugintcptxt)
-    -   [./pubsub.sh.txt](#pubsubshtxt)
-    -   [./start.sh.txt](#startshtxt)
-    -   [./stop.sh.txt](#stopshtxt)
+-   [Intro](#intro){#toc-intro}
+-   [Quickstart](#quickstart){#toc-quickstart}
+    -   [Requirements](#requirements){#toc-requirements}
+    -   [Starting the
+        probe](#starting-the-probe){#toc-starting-the-probe}
+    -   [Starting the collect of
+        data](#starting-the-collect-of-data){#toc-starting-the-collect-of-data}
+-   [State Machine of the
+    system](#state-machine-of-the-system){#toc-state-machine-of-the-system}
+-   [Agent Oriented
+    Programming](#agent-oriented-programming){#toc-agent-oriented-programming}
+-   [Documentation of each
+    scripts](#documentation-of-each-scripts){#toc-documentation-of-each-scripts}
+    -   [./bin/asci_plot.sh.txt](#binasci_plotshtxt){#toc-binasci_plotshtxt}
+    -   [./bin/basic_plot.sh.txt](#binbasic_plotshtxt){#toc-binbasic_plotshtxt}
+    -   [./bin/clock.sh.txt](#binclockshtxt){#toc-binclockshtxt}
+    -   [./bin/launch_lurker.sh.txt](#binlaunch_lurkershtxt){#toc-binlaunch_lurkershtxt}
+    -   [./bin/launch_writer.sh.txt](#binlaunch_writershtxt){#toc-binlaunch_writershtxt}
+    -   [./bin/lurker.sh.txt](#binlurkershtxt){#toc-binlurkershtxt}
+    -   [./bin/mkhtml.sh.txt](#binmkhtmlshtxt){#toc-binmkhtmlshtxt}
+    -   [./bin/plot_histo_g.sh.txt](#binplot_histo_gshtxt){#toc-binplot_histo_gshtxt}
+    -   [./bin/plot_histo.sh.txt](#binplot_histoshtxt){#toc-binplot_histoshtxt}
+    -   [./bin/plot_rrd2.sh.txt](#binplot_rrd2shtxt){#toc-binplot_rrd2shtxt}
+    -   [./bin/writer.sh.txt](#binwritershtxt){#toc-binwritershtxt}
+    -   [./mkdoc.sh.txt](#mkdocshtxt){#toc-mkdocshtxt}
+    -   [./plugin/cpu.txt](#plugincputxt){#toc-plugincputxt}
+    -   [./plugin/ibm_acpi_fan.txt](#pluginibm_acpi_fantxt){#toc-pluginibm_acpi_fantxt}
+    -   [./plugin/ibm_acpi.txt](#pluginibm_acpitxt){#toc-pluginibm_acpitxt}
+    -   [./plugin/irq.txt](#pluginirqtxt){#toc-pluginirqtxt}
+    -   [./plugin/open_files.txt](#pluginopen_filestxt){#toc-pluginopen_filestxt}
+    -   [./plugin/processes.txt](#pluginprocessestxt){#toc-pluginprocessestxt}
+    -   [./plugin/stat.txt](#pluginstattxt){#toc-pluginstattxt}
+    -   [./plugin/tcp.txt](#plugintcptxt){#toc-plugintcptxt}
+    -   [./pubsub.sh.txt](#pubsubshtxt){#toc-pubsubshtxt}
+    -   [./start.sh.txt](#startshtxt){#toc-startshtxt}
+    -   [./stop.sh.txt](#stopshtxt){#toc-stopshtxt}
+    -   [./tmp/bin/ash.txt](#tmpbinashtxt){#toc-tmpbinashtxt}
+    -   [./tmp/bin/fdflush.txt](#tmpbinfdflushtxt){#toc-tmpbinfdflushtxt}
+    -   [./tmp/bin/sh.txt](#tmpbinshtxt){#toc-tmpbinshtxt}
+    -   [./tmp/etc/ca-certificates/update.d/certhash.txt](#tmpetcca-certificatesupdatedcerthashtxt){#toc-tmpetcca-certificatesupdatedcerthashtxt}
+    -   [./tmp/sbin/fbsplash.txt](#tmpsbinfbsplashtxt){#toc-tmpsbinfbsplashtxt}
+    -   [./tmp/usr/bin/c_rehash.txt](#tmpusrbinc_rehashtxt){#toc-tmpusrbinc_rehashtxt}
+    -   [./tmp/usr/local/lib/python3.8/config-3.8-x86_64-linux-gnu/install-sh.txt](#tmpusrlocallibpython38config-38-x86_64-linux-gnuinstall-shtxt){#toc-tmpusrlocallibpython38config-38-x86_64-linux-gnuinstall-shtxt}
+    -   [./tmp/usr/local/lib/python3.8/venv/scripts/posix/activate.csh.txt](#tmpusrlocallibpython38venvscriptsposixactivatecshtxt){#toc-tmpusrlocallibpython38venvscriptsposixactivatecshtxt}
+    -   [./tmp/usr/local/lib/python3.8/venv/scripts/posix/activate.fish.txt](#tmpusrlocallibpython38venvscriptsposixactivatefishtxt){#toc-tmpusrlocallibpython38venvscriptsposixactivatefishtxt}
+    -   [./tmp/usr/share/terminfo/m/macintosh.txt](#tmpusrshareterminfommacintoshtxt){#toc-tmpusrshareterminfommacintoshtxt}
+    -   [./tmp/usr/share/terminfo/x/xwsh.txt](#tmpusrshareterminfoxxwshtxt){#toc-tmpusrshareterminfoxxwshtxt}
 
 \% Fast Adaptive Insecure Monitoring: the monitoring system that should
 never have been invented, that is fun % jul % 2024-07-07
 
-Intro
-=====
+# Intro
 
 This project is an implementation of such a way of thinking distributed
 system. For sake of education I took the most compact language for the
@@ -65,18 +80,38 @@ here](https://github.com/jul/FAIM/tree/main/doc)
 
 ![example](./img/example.png)
 
-Quickstart
-==========
+``` {.graphviz
+digraph finite_state_machine {
+    rankdir=LR;
+    size="8,5"
+    node [shape = doublecircle]; LR_0 LR_3 LR_4 LR_8;
+    node [shape = circle];
+    LR_0 -> LR_2 [ label = "SS(B)" ];
+    LR_0 -> LR_1 [ label = "SS(S)" ];
+    LR_1 -> LR_3 [ label = "S($end)" ];
+    LR_2 -> LR_6 [ label = "SS(b)" ];
+    LR_2 -> LR_5 [ label = "SS(a)" ];
+    LR_2 -> LR_4 [ label = "S(A)" ];
+    LR_5 -> LR_7 [ label = "S(b)" ];
+    LR_5 -> LR_5 [ label = "S(a)" ];
+    LR_6 -> LR_6 [ label = "S(b)" ];
+    LR_6 -> LR_5 [ label = "S(a)" ];
+    LR_7 -> LR_8 [ label = "S(b)" ];
+    LR_7 -> LR_5 [ label = "S(a)" ];
+    LR_8 -> LR_6 [ label = "S(b)" ];
+    LR_8 -> LR_5 [ label = "S(a)" ];
+}
+```
 
-Requirements
-------------
+# Quickstart
+
+## Requirements
 
 Perl, python3, gnuplot (gnuplot-lite maybe enough if 1Gb dependency
 rebukes you), bash, socat, and whatever the plugins have dependencies
 upon.
 
-Starting the probe
-------------------
+## Starting the probe
 
     ./start.sh
 
@@ -88,8 +123,7 @@ To stop the probe simply type
 
     ./stop.sh
 
-Starting the collect of data
-----------------------------
+## Starting the collect of data
 
     LURKER=1 ./start.sh
 
@@ -119,15 +153,13 @@ I seriously advise to install tcpdump, and remember that
 ` tcpdump -A [-i interface] -s0 udp and port 6666` can be a serious life
 saviour while troubleshooting.
 
-State Machine of the system
-===========================
+# State Machine of the system
 
 See diag.dot
 
 ![diag](./img/diag.png)
 
-Agent Oriented Programming
-==========================
+# Agent Oriented Programming
 
 1.  EverythingIsAnAgent
 
@@ -150,46 +182,37 @@ Agent Oriented Programming
 8.  violation of uncoupling between layers is bad so it has to be
     handled with care.
 
-Documentation of each scripts
-=============================
+# Documentation of each scripts
 
 API of each components.
 
-./bin/asci\_plot.sh.txt {#binasci_plotshtxt}
------------------------
+## ./bin/asci_plot.sh.txt {#binasci_plotshtxt}
 
-./bin/basic\_plot.sh.txt {#binbasic_plotshtxt}
-------------------------
+## ./bin/basic_plot.sh.txt {#binbasic_plotshtxt}
 
-./bin/clock.sh.txt {#binclockshtxt}
-------------------
+## ./bin/clock.sh.txt {#binclockshtxt}
 
-./bin/launch\_lurker.sh.txt {#binlaunch_lurkershtxt}
----------------------------
+## ./bin/launch_lurker.sh.txt {#binlaunch_lurkershtxt}
 
-NAME launch\_lurker.sh
+NAME launch_lurker.sh
 
 SYNOPSIS Make data collector available for listening to the probes
 
         [TICK=2] [BROADCAST=192.168.1.255] [RANGE=24] [PORT=6666] ./launch_writer.sh
 
-OPTIONS For explanation of options see
-[file:../start.sh.html](file:../start.sh.html)
+OPTIONS For explanation of options see <file:../start.sh.html>
 
-./bin/launch\_writer.sh.txt {#binlaunch_writershtxt}
----------------------------
+## ./bin/launch_writer.sh.txt {#binlaunch_writershtxt}
 
-NAME launch\_writer.sh
+NAME launch_writer.sh
 
 SYNOPSIS Make writer emit on BROADCAST/RANGE ono port PORT
 
         [TICK=2] [BROADCAST=192.168.1.255] [RANGE=24] [PORT=6666] ./launch_writer.sh
 
-OPTIONS For explanation of options see
-[file:../start.sh.html](file:../start.sh.html)
+OPTIONS For explanation of options see <file:../start.sh.html>
 
-./bin/lurker.sh.txt {#binlurkershtxt}
--------------------
+## ./bin/lurker.sh.txt {#binlurkershtxt}
 
 NAME lurker.sh
 
@@ -205,8 +228,7 @@ SYNOPSIS Collector of data
 
     Results are written in ../data
 
-./bin/mkhtml.sh.txt {#binmkhtmlshtxt}
--------------------
+## ./bin/mkhtml.sh.txt {#binmkhtmlshtxt}
 
 NAME mkhtml
 
@@ -228,17 +250,13 @@ the web page.
     SINCE
         The window span time you are interested in in seconds from NOW
 
-./bin/plot\_histo.sh.txt {#binplot_histoshtxt}
-------------------------
+## ./bin/plot_histo_g.sh.txt {#binplot_histo_gshtxt}
 
-./bin/plot\_histo\_g.sh.txt {#binplot_histo_gshtxt}
----------------------------
+## ./bin/plot_histo.sh.txt {#binplot_histoshtxt}
 
-./bin/plot\_rrd2.sh.txt {#binplot_rrd2shtxt}
------------------------
+## ./bin/plot_rrd2.sh.txt {#binplot_rrd2shtxt}
 
-./bin/writer.sh.txt {#binwritershtxt}
--------------------
+## ./bin/writer.sh.txt {#binwritershtxt}
 
 NAME writer.sh
 
@@ -246,15 +264,13 @@ SYNOPSIS Emitter of data
 
         [TICK=2] ./writer.sh
 
-OPTIONS For explanation of options see
-[file:../start.sh.html](file:../start.sh.html)
+OPTIONS For explanation of options see <file:../start.sh.html>
 
     If TICK is set then writer will assume it is to be launched in
     conjunction with <file:./clock.sh.html> and do nothing until clock.sh
     sends a signal to it to write data.
 
-./mkdoc.sh.txt {#mkdocshtxt}
---------------
+## ./mkdoc.sh.txt {#mkdocshtxt}
 
 NAME mkdoc.sh
 
@@ -263,26 +279,48 @@ conversion
 
         ./mkdoc.sh
 
-./plugin/cpu.txt {#plugincputxt}
-----------------
+## ./plugin/cpu.txt {#plugincputxt}
 
-./plugin/ibm\_acpi.txt {#pluginibm_acpitxt}
-----------------------
+## ./plugin/ibm_acpi_fan.txt {#pluginibm_acpi_fantxt}
 
-NAME acpii\_ibm - Munin plugin to monitor the temperature in different
+NAME acpi_ibm - Munin plugin to monitor the fan speed returned by ACPI
+probe.
+
+APPLICABLE SYSTEMS FreeBSD systems with ACPI support. man acpi_ibm(4)
+
+CONFIGURATION add ibm_acpi in loader.conf
+
+USAGE Link this plugin to @@CONFDIR@@/plugins/ and restart the
+munin-node.
+
+INTERPRETATION The plugin shows the fans\' speeds.
+
+MAGIC MARKERS #%# family=auto #%# capabilities=autoconf
+
+BUGS None known.
+
+VERSION v1.1 - 2024-03-24
+
+AUTHOR Julien Tayon (<julien@tayon.net>)
+
+LICENSE GPLv2
+
+## ./plugin/ibm_acpi.txt {#pluginibm_acpitxt}
+
+NAME acpii_ibm - Munin plugin to monitor the temperature in different
 ACPI Thermal zones.
 
-APPLICABLE SYSTEMS FreeBSD systems with ACPI support. man acpi\_ibm(4)
+APPLICABLE SYSTEMS FreeBSD systems with ACPI support. man acpi_ibm(4)
 
-CONFIGURATION add ibm\_acpi in loader.conf
+CONFIGURATION add ibm_acpi in loader.conf
 
-USAGE Link this plugin to @\@CONFDIR@@/plugins/ and restart the
+USAGE Link this plugin to @@CONFDIR@@/plugins/ and restart the
 munin-node.
 
 INTERPRETATION The plugin shows the temperature from the different
 thermal zones.
 
-MAGIC MARKERS \#%\# family=auto \#%\# capabilities=autoconf
+MAGIC MARKERS #%# family=auto #%# capabilities=autoconf
 
 BUGS None known.
 
@@ -292,33 +330,7 @@ AUTHOR Julien Tayon (<julien@tayon.net>)
 
 LICENSE GPLv2
 
-./plugin/ibm\_acpi\_fan.txt {#pluginibm_acpi_fantxt}
----------------------------
-
-NAME acpi\_ibm - Munin plugin to monitor the fan speed returned by ACPI
-probe.
-
-APPLICABLE SYSTEMS FreeBSD systems with ACPI support. man acpi\_ibm(4)
-
-CONFIGURATION add ibm\_acpi in loader.conf
-
-USAGE Link this plugin to @\@CONFDIR@@/plugins/ and restart the
-munin-node.
-
-INTERPRETATION The plugin shows the fans\' speeds.
-
-MAGIC MARKERS \#%\# family=auto \#%\# capabilities=autoconf
-
-BUGS None known.
-
-VERSION v1.1 - 2024-03-24
-
-AUTHOR Julien Tayon (<julien@tayon.net>)
-
-LICENSE GPLv2
-
-./plugin/irq.txt {#pluginirqtxt}
-----------------
+## ./plugin/irq.txt {#pluginirqtxt}
 
 NAME interrupts - list number of interrupts since boot (linux) or the
 interrupt rate per interrupt
@@ -329,12 +341,11 @@ AUTHOR Idea and base from Ragnar Wisløff.
 
 LICENSE GPLv2
 
-MAGIC MARKERS \#%\# family=auto \#%\# capabilities=autoconf
+MAGIC MARKERS #%# family=auto #%# capabilities=autoconf
 
-./plugin/open\_files.txt {#pluginopen_filestxt}
-------------------------
+## ./plugin/open_files.txt {#pluginopen_filestxt}
 
-NAME open\_files - Plugin to monitor the number of open files in the
+NAME open_files - Plugin to monitor the number of open files in the
 system
 
 CONFIGURATION No configuration
@@ -343,10 +354,9 @@ AUTHOR Unknown author
 
 LICENSE GPLv2
 
-MAGIC MARKERS \#%\# family=auto \#%\# capabilities=autoconf
+MAGIC MARKERS #%# family=auto #%# capabilities=autoconf
 
-./plugin/processes.txt {#pluginprocessestxt}
-----------------------
+## ./plugin/processes.txt {#pluginprocessestxt}
 
 NAME processes - Plugin to monitor processes and process states.
 
@@ -366,10 +376,9 @@ AUTHOR Copyright (C) 2006 Lars Strand
 
 LICENSE GNU General Public License, version 2
 
-MAGIC MARKERS \#%\# family=auto \#%\# capabilities=autoconf
+MAGIC MARKERS #%# family=auto #%# capabilities=autoconf
 
-./plugin/stat.txt {#pluginstattxt}
------------------
+## ./plugin/stat.txt {#pluginstattxt}
 
 NAME interrupts - Plugin to monitor the number of interrupts and context
 switches on a system.
@@ -380,20 +389,17 @@ AUTHOR Idea and base from Ragnar Wisløff.
 
 LICENSE GPLv2
 
-MAGIC MARKERS \#%\# family=auto \#%\# capabilities=autoconf
+MAGIC MARKERS #%# family=auto #%# capabilities=autoconf
 
-./plugin/tcp.txt {#plugintcptxt}
-----------------
+## ./plugin/tcp.txt {#plugintcptxt}
 
 NAME tcp - Plugin to monitor IPV4/6 TCP socket status on a Linux host.
 
 LICENSE GPLv2
 
-./pubsub.sh.txt {#pubsubshtxt}
----------------
+## ./pubsub.sh.txt {#pubsubshtxt}
 
-./start.sh.txt {#startshtxt}
---------------
+## ./start.sh.txt {#startshtxt}
 
 NAME start.sh
 
@@ -423,11 +429,32 @@ however converge to its computed value.
         Argument given to the html generator to know how much seconds since
         NOW must be shown in the graph.
 
-./stop.sh.txt {#stopshtxt}
--------------
+## ./stop.sh.txt {#stopshtxt}
 
 NAME stop.sh
 
 DESCRIPTION stops all agent launched by start
 
 OPTIONS None
+
+## ./tmp/bin/ash.txt {#tmpbinashtxt}
+
+## ./tmp/bin/fdflush.txt {#tmpbinfdflushtxt}
+
+## ./tmp/bin/sh.txt {#tmpbinshtxt}
+
+## ./tmp/etc/ca-certificates/update.d/certhash.txt {#tmpetcca-certificatesupdatedcerthashtxt}
+
+## ./tmp/sbin/fbsplash.txt {#tmpsbinfbsplashtxt}
+
+## ./tmp/usr/bin/c_rehash.txt {#tmpusrbinc_rehashtxt}
+
+## ./tmp/usr/local/lib/python3.8/config-3.8-x86_64-linux-gnu/install-sh.txt {#tmpusrlocallibpython38config-38-x86_64-linux-gnuinstall-shtxt}
+
+## ./tmp/usr/local/lib/python3.8/venv/scripts/posix/activate.csh.txt {#tmpusrlocallibpython38venvscriptsposixactivatecshtxt}
+
+## ./tmp/usr/local/lib/python3.8/venv/scripts/posix/activate.fish.txt {#tmpusrlocallibpython38venvscriptsposixactivatefishtxt}
+
+## ./tmp/usr/share/terminfo/m/macintosh.txt {#tmpusrshareterminfommacintoshtxt}
+
+## ./tmp/usr/share/terminfo/x/xwsh.txt {#tmpusrshareterminfoxxwshtxt}

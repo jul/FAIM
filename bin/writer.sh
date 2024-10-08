@@ -45,13 +45,16 @@ function answer() {
         CLOCK_PID=$( cat $HERE/../pid/clock.sh.pid )
         LIVING_TICK=$( cat $HERE/../run/living_tick.value )
         log "condi  ( $PRUDENCE * $PROCESSING_TIME_HRES ) > $LIVING_TICK $( echo " ( $PRUDENCE * $PROCESSING_TIME_HRES ) > $LIVING_TICK" | bc )"
-        if [ $( echo " ( $PRUDENCE * $PROCESSING_TIME_HRES ) > $LIVING_TICK" | bc ) -eq 1 ]; then
+        res=$( echo " ( $PRUDENCE * $PROCESSING_TIME_HRES ) > $LIVING_TICK" | bc )
+        if [[ "$res" = 1 ]]; then
+
             ALARM="OVERRUN $PROCESSING_TIME_HRES > $LIVING_TICK slowing clock"
             kill -s SIGUSR2 $CLOCK_PID;
             log "$ALARM $LIVING_TICK"
         fi
         log "cond 2 $( echo " ( $PRUDENCE * $PROCESSING_TIME_HRES ) > $LIVING_TICK" | bc )"
-        if [ $( echo "$PROCESSING_TIME_HRES < ( $PRUDENCE * $LIVING_TICK )" | bc ) -eq 1  ]; then
+        res=$( echo "$PROCESSING_TIME_HRES < ( $PRUDENCE * $LIVING_TICK )" | bc )
+        if [[ "$res" == 1 ]]; then
             if [ $( echo "( $LIVING_TICK ) >= 1" | bc ) -eq 1 ]; then
                 ALARM="UNDERRUN $PROCESSING_TIME_HRES < $LIVING_TICK speeding clock"
                 log "$ALARM $LIVING_TICK" 

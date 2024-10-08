@@ -62,7 +62,7 @@ EOF
 
         SINCE=$SINCE DS=x ../bin/basic_plot.sh "$l"  &> /dev/null
         OUT="$OUT <td>$WHAT</td><td><br><br>$WHERE</td>"
-        OUT="$OUT <td><pre>$( X=60 Y=20 ../bin/asci_plot.sh "$l" )</pre></td>"
+        OUT="$OUT <td><pre>$( X=60 Y=20 ../bin/asci_plot.sh "$l" 2> /dev/null )</pre></td>"
         OUT="$OUT <td><img src="./$( basename "$l" .csv).g.png" /></td>"
         OUT="$OUT <td><img src="./$( basename "$l" .csv).diff.png" /></td>"
         OUT="$OUT </tr>"

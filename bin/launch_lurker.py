@@ -33,6 +33,7 @@ with open("../pid/launch_lurker.py.pid", "w") as f: f.write(str(os.getpid()))
 lurker = Popen("./lurker.sh", stdout=PIPE, stdin=PIPE, stderr=PIPE)
 while True:
     m=r.recvfrom(1024)
+    lurker.stdin.flush()
     lurker.stdin.write(m[0])
     
 

@@ -50,6 +50,7 @@ be shown in the graph.
 =back
 
 =cut
+export LANG=C
 
 LURKER=${LURKER:-}
 cd $( dirname $0 )
