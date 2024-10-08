@@ -39,17 +39,6 @@
     -   [./pubsub.sh.txt](#pubsubshtxt){#toc-pubsubshtxt}
     -   [./start.sh.txt](#startshtxt){#toc-startshtxt}
     -   [./stop.sh.txt](#stopshtxt){#toc-stopshtxt}
-    -   [./tmp/bin/ash.txt](#tmpbinashtxt){#toc-tmpbinashtxt}
-    -   [./tmp/bin/fdflush.txt](#tmpbinfdflushtxt){#toc-tmpbinfdflushtxt}
-    -   [./tmp/bin/sh.txt](#tmpbinshtxt){#toc-tmpbinshtxt}
-    -   [./tmp/etc/ca-certificates/update.d/certhash.txt](#tmpetcca-certificatesupdatedcerthashtxt){#toc-tmpetcca-certificatesupdatedcerthashtxt}
-    -   [./tmp/sbin/fbsplash.txt](#tmpsbinfbsplashtxt){#toc-tmpsbinfbsplashtxt}
-    -   [./tmp/usr/bin/c_rehash.txt](#tmpusrbinc_rehashtxt){#toc-tmpusrbinc_rehashtxt}
-    -   [./tmp/usr/local/lib/python3.8/config-3.8-x86_64-linux-gnu/install-sh.txt](#tmpusrlocallibpython38config-38-x86_64-linux-gnuinstall-shtxt){#toc-tmpusrlocallibpython38config-38-x86_64-linux-gnuinstall-shtxt}
-    -   [./tmp/usr/local/lib/python3.8/venv/scripts/posix/activate.csh.txt](#tmpusrlocallibpython38venvscriptsposixactivatecshtxt){#toc-tmpusrlocallibpython38venvscriptsposixactivatecshtxt}
-    -   [./tmp/usr/local/lib/python3.8/venv/scripts/posix/activate.fish.txt](#tmpusrlocallibpython38venvscriptsposixactivatefishtxt){#toc-tmpusrlocallibpython38venvscriptsposixactivatefishtxt}
-    -   [./tmp/usr/share/terminfo/m/macintosh.txt](#tmpusrshareterminfommacintoshtxt){#toc-tmpusrshareterminfommacintoshtxt}
-    -   [./tmp/usr/share/terminfo/x/xwsh.txt](#tmpusrshareterminfoxxwshtxt){#toc-tmpusrshareterminfoxxwshtxt}
 
 \% Fast Adaptive Insecure Monitoring: the monitoring system that should
 never have been invented, that is fun % jul % 2024-07-07
@@ -79,29 +68,6 @@ adhoc measuring system.
 here](https://github.com/jul/FAIM/tree/main/doc)
 
 ![example](./img/example.png)
-
-``` {.graphviz
-digraph finite_state_machine {
-    rankdir=LR;
-    size="8,5"
-    node [shape = doublecircle]; LR_0 LR_3 LR_4 LR_8;
-    node [shape = circle];
-    LR_0 -> LR_2 [ label = "SS(B)" ];
-    LR_0 -> LR_1 [ label = "SS(S)" ];
-    LR_1 -> LR_3 [ label = "S($end)" ];
-    LR_2 -> LR_6 [ label = "SS(b)" ];
-    LR_2 -> LR_5 [ label = "SS(a)" ];
-    LR_2 -> LR_4 [ label = "S(A)" ];
-    LR_5 -> LR_7 [ label = "S(b)" ];
-    LR_5 -> LR_5 [ label = "S(a)" ];
-    LR_6 -> LR_6 [ label = "S(b)" ];
-    LR_6 -> LR_5 [ label = "S(a)" ];
-    LR_7 -> LR_8 [ label = "S(b)" ];
-    LR_7 -> LR_5 [ label = "S(a)" ];
-    LR_8 -> LR_6 [ label = "S(b)" ];
-    LR_8 -> LR_5 [ label = "S(a)" ];
-}
-```
 
 # Quickstart
 
@@ -436,25 +402,3 @@ NAME stop.sh
 DESCRIPTION stops all agent launched by start
 
 OPTIONS None
-
-## ./tmp/bin/ash.txt {#tmpbinashtxt}
-
-## ./tmp/bin/fdflush.txt {#tmpbinfdflushtxt}
-
-## ./tmp/bin/sh.txt {#tmpbinshtxt}
-
-## ./tmp/etc/ca-certificates/update.d/certhash.txt {#tmpetcca-certificatesupdatedcerthashtxt}
-
-## ./tmp/sbin/fbsplash.txt {#tmpsbinfbsplashtxt}
-
-## ./tmp/usr/bin/c_rehash.txt {#tmpusrbinc_rehashtxt}
-
-## ./tmp/usr/local/lib/python3.8/config-3.8-x86_64-linux-gnu/install-sh.txt {#tmpusrlocallibpython38config-38-x86_64-linux-gnuinstall-shtxt}
-
-## ./tmp/usr/local/lib/python3.8/venv/scripts/posix/activate.csh.txt {#tmpusrlocallibpython38venvscriptsposixactivatecshtxt}
-
-## ./tmp/usr/local/lib/python3.8/venv/scripts/posix/activate.fish.txt {#tmpusrlocallibpython38venvscriptsposixactivatefishtxt}
-
-## ./tmp/usr/share/terminfo/m/macintosh.txt {#tmpusrshareterminfommacintoshtxt}
-
-## ./tmp/usr/share/terminfo/x/xwsh.txt {#tmpusrshareterminfoxxwshtxt}

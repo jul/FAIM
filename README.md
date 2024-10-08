@@ -16,6 +16,3 @@ for deploying an adhoc measuring system.
 
 ![example](./img/example.png)
 
-
-
-
