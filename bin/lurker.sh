@@ -27,11 +27,11 @@ i=0;
 while read -r p; do
     i=$(( i + 1 ))
     echo $p >> "$HERE/../log/journal.log" &
-    TIME="$( echo $p | cut -d':' -f1 )"
-    SOURCE="$( echo $p | cut -d':' -f2 )"
-    DS="$( echo $p | cut -d':' -f3 )"
-    VALUE="$( echo $p | cut -d':' -f4 )"
-    DST="$( echo $p | cut -d':' -f5 )"
+    TIME="$( date +'%s' )"
+    SOURCE="$( echo $p | cut -d':' -f1 )"
+    DS="$( echo $p | cut -d':' -f2 )"
+    VALUE="$( echo $p | cut -d':' -f3 )"
+    DST="$( echo $p | cut -d':' -f4 )"
     OFB="$HERE/../data/${DS}~${SOURCE}"
     echo $TIME $VALUE >> "$OFB.csv"
 done

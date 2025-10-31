@@ -38,8 +38,8 @@ function answer() {
     for i in $HERE/../plugin/*_enabled; do
        ./$i
     done
-    echo "$NOW:$HOST:writer.proctime:$PROCESSING_TIME_HRES:GAUGE"
     NOW=$( date +'%s' )
+    echo "$NOW:$HOST:writer.proctime:$PROCESSING_TIME_HRES:GAUGE"
 
     if [ ! -z "$TICK" ]; then 
         CLOCK_PID=$( cat $HERE/../pid/clock.sh.pid )
@@ -63,7 +63,7 @@ function answer() {
             echo "$NOW:$HOST:clock.live_tick:$LIVING_TICK:GAUGE"
         fi
         OLD_TICK=$( cat "$HERE/../run/last_tick.value" || echo 0 )
-        echo "$NOW:$HOST:tick:${OLD_TICK}:DERIVE"
+        echo "$HOST:tick:${OLD_TICK}:DERIVE"
         echo -n $(( $OLD_TICK +1 )) > "$HERE/../run/last_tick.value"
     fi
 }
