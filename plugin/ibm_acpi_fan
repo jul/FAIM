@@ -50,10 +50,9 @@ if sysctl dev.acpi_ibm.0.fan_speed &> /dev/null; then
 
 # man acpi_ibm
 	HERE=$( hostname )
-	NOW=$( date +'%s' )
 
 	for ((i=0;i<$NB_FAN;i++)); do 
-		echo "$HERE:$NOW:fan_rpm$i:$(sysctl dev.acpi_ibm.$i.fan_speed | cut -d " " -f2):GAUGE"
+		echo "$HERE:fan_rpm$i:$(sysctl dev.acpi_ibm.$i.fan_speed | cut -d " " -f2):GAUGE"
 	done
 fi
 

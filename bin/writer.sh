@@ -39,7 +39,7 @@ function answer() {
        ./$i
     done
     NOW=$( date +'%s' )
-    echo "$NOW:$HOST:writer.proctime:$PROCESSING_TIME_HRES:GAUGE"
+    echo "$HOST:writer.proctime:$PROCESSING_TIME_HRES:GAUGE"
 
     if [ ! -z "$TICK" ]; then 
         CLOCK_PID=$( cat $HERE/../pid/clock.sh.pid )
@@ -60,7 +60,7 @@ function answer() {
                 log "$ALARM $LIVING_TICK" 
                 kill -s SIGUSR1 $CLOCK_PID;
             fi
-            echo "$NOW:$HOST:clock.live_tick:$LIVING_TICK:GAUGE"
+            echo "$HOST:clock.live_tick:$LIVING_TICK:GAUGE"
         fi
         OLD_TICK=$( cat "$HERE/../run/last_tick.value" || echo 0 )
         echo "$HOST:tick:${OLD_TICK}:DERIVE"

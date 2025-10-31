@@ -70,7 +70,6 @@ ps=${ps:-ps}
 # Find operating system
 OPERSYS=${OPERSYS:-$(uname | cut -f 1 -d _)}
 [ -z "$OPERSYS" ] && echo >&2 "Failed to detect environment via uname" && exit 1
-N=$( date +'%s' )
 H=$( hostname )
 T="GAUGE"
 
@@ -79,15 +78,15 @@ if [ "$OPERSYS" = "Linux" ]; then
     "$ps" --no-header -eo s | "$awk" "
 { processes++; stat[\$1]++ }
 END {
-print \"$N:$H:ps.processes:\"        0+processes \":$T\";
-print \"$N:$H:ps.uninterruptible:\"  0+stat[\"D\"] \":$T\";
-print \"$N:$H:ps.runnable:\"         0+stat[\"R\"] \":$T\";
-print \"$N:$H:ps.sleeping:\"         0+stat[\"S\"] \":$T\";
-print \"$N:$H:ps.idle:\"             0+stat[\"I\"] \":$T\";
-print \"$N:$H:ps.stopped:\"          0+stat[\"T\"] \":$T\";
-print \"$N:$H:ps.paging:\"           0+stat[\"W\"] \":$T\";
-print \"$N:$H:ps.dead:\"             0+stat[\"X\"] \":$T\";
-print \"$N:$H:ps.zombie:\"           0+stat[\"Z\"] \":$T\";
+print \"$H:ps.processes:\"        0+processes \":$T\";
+print \"$H:ps.uninterruptible:\"  0+stat[\"D\"] \":$T\";
+print \"$H:ps.runnable:\"         0+stat[\"R\"] \":$T\";
+print \"$H:ps.sleeping:\"         0+stat[\"S\"] \":$T\";
+print \"$H:ps.idle:\"             0+stat[\"I\"] \":$T\";
+print \"$H:ps.stopped:\"          0+stat[\"T\"] \":$T\";
+print \"$H:ps.paging:\"           0+stat[\"W\"] \":$T\";
+print \"$H:ps.dead:\"             0+stat[\"X\"] \":$T\";
+print \"$H:ps.zombie:\"           0+stat[\"Z\"] \":$T\";
 }"
 
 elif [ "$OPERSYS" = "SunOS" ]; then
@@ -107,15 +106,15 @@ elif [ "$OPERSYS" = "FreeBSD" ]; then
     "$ps" -axo state= | sed -e 's/^\(.\).*/\1/' | "$awk" "
 { processes++; stat[\$1]++ }
 END {
-print \"$N:$H:ps.processes:\"        0+processes \":$T\";
-print \"$N:$H:ps.uninterruptible:\"  0+stat[\"D\"] \":$T\";
-print \"$N:$H:ps.idle:\"             0+stat[\"I\"] \":$T\";
-print \"$N:$H:ps.lock:\"             0+stat[\"G\"] \":$T\";
-print \"$N:$H:ps.runnable:\"         0+stat[\"R\"] \":$T\";
-print \"$N:$H:ps.sleeping:\"         0+stat[\"S\"] \":$T\";
-print \"$N:$H:ps.stopped:\"          0+stat[\"T\"] \":$T\";
-print \"$N:$H:ps.interrupt:\"        0+stat[\"W\"] \":$T\";
-print \"$N:$H:ps.zombie:\"           0+stat[\"Z\"] \":$T\";
+print \"$H:ps.processes:\"        0+processes \":$T\";
+print \"$H:ps.uninterruptible:\"  0+stat[\"D\"] \":$T\";
+print \"$H:ps.idle:\"             0+stat[\"I\"] \":$T\";
+print \"$H:ps.lock:\"             0+stat[\"G\"] \":$T\";
+print \"$H:ps.runnable:\"         0+stat[\"R\"] \":$T\";
+print \"$H:ps.sleeping:\"         0+stat[\"S\"] \":$T\";
+print \"$H:ps.stopped:\"          0+stat[\"T\"] \":$T\";
+print \"$H:ps.interrupt:\"        0+stat[\"W\"] \":$T\";
+print \"$H:ps.zombie:\"           0+stat[\"Z\"] \":$T\";
 }"
 elif [ "$OPERSYS" = "OpenBSD" ]; then
     # First line is header. Remove it.

@@ -30,9 +30,9 @@ NOW=$(date +'%s' )
 
 if [ -f '/proc/stat' ]; then
     for field in procs_running procs_blocked; do
-         echo $NOW:$( hostname ):stat.$field:$( awk "\$1 == \"$field\" { print \$2 }" /proc/stat ):GAUGE
+         echo $( hostname ):stat.$field:$( awk "\$1 == \"$field\" { print \$2 }" /proc/stat ):GAUGE
     done
     for field in intr ctxt processes ; do
-        echo $NOW:$( hostname ):stat.$field:$( awk "\$1 == \"$field\" { print \$2 }" /proc/stat ):DERIVE
+        echo $( hostname ):stat.$field:$( awk "\$1 == \"$field\" { print \$2 }" /proc/stat ):DERIVE
     done
 fi

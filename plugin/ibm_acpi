@@ -47,9 +47,8 @@ GPLv2
 
 if sysctl dev.acpi_ibm.0.thermal &>/dev/null; then
 	ATZ=(  CPU Mini_PCI_Module  HDD GPU Built_in_battery_1 UltraBay_battery_1 Built_in_battery_2 UltraBay_battery_2 )
-    NOW=$( date +'%s' )
 	for ((i=0;i<${#ATZ[@]};i++)); do 
-		echo "$( hostname ):$NOW:temp_${ATZ[i]}:$( sysctl dev.acpi_ibm.0.thermal | cut -d " " -f$(( i+2 )) ):GAUGE"; 
+		echo "$( hostname ):temp_${ATZ[i]}:$( sysctl dev.acpi_ibm.0.thermal | cut -d " " -f$(( i+2 )) ):GAUGE"; 
 	done
 fi
 exit $?
