@@ -43,7 +43,7 @@ cat <<EOF > API.md
 API of each components.
 
 EOF
-for i in $( find . -name "*txt" -a -not -path ".*.git*" -a -not -name "README*" | sort ); do
+for i in $( find . -name "*txt" -a -not -path ".*.git*" -a -not -name "intro*" | sort ); do
 
     echo "## $i" >> API.md
     echo >> API.md 
@@ -56,6 +56,8 @@ pandoc -f gfm --toc -s _index.md -o ../index.md
 rm *md
 cat ../HEAD_md ../index.md > ./README.md
 rm ../index.md 
+
+cat ./README.md > ../README.md
 
 pandoc README.md -o "index.html"
 pandoc README.md    -o FAIM.pdf
