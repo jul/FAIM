@@ -1,4 +1,38 @@
 #!/usr/bin/env bash
+<< =cut
+
+=head1 NAME
+
+    cpu - FAIM plugin to monitor the CPU load
+
+=head1 APPLICABLE SYSTEMS
+
+FreeBSD, linux
+
+
+=head1 USAGE
+
+Just create cpu_enabled in the plugin dir
+
+=head1 BUGS
+
+None known.
+
+=head1 VERSION
+
+v1.1 - 2024-03-24
+
+=head1 AUTHOR
+
+Julien Tayon (julien@tayon.net)
+
+=head1 LICENSE
+
+GPLv2
+
+=cut
+
+
 #linux
 
 if [ -e "/proc/loadavg" ]; then

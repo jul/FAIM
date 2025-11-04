@@ -19,7 +19,9 @@ jails</a></li>
 id="toc-state-machine-of-the-system">State Machine of the
 system</a></li>
 <li><a href="#agent-oriented-programming"
-id="toc-agent-oriented-programming">Agent Oriented Programming</a>
+id="toc-agent-oriented-programming">Agent Oriented Programming</a></li>
+<li><a href="#documentation-of-each-scripts"
+id="toc-documentation-of-each-scripts">Documentation of each scripts</a>
 <ul>
 <li><a href="#binasci_plotshtxt"
 id="toc-binasci_plotshtxt">./bin/asci_plot.sh.txt</a></li>
@@ -27,6 +29,8 @@ id="toc-binasci_plotshtxt">./bin/asci_plot.sh.txt</a></li>
 id="toc-binbasic_plotshtxt">./bin/basic_plot.sh.txt</a></li>
 <li><a href="#binclockshtxt"
 id="toc-binclockshtxt">./bin/clock.sh.txt</a></li>
+<li><a href="#binlaunch_lurkerpytxt"
+id="toc-binlaunch_lurkerpytxt">./bin/launch_lurker.py.txt</a></li>
 <li><a href="#binlaunch_lurkershtxt"
 id="toc-binlaunch_lurkershtxt">./bin/launch_lurker.sh.txt</a></li>
 <li><a href="#binlaunch_writershtxt"
@@ -43,7 +47,8 @@ id="toc-binplot_histoshtxt">./bin/plot_histo.sh.txt</a></li>
 id="toc-binplot_rrd2shtxt">./bin/plot_rrd2.sh.txt</a></li>
 <li><a href="#binwritershtxt"
 id="toc-binwritershtxt">./bin/writer.sh.txt</a></li>
-<li><a href="#mkdocshtxt" id="toc-mkdocshtxt">./mkdoc.sh.txt</a></li>
+<li><a href="#plugincpuswptxt"
+id="toc-plugincpuswptxt">./plugin/.cpu.swp.txt</a></li>
 <li><a href="#plugincputxt"
 id="toc-plugincputxt">./plugin/cpu.txt</a></li>
 <li><a href="#pluginibm_acpi_fantxt"
@@ -60,9 +65,6 @@ id="toc-pluginprocessestxt">./plugin/processes.txt</a></li>
 id="toc-pluginstattxt">./plugin/stat.txt</a></li>
 <li><a href="#plugintcptxt"
 id="toc-plugintcptxt">./plugin/tcp.txt</a></li>
-<li><a href="#pubsubshtxt" id="toc-pubsubshtxt">./pubsub.sh.txt</a></li>
-<li><a href="#startshtxt" id="toc-startshtxt">./start.sh.txt</a></li>
-<li><a href="#stopshtxt" id="toc-stopshtxt">./stop.sh.txt</a></li>
 </ul></li>
 </ul>
 <p>% Fast Adaptive Insecure Monitoring: the monitoring system that
@@ -153,164 +155,234 @@ machine lays.</p></li>
 <li><p>violation of uncoupling between layers is bad so it has to be
 handled with care.</p></li>
 </ol>
+<h1 id="documentation-of-each-scripts">Documentation of each
+scripts</h1>
+<p>API of each components.</p>
 <h2 id="binasci_plotshtxt">./bin/asci_plot.sh.txt</h2>
 <h2 id="binbasic_plotshtxt">./bin/basic_plot.sh.txt</h2>
 <h2 id="binclockshtxt">./bin/clock.sh.txt</h2>
+<h2 id="binlaunch_lurkerpytxt">./bin/launch_lurker.py.txt</h2>
+<h3 id="NAME">NAME</h3>
+<p>launch_lurker.py</p>
+<h4 id="SYNOPSYS">SYNOPSYS</h4>
+<p>[HOST=0.0.0.0] [PORT=6666] ./launch_lurker</p>
+<h4 id="OPTIONS">OPTIONS</h4>
+<p>see &lt;file:../start.sh.html&gt; for explanation of the options
+=back</p>
 <h2 id="binlaunch_lurkershtxt">./bin/launch_lurker.sh.txt</h2>
-<p>NAME launch_lurker.sh</p>
-<p>SYNOPSIS Make data collector available for listening to the
-probes</p>
-<pre><code>    [TICK=2] [BROADCAST=192.168.1.255] [RANGE=24] [PORT=6666] ./launch_writer.sh</code></pre>
-<p>OPTIONS For explanation of options see
-&lt;file:../start.sh.html&gt;</p>
+<h3 id="NAME">NAME</h3>
+<pre><code>launch_lurker.sh</code></pre>
+<h4 id="SYNOPSIS">SYNOPSIS</h4>
+<p>Make data collector available for listening to the probes</p>
+<pre><code>[TICK=2] [BROADCAST=192.168.1.255] [RANGE=24] [PORT=6666] ./launch_writer.sh</code></pre>
+<h4 id="OPTIONS">OPTIONS</h4>
+<p>For explanation of options see &lt;file:../start.sh.html&gt;</p>
 <h2 id="binlaunch_writershtxt">./bin/launch_writer.sh.txt</h2>
-<p>NAME launch_writer.sh</p>
-<p>SYNOPSIS Make writer emit on BROADCAST/RANGE ono port PORT</p>
-<pre><code>    [TICK=2] [BROADCAST=192.168.1.255] [RANGE=24] [PORT=6666] ./launch_writer.sh</code></pre>
-<p>OPTIONS For explanation of options see
-&lt;file:../start.sh.html&gt;</p>
+<h3 id="NAME">NAME</h3>
+<pre><code>launch_writer.sh</code></pre>
+<h4 id="SYNOPSIS">SYNOPSIS</h4>
+<p>Make writer emit on BROADCAST/RANGE ono port PORT</p>
+<pre><code>[TICK=2] [BROADCAST=192.168.1.255] [RANGE=24] [PORT=6666] ./launch_writer.sh</code></pre>
+<h4 id="OPTIONS">OPTIONS</h4>
+<p>For explanation of options see &lt;file:../start.sh.html&gt;</p>
 <h2 id="binlurkershtxt">./bin/lurker.sh.txt</h2>
-<p>NAME lurker.sh</p>
-<p>SYNOPSIS Collector of data</p>
-<pre><code>    ./lurker.sh
-
-Can be used as
-
-    while [ 1 ]; do writer.sh | lurker.sh; sleep 30; done
-
-To collect data emitted locally about the machine.
-
-Results are written in ../data</code></pre>
+<h3 id="NAME">NAME</h3>
+<pre><code>lurker.sh</code></pre>
+<h4 id="SYNOPSIS">SYNOPSIS</h4>
+<p>Collector of data</p>
+<pre><code>./lurker.sh</code></pre>
+<p>Can be used as</p>
+<pre><code>while [ 1 ]; do writer.sh | lurker.sh; sleep 30; done</code></pre>
+<p>To collect data emitted locally about the machine.</p>
+<p>Results are written in ../data</p>
 <h2 id="binmkhtmlshtxt">./bin/mkhtml.sh.txt</h2>
-<p>NAME mkhtml</p>
-<pre><code>    HTML maker</code></pre>
-<p>SYNOPSIS Generator of HTML output from data collected in ../data</p>
-<pre><code>    [DAEMON=] [SINCE=3600] mkhtml.sh
+<h3 id="NAME">NAME</h3>
+<pre><code>mkhtml
 
-Can be used as
-
-    ./mkhtml.sh
-
-to generate the web page in ../data</code></pre>
-<p>OPTIONS DAEMON This code will run permanently waking itself up to
-update the web page.</p>
-<pre><code>SINCE
-    The window span time you are interested in in seconds from NOW</code></pre>
+HTML maker</code></pre>
+<h4 id="SYNOPSIS">SYNOPSIS</h4>
+<p>Generator of HTML output from data collected in ../data</p>
+<pre><code>[DAEMON=] [SINCE=3600] mkhtml.sh</code></pre>
+<p>Can be used as</p>
+<pre><code>./mkhtml.sh </code></pre>
+<p>to generate the web page in ../data</p>
+<h4 id="OPTIONS">OPTIONS</h4>
+<dl>
+<dt>DAEMON</dt>
+<dd>
+<p>This code will run permanently waking itself up to update the web
+page.</p>
+</dd>
+<dt>SINCE</dt>
+<dd>
+<p>The window span time you are interested in in seconds from NOW</p>
+</dd>
+</dl>
 <h2 id="binplot_histo_gshtxt">./bin/plot_histo_g.sh.txt</h2>
 <h2 id="binplot_histoshtxt">./bin/plot_histo.sh.txt</h2>
 <h2 id="binplot_rrd2shtxt">./bin/plot_rrd2.sh.txt</h2>
 <h2 id="binwritershtxt">./bin/writer.sh.txt</h2>
-<p>NAME writer.sh</p>
-<p>SYNOPSIS Emitter of data</p>
-<pre><code>    [TICK=2] ./writer.sh</code></pre>
-<p>OPTIONS For explanation of options see
-&lt;file:../start.sh.html&gt;</p>
-<pre><code>If TICK is set then writer will assume it is to be launched in
-conjunction with &lt;file:./clock.sh.html&gt; and do nothing until clock.sh
-sends a signal to it to write data.</code></pre>
-<h2 id="mkdocshtxt">./mkdoc.sh.txt</h2>
-<p>NAME mkdoc.sh</p>
-<p>SYNOPSIS Generates the doc. Requires pandoc for markdown to html
-conversion</p>
-<pre><code>    ./mkdoc.sh</code></pre>
+<h3 id="NAME">NAME</h3>
+<pre><code>writer.sh</code></pre>
+<h4 id="SYNOPSIS">SYNOPSIS</h4>
+<p>Emitter of data</p>
+<pre><code>[TICK=2] ./writer.sh</code></pre>
+<h4 id="OPTIONS">OPTIONS</h4>
+<p>For explanation of options see "start.sh.html" in .</p>
+<p>If TICK is set then writer will assume it is to be launched in
+conjunction with "clock.sh.html" in . and do nothing until clock.sh
+sends a signal to it to write data.</p>
+<h2 id="plugincpuswptxt">./plugin/.cpu.swp.txt</h2>
 <h2 id="plugincputxt">./plugin/cpu.txt</h2>
+<h3 id="NAME">NAME</h3>
+<pre><code>cpu - FAIM plugin to monitor the CPU load</code></pre>
+<h3 id="APPLICABLE-SYSTEMS">APPLICABLE SYSTEMS</h3>
+<p>FreeBSD, linux</p>
+<h3 id="USAGE">USAGE</h3>
+<p>Just create cpu_enabled in the plugin dir</p>
+<h3 id="BUGS">BUGS</h3>
+<p>None known.</p>
+<h3 id="VERSION">VERSION</h3>
+<p>v1.1 - 2024-03-24</p>
+<h3 id="AUTHOR">AUTHOR</h3>
+<p>Julien Tayon (<a href="mailto:julien@tayon.net"
+class="email">julien@tayon.net</a>)</p>
+<h3 id="LICENSE">LICENSE</h3>
+<p>GPLv2</p>
 <h2 id="pluginibm_acpi_fantxt">./plugin/ibm_acpi_fan.txt</h2>
-<p>NAME acpi_ibm - Munin plugin to monitor the fan speed returned by
-ACPI probe.</p>
-<p>APPLICABLE SYSTEMS FreeBSD systems with ACPI support. man
-acpi_ibm(4)</p>
-<p>CONFIGURATION add ibm_acpi in loader.conf</p>
-<p>USAGE Link this plugin to @<span class="citation"
+<h3 id="NAME">NAME</h3>
+<p>acpi_ibm - Munin plugin to monitor the fan speed returned by ACPI
+probe.</p>
+<h3 id="APPLICABLE-SYSTEMS">APPLICABLE SYSTEMS</h3>
+<p>FreeBSD systems with ACPI support. man acpi_ibm(4)</p>
+<h3 id="CONFIGURATION">CONFIGURATION</h3>
+<p>add ibm_acpi in loader.conf</p>
+<h3 id="USAGE">USAGE</h3>
+<p>Link this plugin to @<span class="citation"
 data-cites="CONFDIR">@CONFDIR</span>@@/plugins/ and restart the
 munin-node.</p>
-<p>INTERPRETATION The plugin shows the fans' speeds.</p>
-<p>MAGIC MARKERS #%# family=auto #%# capabilities=autoconf</p>
-<p>BUGS None known.</p>
-<p>VERSION v1.1 - 2024-03-24</p>
-<p>AUTHOR Julien Tayon (<a href="mailto:julien@tayon.net"
+<h3 id="INTERPRETATION">INTERPRETATION</h3>
+<p>The plugin shows the fans' speeds.</p>
+<h3 id="MAGIC-MARKERS">MAGIC MARKERS</h3>
+<pre><code>#%# family=auto
+#%# capabilities=autoconf</code></pre>
+<h3 id="BUGS">BUGS</h3>
+<p>None known.</p>
+<h3 id="VERSION">VERSION</h3>
+<p>v1.1 - 2024-03-24</p>
+<h3 id="AUTHOR">AUTHOR</h3>
+<p>Julien Tayon (<a href="mailto:julien@tayon.net"
 class="email">julien@tayon.net</a>)</p>
-<p>LICENSE GPLv2</p>
+<h3 id="LICENSE">LICENSE</h3>
+<p>GPLv2</p>
 <h2 id="pluginibm_acpitxt">./plugin/ibm_acpi.txt</h2>
-<p>NAME acpii_ibm - Munin plugin to monitor the temperature in different
-ACPI Thermal zones.</p>
-<p>APPLICABLE SYSTEMS FreeBSD systems with ACPI support. man
-acpi_ibm(4)</p>
-<p>CONFIGURATION add ibm_acpi in loader.conf</p>
-<p>USAGE Link this plugin to @<span class="citation"
+<h3 id="NAME">NAME</h3>
+<p>acpii_ibm - Munin plugin to monitor the temperature in different ACPI
+Thermal zones.</p>
+<h3 id="APPLICABLE-SYSTEMS">APPLICABLE SYSTEMS</h3>
+<p>FreeBSD systems with ACPI support. man acpi_ibm(4)</p>
+<h3 id="CONFIGURATION">CONFIGURATION</h3>
+<p>add ibm_acpi in loader.conf</p>
+<h3 id="USAGE">USAGE</h3>
+<p>Link this plugin to @<span class="citation"
 data-cites="CONFDIR">@CONFDIR</span>@@/plugins/ and restart the
 munin-node.</p>
-<p>INTERPRETATION The plugin shows the temperature from the different
-thermal zones.</p>
-<p>MAGIC MARKERS #%# family=auto #%# capabilities=autoconf</p>
-<p>BUGS None known.</p>
-<p>VERSION v1.1 - 2024-03-24</p>
-<p>AUTHOR Julien Tayon (<a href="mailto:julien@tayon.net"
+<h3 id="INTERPRETATION">INTERPRETATION</h3>
+<p>The plugin shows the temperature from the different thermal
+zones.</p>
+<h3 id="MAGIC-MARKERS">MAGIC MARKERS</h3>
+<pre><code>#%# family=auto
+#%# capabilities=autoconf</code></pre>
+<h3 id="BUGS">BUGS</h3>
+<p>None known.</p>
+<h3 id="VERSION">VERSION</h3>
+<p>v1.1 - 2024-03-24</p>
+<h3 id="AUTHOR">AUTHOR</h3>
+<p>Julien Tayon (<a href="mailto:julien@tayon.net"
 class="email">julien@tayon.net</a>)</p>
-<p>LICENSE GPLv2</p>
+<h3 id="LICENSE">LICENSE</h3>
+<p>GPLv2</p>
 <h2 id="pluginirqtxt">./plugin/irq.txt</h2>
-<p>NAME interrupts - list number of interrupts since boot (linux) or the
+<h3 id="NAME">NAME</h3>
+<p>interrupts - list number of interrupts since boot (linux) or the
 interrupt rate per interrupt</p>
-<p>CONFIGURATION No configuration</p>
-<p>AUTHOR Idea and base from Ragnar Wisløff.</p>
-<p>LICENSE GPLv2</p>
-<p>MAGIC MARKERS #%# family=auto #%# capabilities=autoconf</p>
+<h3 id="CONFIGURATION">CONFIGURATION</h3>
+<p>No configuration</p>
+<h3 id="AUTHOR">AUTHOR</h3>
+<p>Idea and base from Ragnar Wisløff.</p>
+<h3 id="LICENSE">LICENSE</h3>
+<p>GPLv2</p>
+<h3 id="MAGIC-MARKERS">MAGIC MARKERS</h3>
+<pre><code>#%# family=auto
+#%# capabilities=autoconf</code></pre>
+<h3 id="POD-ERRORS">POD ERRORS</h3>
+<p>Hey! <strong>The above document had some coding errors, which are
+explained below:</strong></p>
+<dl>
+<dt>Around line 16:</dt>
+<dd>
+<p>Non-ASCII character seen before =encoding in 'Wisløff.'. Assuming
+UTF-8</p>
+</dd>
+</dl>
 <h2 id="pluginopen_filestxt">./plugin/open_files.txt</h2>
-<p>NAME open_files - Plugin to monitor the number of open files in the
+<h3 id="NAME">NAME</h3>
+<p>open_files - Plugin to monitor the number of open files in the
 system</p>
-<p>CONFIGURATION No configuration</p>
-<p>AUTHOR Unknown author</p>
-<p>LICENSE GPLv2</p>
-<p>MAGIC MARKERS #%# family=auto #%# capabilities=autoconf</p>
+<h3 id="CONFIGURATION">CONFIGURATION</h3>
+<p>No configuration</p>
+<h3 id="AUTHOR">AUTHOR</h3>
+<p>Unknown author</p>
+<h3 id="LICENSE">LICENSE</h3>
+<p>GPLv2</p>
+<h3 id="MAGIC-MARKERS">MAGIC MARKERS</h3>
+<pre><code>#%# family=auto
+#%# capabilities=autoconf</code></pre>
 <h2 id="pluginprocessestxt">./plugin/processes.txt</h2>
-<p>NAME processes - Plugin to monitor processes and process states.</p>
-<p>ABOUT This plugin requires munin-server version 1.2.5 or 1.3.3 (or
+<h3 id="NAME">NAME</h3>
+<p>processes - Plugin to monitor processes and process states.</p>
+<h3 id="ABOUT">ABOUT</h3>
+<p>This plugin requires munin-server version 1.2.5 or 1.3.3 (or
 higher).</p>
-<pre><code>This plugin is backwards compatible with the old processes-plugins found
-on SunOS, Linux and *BSD (i.e. the history is preserved).
-
-All fields have colours associated with them which reflect the type of
-process (sleeping/idle = blue, running = green, stopped/zombie/dead =
-red, etc.)</code></pre>
-<p>CONFIGURATION No configuration for this plugin.</p>
-<p>AUTHOR Copyright (C) 2006 Lars Strand</p>
-<p>LICENSE GNU General Public License, version 2</p>
-<p>MAGIC MARKERS #%# family=auto #%# capabilities=autoconf</p>
+<p>This plugin is backwards compatible with the old processes-plugins
+found on SunOS, Linux and *BSD (i.e. the history is preserved).</p>
+<p>All fields have colours associated with them which reflect the type
+of process (sleeping/idle = blue, running = green, stopped/zombie/dead =
+red, etc.)</p>
+<h3 id="CONFIGURATION">CONFIGURATION</h3>
+<p>No configuration for this plugin.</p>
+<h3 id="AUTHOR">AUTHOR</h3>
+<p>Copyright (C) 2006 Lars Strand</p>
+<h3 id="LICENSE">LICENSE</h3>
+<p>GNU General Public License, version 2</p>
+<h3 id="MAGIC-MARKERS">MAGIC MARKERS</h3>
+<pre><code>#%# family=auto
+#%# capabilities=autoconf</code></pre>
 <h2 id="pluginstattxt">./plugin/stat.txt</h2>
-<p>NAME interrupts - Plugin to monitor the number of interrupts and
-context switches on a system.</p>
-<p>CONFIGURATION No configuration</p>
-<p>AUTHOR Idea and base from Ragnar Wisløff.</p>
-<p>LICENSE GPLv2</p>
-<p>MAGIC MARKERS #%# family=auto #%# capabilities=autoconf</p>
+<h3 id="NAME">NAME</h3>
+<p>interrupts - Plugin to monitor the number of interrupts and context
+switches on a system.</p>
+<h3 id="CONFIGURATION">CONFIGURATION</h3>
+<p>No configuration</p>
+<h3 id="AUTHOR">AUTHOR</h3>
+<p>Idea and base from Ragnar Wisløff.</p>
+<h3 id="LICENSE">LICENSE</h3>
+<p>GPLv2</p>
+<h3 id="MAGIC-MARKERS">MAGIC MARKERS</h3>
+<pre><code>#%# family=auto
+#%# capabilities=autoconf</code></pre>
+<h3 id="POD-ERRORS">POD ERRORS</h3>
+<p>Hey! <strong>The above document had some coding errors, which are
+explained below:</strong></p>
+<dl>
+<dt>Around line 17:</dt>
+<dd>
+<p>Non-ASCII character seen before =encoding in 'Wisløff.'. Assuming
+UTF-8</p>
+</dd>
+</dl>
 <h2 id="plugintcptxt">./plugin/tcp.txt</h2>
-<p>NAME tcp - Plugin to monitor IPV4/6 TCP socket status on a Linux
-host.</p>
-<p>LICENSE GPLv2</p>
-<h2 id="pubsubshtxt">./pubsub.sh.txt</h2>
-<h2 id="startshtxt">./start.sh.txt</h2>
-<p>NAME start.sh</p>
-<p>DESCRIPTION Launches the networked apparatus of measures. It is the
-reciprocal function of stop.sh</p>
-<p>SYNOPSIS All arguments are passed by environment variables</p>
-<pre><code>    [HOST=0.0.0.0] [PORT=6666] [TICK=2] [LURKER=] [BROADCAST=192.168.1.255] [RANGE=24] [SINCE=900] start.sh</code></pre>
-<p>OPTIONS TICK TICK is the initial clock given to the system. It will
-however converge to its computed value.</p>
-<pre><code>LURKER
-    When LURKER is set, the data collecting agent is launched and
-    process all probes sent on the given broadcast address
-
-BROADCAST
-    UDP BROADCAST address to use
-
-RANGE
-    Range in the form [0-32] to specify the BROADCAST range.
-
-    Ex: 24 will specify $BROADCAST/24
-
-SINCE
-    Argument given to the html generator to know how much seconds since
-    NOW must be shown in the graph.</code></pre>
-<h2 id="stopshtxt">./stop.sh.txt</h2>
-<p>NAME stop.sh</p>
-<p>DESCRIPTION stops all agent launched by start</p>
-<p>OPTIONS None</p>
+<h3 id="NAME">NAME</h3>
+<p>tcp - Plugin to monitor IPV4/6 TCP socket status on a Linux host.</p>
+<h3 id="LICENSE">LICENSE</h3>
+<p>GPLv2</p>

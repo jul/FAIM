@@ -19,24 +19,17 @@ rm doc -rf
 cp img/* doc/img/
 cp *md doc/
 
-for i in $( find . -name "*sh" ); do 
-    DST="doc/$( dirname $i)"
+for i in $( find . \( -path "./bin/*" -o -path "./plugin/*" \) -type f -not -path "./plugin/*enabled"  ); do 
+    DST="doc/$( dirname $i )"
     [ -d $DST ] || mkdir -p $DST
-    pod2html --htmlroot=doc --htmldir=doc "$i" > "$DST/$(basename $i).html"
-    pod2text "$i" > "$DST/$( basename $i).txt" \
-     && pandoc "$DST/$( basename $i).txt" "$DST/$( basename $i).md" 
-done
-for i in $( find ./plugin -type f -not -path "./plugin/*enabled" ); do 
-    DST="doc/$( dirname $i)"
-    [ -d $DST ] || mkdir -p $DST
-    pod2html "$i" > "$DST/$( basename $i).html"
-    pod2text "$i" > "$DST/$( basename $i).txt" \
-     && pandoc "$DST/$( basename $i).txt" "$DST/$( basename $i).md" 
+    pod2html --noindex "$i" > "$DST/$( basename $i).html"
+    pandoc --shift-heading-level-by=2 --toc-depth=1 --to markdown "$DST/$( basename $i).html" -o "$DST/$( basename $i).txt" 
      
 done
 RES=""
 
 cd doc
+echo > API.md
 cat <<EOF > API.md
 
 # Documentation of each scripts
@@ -44,8 +37,10 @@ cat <<EOF > API.md
 API of each components.
 
 EOF
-echo > API.md
-for i in $( find . -name "*txt" -a -not -name "intro*" -a  -not -name "README*" -a -not -path "*.git*" | sort ); do
+for i in $( find . -name "*txt" | sort | grep -v .git ); do
+
+
+    echo >> API.md 
 
     echo "## $i" >> API.md
     echo >> API.md 
@@ -53,7 +48,7 @@ for i in $( find . -name "*txt" -a -not -name "intro*" -a  -not -name "README*" 
     echo >> API.md 
 done
 cat ../*md API.md > _index.md
-pandoc -f gfm --toc -s _index.md -o ../index.md
+pandoc -f gfm --toc --toc-depth=2  -s _index.md -o ../index.md
 
 rm *md
 cat ../HEAD_md ../index.md > ./README.md

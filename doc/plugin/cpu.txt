@@ -1,0 +1,27 @@
+### NAME {#NAME}
+
+    cpu - FAIM plugin to monitor the CPU load
+
+### APPLICABLE SYSTEMS {#APPLICABLE-SYSTEMS}
+
+FreeBSD, linux
+
+### USAGE {#USAGE}
+
+Just create cpu_enabled in the plugin dir
+
+### BUGS {#BUGS}
+
+None known.
+
+### VERSION {#VERSION}
+
+v1.1 - 2024-03-24
+
+### AUTHOR {#AUTHOR}
+
+Julien Tayon (julien@tayon.net)
+
+### LICENSE {#LICENSE}
+
+GPLv2

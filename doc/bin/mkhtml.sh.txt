@@ -1,24 +1,28 @@
-NAME
-        mkhtml
+### NAME {#NAME}
 
-        HTML maker
+    mkhtml
 
-  SYNOPSIS
-    Generator of HTML output from data collected in ../data
+    HTML maker
 
-        [DAEMON=] [SINCE=3600] mkhtml.sh
+#### SYNOPSIS {#SYNOPSIS}
 
-    Can be used as
+Generator of HTML output from data collected in ../data
 
-        ./mkhtml.sh
+    [DAEMON=] [SINCE=3600] mkhtml.sh
 
-    to generate the web page in ../data
+Can be used as
 
-  OPTIONS
-    DAEMON
-        This code will run permanently waking itself up to update the web
-        page.
+    ./mkhtml.sh 
 
-    SINCE
-        The window span time you are interested in in seconds from NOW
+to generate the web page in ../data
 
+#### OPTIONS {#OPTIONS}
+
+DAEMON
+
+:   This code will run permanently waking itself up to update the web
+    page.
+
+SINCE
+
+:   The window span time you are interested in in seconds from NOW

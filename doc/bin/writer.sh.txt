@@ -1,15 +1,17 @@
-NAME
-        writer.sh
+### NAME {#NAME}
 
-  SYNOPSIS
-    Emitter of data
+    writer.sh
 
-        [TICK=2] ./writer.sh
+#### SYNOPSIS {#SYNOPSIS}
 
-  OPTIONS
-    For explanation of options see <file:../start.sh.html>
+Emitter of data
 
-    If TICK is set then writer will assume it is to be launched in
-    conjunction with <file:./clock.sh.html> and do nothing until clock.sh
-    sends a signal to it to write data.
+    [TICK=2] ./writer.sh
 
+#### OPTIONS {#OPTIONS}
+
+For explanation of options see \"start.sh.html\" in .
+
+If TICK is set then writer will assume it is to be launched in
+conjunction with \"clock.sh.html\" in . and do nothing until clock.sh
+sends a signal to it to write data.

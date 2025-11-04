@@ -1,31 +1,40 @@
-NAME
-    acpi_ibm - Munin plugin to monitor the fan speed returned by ACPI probe.
+### NAME {#NAME}
 
-APPLICABLE SYSTEMS
-    FreeBSD systems with ACPI support. man acpi_ibm(4)
+acpi_ibm - Munin plugin to monitor the fan speed returned by ACPI probe.
 
-CONFIGURATION
-    add ibm_acpi in loader.conf
+### APPLICABLE SYSTEMS {#APPLICABLE-SYSTEMS}
 
-USAGE
-    Link this plugin to @@CONFDIR@@/plugins/ and restart the munin-node.
+FreeBSD systems with ACPI support. man acpi_ibm(4)
 
-INTERPRETATION
-    The plugin shows the fans' speeds.
+### CONFIGURATION {#CONFIGURATION}
 
-MAGIC MARKERS
-     #%# family=auto
-     #%# capabilities=autoconf
+add ibm_acpi in loader.conf
 
-BUGS
-    None known.
+### USAGE {#USAGE}
 
-VERSION
-    v1.1 - 2024-03-24
+Link this plugin to @@CONFDIR@@/plugins/ and restart the munin-node.
 
-AUTHOR
-    Julien Tayon (julien@tayon.net)
+### INTERPRETATION {#INTERPRETATION}
 
-LICENSE
-    GPLv2
+The plugin shows the fans\' speeds.
 
+### MAGIC MARKERS {#MAGIC-MARKERS}
+
+    #%# family=auto
+    #%# capabilities=autoconf
+
+### BUGS {#BUGS}
+
+None known.
+
+### VERSION {#VERSION}
+
+v1.1 - 2024-03-24
+
+### AUTHOR {#AUTHOR}
+
+Julien Tayon (julien@tayon.net)
+
+### LICENSE {#LICENSE}
+
+GPLv2

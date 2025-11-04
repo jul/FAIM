@@ -1,16 +1,17 @@
-NAME
-        lurker.sh
+### NAME {#NAME}
 
-  SYNOPSIS
-    Collector of data
+    lurker.sh
 
-        ./lurker.sh
+#### SYNOPSIS {#SYNOPSIS}
 
-    Can be used as
+Collector of data
 
-        while [ 1 ]; do writer.sh | lurker.sh; sleep 30; done
+    ./lurker.sh
 
-    To collect data emitted locally about the machine.
+Can be used as
 
-    Results are written in ../data
+    while [ 1 ]; do writer.sh | lurker.sh; sleep 30; done
 
+To collect data emitted locally about the machine.
+
+Results are written in ../data

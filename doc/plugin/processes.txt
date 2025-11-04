@@ -1,26 +1,31 @@
-NAME
-    processes - Plugin to monitor processes and process states.
+### NAME {#NAME}
 
-ABOUT
-    This plugin requires munin-server version 1.2.5 or 1.3.3 (or higher).
+processes - Plugin to monitor processes and process states.
 
-    This plugin is backwards compatible with the old processes-plugins found
-    on SunOS, Linux and *BSD (i.e. the history is preserved).
+### ABOUT {#ABOUT}
 
-    All fields have colours associated with them which reflect the type of
-    process (sleeping/idle = blue, running = green, stopped/zombie/dead =
-    red, etc.)
+This plugin requires munin-server version 1.2.5 or 1.3.3 (or higher).
 
-CONFIGURATION
-    No configuration for this plugin.
+This plugin is backwards compatible with the old processes-plugins found
+on SunOS, Linux and \*BSD (i.e. the history is preserved).
 
-AUTHOR
-    Copyright (C) 2006 Lars Strand
+All fields have colours associated with them which reflect the type of
+process (sleeping/idle = blue, running = green, stopped/zombie/dead =
+red, etc.)
 
-LICENSE
-    GNU General Public License, version 2
+### CONFIGURATION {#CONFIGURATION}
 
-MAGIC MARKERS
-     #%# family=auto
-     #%# capabilities=autoconf
+No configuration for this plugin.
 
+### AUTHOR {#AUTHOR}
+
+Copyright (C) 2006 Lars Strand
+
+### LICENSE {#LICENSE}
+
+GNU General Public License, version 2
+
+### MAGIC MARKERS {#MAGIC-MARKERS}
+
+    #%# family=auto
+    #%# capabilities=autoconf

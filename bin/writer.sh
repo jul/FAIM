@@ -13,12 +13,14 @@ Emitter of data
 
 =head2 OPTIONS
 
-For explanation of options see L<file:../start.sh.html>
+For explanation of options see L<< ./start.sh.html >>
 
-If TICK is set then writer will assume it is to be launched in conjunction with L<file:./clock.sh.html>
+If TICK is set then writer will assume it is to be launched in conjunction with L<< ./clock.sh.html >>
 and do nothing until clock.sh sends a signal to it to write data.
 
 =cut
+
+
 TICK=${1:-${TICK:-1}}
 #sleep $(( RANDOM % TICK ))
 HERE="$( dirname $0 )"

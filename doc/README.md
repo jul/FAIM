@@ -17,9 +17,12 @@
     system](#state-machine-of-the-system){#toc-state-machine-of-the-system}
 -   [Agent Oriented
     Programming](#agent-oriented-programming){#toc-agent-oriented-programming}
+-   [Documentation of each
+    scripts](#documentation-of-each-scripts){#toc-documentation-of-each-scripts}
     -   [./bin/asci_plot.sh.txt](#binasci_plotshtxt){#toc-binasci_plotshtxt}
     -   [./bin/basic_plot.sh.txt](#binbasic_plotshtxt){#toc-binbasic_plotshtxt}
     -   [./bin/clock.sh.txt](#binclockshtxt){#toc-binclockshtxt}
+    -   [./bin/launch_lurker.py.txt](#binlaunch_lurkerpytxt){#toc-binlaunch_lurkerpytxt}
     -   [./bin/launch_lurker.sh.txt](#binlaunch_lurkershtxt){#toc-binlaunch_lurkershtxt}
     -   [./bin/launch_writer.sh.txt](#binlaunch_writershtxt){#toc-binlaunch_writershtxt}
     -   [./bin/lurker.sh.txt](#binlurkershtxt){#toc-binlurkershtxt}
@@ -28,7 +31,7 @@
     -   [./bin/plot_histo.sh.txt](#binplot_histoshtxt){#toc-binplot_histoshtxt}
     -   [./bin/plot_rrd2.sh.txt](#binplot_rrd2shtxt){#toc-binplot_rrd2shtxt}
     -   [./bin/writer.sh.txt](#binwritershtxt){#toc-binwritershtxt}
-    -   [./mkdoc.sh.txt](#mkdocshtxt){#toc-mkdocshtxt}
+    -   [./plugin/.cpu.swp.txt](#plugincpuswptxt){#toc-plugincpuswptxt}
     -   [./plugin/cpu.txt](#plugincputxt){#toc-plugincputxt}
     -   [./plugin/ibm_acpi_fan.txt](#pluginibm_acpi_fantxt){#toc-pluginibm_acpi_fantxt}
     -   [./plugin/ibm_acpi.txt](#pluginibm_acpitxt){#toc-pluginibm_acpitxt}
@@ -37,9 +40,6 @@
     -   [./plugin/processes.txt](#pluginprocessestxt){#toc-pluginprocessestxt}
     -   [./plugin/stat.txt](#pluginstattxt){#toc-pluginstattxt}
     -   [./plugin/tcp.txt](#plugintcptxt){#toc-plugintcptxt}
-    -   [./pubsub.sh.txt](#pubsubshtxt){#toc-pubsubshtxt}
-    -   [./start.sh.txt](#startshtxt){#toc-startshtxt}
-    -   [./stop.sh.txt](#stopshtxt){#toc-stopshtxt}
 
 \% Fast Adaptive Insecure Monitoring: the monitoring system that should
 never have been invented, that is fun % jul % 2024-07-07
@@ -162,69 +162,112 @@ See diag.dot
 8.  violation of uncoupling between layers is bad so it has to be
     handled with care.
 
+# Documentation of each scripts
+
+API of each components.
+
 ## ./bin/asci_plot.sh.txt {#binasci_plotshtxt}
 
 ## ./bin/basic_plot.sh.txt {#binbasic_plotshtxt}
 
 ## ./bin/clock.sh.txt {#binclockshtxt}
 
+## ./bin/launch_lurker.py.txt {#binlaunch_lurkerpytxt}
+
+### NAME {#NAME}
+
+launch_lurker.py
+
+#### SYNOPSYS {#SYNOPSYS}
+
+\[HOST=0.0.0.0\] \[PORT=6666\] ./launch_lurker
+
+#### OPTIONS {#OPTIONS}
+
+see <file:../start.sh.html> for explanation of the options =back
+
 ## ./bin/launch_lurker.sh.txt {#binlaunch_lurkershtxt}
 
-NAME launch_lurker.sh
+### NAME {#NAME}
 
-SYNOPSIS Make data collector available for listening to the probes
+    launch_lurker.sh
 
-        [TICK=2] [BROADCAST=192.168.1.255] [RANGE=24] [PORT=6666] ./launch_writer.sh
+#### SYNOPSIS {#SYNOPSIS}
 
-OPTIONS For explanation of options see <file:../start.sh.html>
+Make data collector available for listening to the probes
+
+    [TICK=2] [BROADCAST=192.168.1.255] [RANGE=24] [PORT=6666] ./launch_writer.sh
+
+#### OPTIONS {#OPTIONS}
+
+For explanation of options see <file:../start.sh.html>
 
 ## ./bin/launch_writer.sh.txt {#binlaunch_writershtxt}
 
-NAME launch_writer.sh
+### NAME {#NAME}
 
-SYNOPSIS Make writer emit on BROADCAST/RANGE ono port PORT
+    launch_writer.sh
 
-        [TICK=2] [BROADCAST=192.168.1.255] [RANGE=24] [PORT=6666] ./launch_writer.sh
+#### SYNOPSIS {#SYNOPSIS}
 
-OPTIONS For explanation of options see <file:../start.sh.html>
+Make writer emit on BROADCAST/RANGE ono port PORT
+
+    [TICK=2] [BROADCAST=192.168.1.255] [RANGE=24] [PORT=6666] ./launch_writer.sh
+
+#### OPTIONS {#OPTIONS}
+
+For explanation of options see <file:../start.sh.html>
 
 ## ./bin/lurker.sh.txt {#binlurkershtxt}
 
-NAME lurker.sh
+### NAME {#NAME}
 
-SYNOPSIS Collector of data
+    lurker.sh
 
-        ./lurker.sh
+#### SYNOPSIS {#SYNOPSIS}
 
-    Can be used as
+Collector of data
 
-        while [ 1 ]; do writer.sh | lurker.sh; sleep 30; done
+    ./lurker.sh
 
-    To collect data emitted locally about the machine.
+Can be used as
 
-    Results are written in ../data
+    while [ 1 ]; do writer.sh | lurker.sh; sleep 30; done
+
+To collect data emitted locally about the machine.
+
+Results are written in ../data
 
 ## ./bin/mkhtml.sh.txt {#binmkhtmlshtxt}
 
-NAME mkhtml
+### NAME {#NAME}
 
-        HTML maker
+    mkhtml
 
-SYNOPSIS Generator of HTML output from data collected in ../data
+    HTML maker
 
-        [DAEMON=] [SINCE=3600] mkhtml.sh
+#### SYNOPSIS {#SYNOPSIS}
 
-    Can be used as
+Generator of HTML output from data collected in ../data
 
-        ./mkhtml.sh
+    [DAEMON=] [SINCE=3600] mkhtml.sh
 
-    to generate the web page in ../data
+Can be used as
 
-OPTIONS DAEMON This code will run permanently waking itself up to update
-the web page.
+    ./mkhtml.sh 
 
-    SINCE
-        The window span time you are interested in in seconds from NOW
+to generate the web page in ../data
+
+#### OPTIONS {#OPTIONS}
+
+DAEMON
+
+: This code will run permanently waking itself up to update the web
+page.
+
+SINCE
+
+: The window span time you are interested in in seconds from NOW
 
 ## ./bin/plot_histo_g.sh.txt {#binplot_histo_gshtxt}
 
@@ -234,181 +277,274 @@ the web page.
 
 ## ./bin/writer.sh.txt {#binwritershtxt}
 
-NAME writer.sh
+### NAME {#NAME}
 
-SYNOPSIS Emitter of data
+    writer.sh
 
-        [TICK=2] ./writer.sh
+#### SYNOPSIS {#SYNOPSIS}
 
-OPTIONS For explanation of options see <file:../start.sh.html>
+Emitter of data
 
-    If TICK is set then writer will assume it is to be launched in
-    conjunction with <file:./clock.sh.html> and do nothing until clock.sh
-    sends a signal to it to write data.
+    [TICK=2] ./writer.sh
 
-## ./mkdoc.sh.txt {#mkdocshtxt}
+#### OPTIONS {#OPTIONS}
 
-NAME mkdoc.sh
+For explanation of options see \"start.sh.html\" in .
 
-SYNOPSIS Generates the doc. Requires pandoc for markdown to html
-conversion
+If TICK is set then writer will assume it is to be launched in
+conjunction with \"clock.sh.html\" in . and do nothing until clock.sh
+sends a signal to it to write data.
 
-        ./mkdoc.sh
+## ./plugin/.cpu.swp.txt {#plugincpuswptxt}
 
 ## ./plugin/cpu.txt {#plugincputxt}
 
+### NAME {#NAME}
+
+    cpu - FAIM plugin to monitor the CPU load
+
+### APPLICABLE SYSTEMS {#APPLICABLE-SYSTEMS}
+
+FreeBSD, linux
+
+### USAGE {#USAGE}
+
+Just create cpu_enabled in the plugin dir
+
+### BUGS {#BUGS}
+
+None known.
+
+### VERSION {#VERSION}
+
+v1.1 - 2024-03-24
+
+### AUTHOR {#AUTHOR}
+
+Julien Tayon (<julien@tayon.net>)
+
+### LICENSE {#LICENSE}
+
+GPLv2
+
 ## ./plugin/ibm_acpi_fan.txt {#pluginibm_acpi_fantxt}
 
-NAME acpi_ibm - Munin plugin to monitor the fan speed returned by ACPI
-probe.
+### NAME {#NAME}
 
-APPLICABLE SYSTEMS FreeBSD systems with ACPI support. man acpi_ibm(4)
+acpi_ibm - Munin plugin to monitor the fan speed returned by ACPI probe.
 
-CONFIGURATION add ibm_acpi in loader.conf
+### APPLICABLE SYSTEMS {#APPLICABLE-SYSTEMS}
 
-USAGE Link this plugin to @@CONFDIR@@/plugins/ and restart the
-munin-node.
+FreeBSD systems with ACPI support. man acpi_ibm(4)
 
-INTERPRETATION The plugin shows the fans\' speeds.
+### CONFIGURATION {#CONFIGURATION}
 
-MAGIC MARKERS #%# family=auto #%# capabilities=autoconf
+add ibm_acpi in loader.conf
 
-BUGS None known.
+### USAGE {#USAGE}
 
-VERSION v1.1 - 2024-03-24
+Link this plugin to @@CONFDIR@@/plugins/ and restart the munin-node.
 
-AUTHOR Julien Tayon (<julien@tayon.net>)
+### INTERPRETATION {#INTERPRETATION}
 
-LICENSE GPLv2
+The plugin shows the fans\' speeds.
+
+### MAGIC MARKERS {#MAGIC-MARKERS}
+
+    #%# family=auto
+    #%# capabilities=autoconf
+
+### BUGS {#BUGS}
+
+None known.
+
+### VERSION {#VERSION}
+
+v1.1 - 2024-03-24
+
+### AUTHOR {#AUTHOR}
+
+Julien Tayon (<julien@tayon.net>)
+
+### LICENSE {#LICENSE}
+
+GPLv2
 
 ## ./plugin/ibm_acpi.txt {#pluginibm_acpitxt}
 
-NAME acpii_ibm - Munin plugin to monitor the temperature in different
-ACPI Thermal zones.
+### NAME {#NAME}
 
-APPLICABLE SYSTEMS FreeBSD systems with ACPI support. man acpi_ibm(4)
+acpii_ibm - Munin plugin to monitor the temperature in different ACPI
+Thermal zones.
 
-CONFIGURATION add ibm_acpi in loader.conf
+### APPLICABLE SYSTEMS {#APPLICABLE-SYSTEMS}
 
-USAGE Link this plugin to @@CONFDIR@@/plugins/ and restart the
-munin-node.
+FreeBSD systems with ACPI support. man acpi_ibm(4)
 
-INTERPRETATION The plugin shows the temperature from the different
-thermal zones.
+### CONFIGURATION {#CONFIGURATION}
 
-MAGIC MARKERS #%# family=auto #%# capabilities=autoconf
+add ibm_acpi in loader.conf
 
-BUGS None known.
+### USAGE {#USAGE}
 
-VERSION v1.1 - 2024-03-24
+Link this plugin to @@CONFDIR@@/plugins/ and restart the munin-node.
 
-AUTHOR Julien Tayon (<julien@tayon.net>)
+### INTERPRETATION {#INTERPRETATION}
 
-LICENSE GPLv2
+The plugin shows the temperature from the different thermal zones.
+
+### MAGIC MARKERS {#MAGIC-MARKERS}
+
+    #%# family=auto
+    #%# capabilities=autoconf
+
+### BUGS {#BUGS}
+
+None known.
+
+### VERSION {#VERSION}
+
+v1.1 - 2024-03-24
+
+### AUTHOR {#AUTHOR}
+
+Julien Tayon (<julien@tayon.net>)
+
+### LICENSE {#LICENSE}
+
+GPLv2
 
 ## ./plugin/irq.txt {#pluginirqtxt}
 
-NAME interrupts - list number of interrupts since boot (linux) or the
+### NAME {#NAME}
+
+interrupts - list number of interrupts since boot (linux) or the
 interrupt rate per interrupt
 
-CONFIGURATION No configuration
+### CONFIGURATION {#CONFIGURATION}
 
-AUTHOR Idea and base from Ragnar Wisløff.
+No configuration
 
-LICENSE GPLv2
+### AUTHOR {#AUTHOR}
 
-MAGIC MARKERS #%# family=auto #%# capabilities=autoconf
+Idea and base from Ragnar Wisløff.
+
+### LICENSE {#LICENSE}
+
+GPLv2
+
+### MAGIC MARKERS {#MAGIC-MARKERS}
+
+    #%# family=auto
+    #%# capabilities=autoconf
+
+### POD ERRORS {#POD-ERRORS}
+
+Hey! **The above document had some coding errors, which are explained
+below:**
+
+Around line 16:
+
+: Non-ASCII character seen before =encoding in \'Wisløff.\'. Assuming
+UTF-8
 
 ## ./plugin/open_files.txt {#pluginopen_filestxt}
 
-NAME open_files - Plugin to monitor the number of open files in the
-system
+### NAME {#NAME}
 
-CONFIGURATION No configuration
+open_files - Plugin to monitor the number of open files in the system
 
-AUTHOR Unknown author
+### CONFIGURATION {#CONFIGURATION}
 
-LICENSE GPLv2
+No configuration
 
-MAGIC MARKERS #%# family=auto #%# capabilities=autoconf
+### AUTHOR {#AUTHOR}
+
+Unknown author
+
+### LICENSE {#LICENSE}
+
+GPLv2
+
+### MAGIC MARKERS {#MAGIC-MARKERS}
+
+    #%# family=auto
+    #%# capabilities=autoconf
 
 ## ./plugin/processes.txt {#pluginprocessestxt}
 
-NAME processes - Plugin to monitor processes and process states.
+### NAME {#NAME}
 
-ABOUT This plugin requires munin-server version 1.2.5 or 1.3.3 (or
-higher).
+processes - Plugin to monitor processes and process states.
 
-    This plugin is backwards compatible with the old processes-plugins found
-    on SunOS, Linux and *BSD (i.e. the history is preserved).
+### ABOUT {#ABOUT}
 
-    All fields have colours associated with them which reflect the type of
-    process (sleeping/idle = blue, running = green, stopped/zombie/dead =
-    red, etc.)
+This plugin requires munin-server version 1.2.5 or 1.3.3 (or higher).
 
-CONFIGURATION No configuration for this plugin.
+This plugin is backwards compatible with the old processes-plugins found
+on SunOS, Linux and \*BSD (i.e. the history is preserved).
 
-AUTHOR Copyright (C) 2006 Lars Strand
+All fields have colours associated with them which reflect the type of
+process (sleeping/idle = blue, running = green, stopped/zombie/dead =
+red, etc.)
 
-LICENSE GNU General Public License, version 2
+### CONFIGURATION {#CONFIGURATION}
 
-MAGIC MARKERS #%# family=auto #%# capabilities=autoconf
+No configuration for this plugin.
+
+### AUTHOR {#AUTHOR}
+
+Copyright (C) 2006 Lars Strand
+
+### LICENSE {#LICENSE}
+
+GNU General Public License, version 2
+
+### MAGIC MARKERS {#MAGIC-MARKERS}
+
+    #%# family=auto
+    #%# capabilities=autoconf
 
 ## ./plugin/stat.txt {#pluginstattxt}
 
-NAME interrupts - Plugin to monitor the number of interrupts and context
+### NAME {#NAME}
+
+interrupts - Plugin to monitor the number of interrupts and context
 switches on a system.
 
-CONFIGURATION No configuration
+### CONFIGURATION {#CONFIGURATION}
 
-AUTHOR Idea and base from Ragnar Wisløff.
+No configuration
 
-LICENSE GPLv2
+### AUTHOR {#AUTHOR}
 
-MAGIC MARKERS #%# family=auto #%# capabilities=autoconf
+Idea and base from Ragnar Wisløff.
+
+### LICENSE {#LICENSE}
+
+GPLv2
+
+### MAGIC MARKERS {#MAGIC-MARKERS}
+
+    #%# family=auto
+    #%# capabilities=autoconf
+
+### POD ERRORS {#POD-ERRORS}
+
+Hey! **The above document had some coding errors, which are explained
+below:**
+
+Around line 17:
+
+: Non-ASCII character seen before =encoding in \'Wisløff.\'. Assuming
+UTF-8
 
 ## ./plugin/tcp.txt {#plugintcptxt}
 
-NAME tcp - Plugin to monitor IPV4/6 TCP socket status on a Linux host.
+### NAME {#NAME}
 
-LICENSE GPLv2
+tcp - Plugin to monitor IPV4/6 TCP socket status on a Linux host.
 
-## ./pubsub.sh.txt {#pubsubshtxt}
+### LICENSE {#LICENSE}
 
-## ./start.sh.txt {#startshtxt}
-
-NAME start.sh
-
-DESCRIPTION Launches the networked apparatus of measures. It is the
-reciprocal function of stop.sh
-
-SYNOPSIS All arguments are passed by environment variables
-
-        [HOST=0.0.0.0] [PORT=6666] [TICK=2] [LURKER=] [BROADCAST=192.168.1.255] [RANGE=24] [SINCE=900] start.sh
-
-OPTIONS TICK TICK is the initial clock given to the system. It will
-however converge to its computed value.
-
-    LURKER
-        When LURKER is set, the data collecting agent is launched and
-        process all probes sent on the given broadcast address
-
-    BROADCAST
-        UDP BROADCAST address to use
-
-    RANGE
-        Range in the form [0-32] to specify the BROADCAST range.
-
-        Ex: 24 will specify $BROADCAST/24
-
-    SINCE
-        Argument given to the html generator to know how much seconds since
-        NOW must be shown in the graph.
-
-## ./stop.sh.txt {#stopshtxt}
-
-NAME stop.sh
-
-DESCRIPTION stops all agent launched by start
-
-OPTIONS None
+GPLv2
