@@ -13,6 +13,7 @@ Generates the doc. Requires pandoc for markdown to html conversion
 
 =cut
 
+rm README.md
 rm doc -rf
 [ -d doc ] || mkdir -p doc/img
 cp img/* doc/img/
@@ -43,7 +44,8 @@ cat <<EOF > API.md
 API of each components.
 
 EOF
-for i in $( find . -name "*txt" -a -not -path ".*.git*" -a -not -name "intro*" | sort ); do
+echo > API.md
+for i in $( find . -name "*txt" -a -not -name "intro*" -a  -not -name "README*" | sort ); do
 
     echo "## $i" >> API.md
     echo >> API.md 
