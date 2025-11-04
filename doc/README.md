@@ -28,8 +28,6 @@
     -   [./bin/plot_histo.sh.txt](#binplot_histoshtxt){#toc-binplot_histoshtxt}
     -   [./bin/plot_rrd2.sh.txt](#binplot_rrd2shtxt){#toc-binplot_rrd2shtxt}
     -   [./bin/writer.sh.txt](#binwritershtxt){#toc-binwritershtxt}
-    -   [./.git/logs/refs/stash.txt](#gitlogsrefsstashtxt){#toc-gitlogsrefsstashtxt}
-    -   [./.git/refs/stash.txt](#gitrefsstashtxt){#toc-gitrefsstashtxt}
     -   [./mkdoc.sh.txt](#mkdocshtxt){#toc-mkdocshtxt}
     -   [./plugin/cpu.txt](#plugincputxt){#toc-plugincputxt}
     -   [./plugin/ibm_acpi_fan.txt](#pluginibm_acpi_fantxt){#toc-pluginibm_acpi_fantxt}
@@ -247,10 +245,6 @@ OPTIONS For explanation of options see <file:../start.sh.html>
     If TICK is set then writer will assume it is to be launched in
     conjunction with <file:./clock.sh.html> and do nothing until clock.sh
     sends a signal to it to write data.
-
-## ./.git/logs/refs/stash.txt {#gitlogsrefsstashtxt}
-
-## ./.git/refs/stash.txt {#gitrefsstashtxt}
 
 ## ./mkdoc.sh.txt {#mkdocshtxt}
 

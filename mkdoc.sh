@@ -45,7 +45,7 @@ API of each components.
 
 EOF
 echo > API.md
-for i in $( find . -name "*txt" -a -not -name "intro*" -a  -not -name "README*" | sort ); do
+for i in $( find . -name "*txt" -a -not -name "intro*" -a  -not -name "README*" -a -not -path "*.git*" | sort ); do
 
     echo "## $i" >> API.md
     echo >> API.md 
