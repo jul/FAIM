@@ -68,9 +68,9 @@ echo $$ > $HERE/pid/$( basename $0).pid
 [ -e log ] || mkdir log
 [ -e run ] || mkdir run
 [ -e data ] || mkdir data
-if [ ! -z "$LURKER" ]; then
+if [ "$LURKER" == "1" ]; then
     SINCE=$SINCE DAEMON=1 $HERE/bin/mkhtml.sh &
-    HOST=$HOST PORT=$PORT $HERE/bin/launch_lurker.py &
+    BROADCAST=$BROADCAST HOST=$HOST PORT=$PORT $HERE/bin/launch_lurker.sh &
 fi
 PORT=$PORT BROADCAST=$BROADCAST RANGE=$RANGE TICK=$TICK $HERE/bin/launch_writer.sh &
 TICK=$TICK $HERE/bin/clock.sh &
