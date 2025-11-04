@@ -1,5 +1,473 @@
 <ul>
 <li><a href="#intro" id="toc-intro">Intro</a></li>
+<li><a href="#intro-1" id="toc-intro-1">Intro</a></li>
+<li><a href="#intro-2" id="toc-intro-2">Intro</a></li>
+<li><a href="#quickstart" id="toc-quickstart">Quickstart</a>
+<ul>
+<li><a href="#requirements" id="toc-requirements">Requirements</a></li>
+<li><a href="#starting-the-probe" id="toc-starting-the-probe">Starting
+the probe</a></li>
+<li><a href="#starting-the-collect-of-data"
+id="toc-starting-the-collect-of-data">Starting the collect of
+data</a></li>
+</ul></li>
+<li><a href="#state-machine-of-the-system"
+id="toc-state-machine-of-the-system">State Machine of the
+system</a></li>
+<li><a href="#agent-oriented-programming"
+id="toc-agent-oriented-programming">Agent Oriented Programming</a></li>
+<li><a href="#documentation-of-each-scripts"
+id="toc-documentation-of-each-scripts">Documentation of each scripts</a>
+<ul>
+<li><a
+href="#binasci_plotshtxt-binasci_plotshtxt-binasci_plotshtxt-binasci_plotshtxt"
+id="toc-binasci_plotshtxt-binasci_plotshtxt-binasci_plotshtxt-binasci_plotshtxt">./bin/asci_plot.sh.txt
+{#binasci_plotshtxt} {#binasci_plotshtxt-binasci_plotshtxt}</a></li>
+<li><a
+href="#binbasic_plotshtxt-binbasic_plotshtxt-binbasic_plotshtxt-binbasic_plotshtxt"
+id="toc-binbasic_plotshtxt-binbasic_plotshtxt-binbasic_plotshtxt-binbasic_plotshtxt">./bin/basic_plot.sh.txt
+{#binbasic_plotshtxt} {#binbasic_plotshtxt-binbasic_plotshtxt}</a></li>
+<li><a href="#binclockshtxt-binclockshtxt-binclockshtxt-binclockshtxt"
+id="toc-binclockshtxt-binclockshtxt-binclockshtxt-binclockshtxt">./bin/clock.sh.txt
+{#binclockshtxt} {#binclockshtxt-binclockshtxt}</a></li>
+<li><a
+href="#binlaunch_lurkershtxt-binlaunch_lurkershtxt-binlaunch_lurkershtxt-binlaunch_lurkershtxt"
+id="toc-binlaunch_lurkershtxt-binlaunch_lurkershtxt-binlaunch_lurkershtxt-binlaunch_lurkershtxt">./bin/launch_lurker.sh.txt
+{#binlaunch_lurkershtxt}
+{#binlaunch_lurkershtxt-binlaunch_lurkershtxt}</a></li>
+<li><a
+href="#binlaunch_writershtxt-binlaunch_writershtxt-binlaunch_writershtxt-binlaunch_writershtxt"
+id="toc-binlaunch_writershtxt-binlaunch_writershtxt-binlaunch_writershtxt-binlaunch_writershtxt">./bin/launch_writer.sh.txt
+{#binlaunch_writershtxt}
+{#binlaunch_writershtxt-binlaunch_writershtxt}</a></li>
+<li><a
+href="#binlurkershtxt-binlurkershtxt-binlurkershtxt-binlurkershtxt"
+id="toc-binlurkershtxt-binlurkershtxt-binlurkershtxt-binlurkershtxt">./bin/lurker.sh.txt
+{#binlurkershtxt} {#binlurkershtxt-binlurkershtxt}</a></li>
+<li><a
+href="#binmkhtmlshtxt-binmkhtmlshtxt-binmkhtmlshtxt-binmkhtmlshtxt"
+id="toc-binmkhtmlshtxt-binmkhtmlshtxt-binmkhtmlshtxt-binmkhtmlshtxt">./bin/mkhtml.sh.txt
+{#binmkhtmlshtxt} {#binmkhtmlshtxt-binmkhtmlshtxt}</a></li>
+<li><a
+href="#binplot_histo_gshtxt-binplot_histo_gshtxt-binplot_histo_gshtxt-binplot_histo_gshtxt"
+id="toc-binplot_histo_gshtxt-binplot_histo_gshtxt-binplot_histo_gshtxt-binplot_histo_gshtxt">./bin/plot_histo_g.sh.txt
+{#binplot_histo_gshtxt}
+{#binplot_histo_gshtxt-binplot_histo_gshtxt}</a></li>
+<li><a
+href="#binplot_histoshtxt-binplot_histoshtxt-binplot_histoshtxt-binplot_histoshtxt"
+id="toc-binplot_histoshtxt-binplot_histoshtxt-binplot_histoshtxt-binplot_histoshtxt">./bin/plot_histo.sh.txt
+{#binplot_histoshtxt} {#binplot_histoshtxt-binplot_histoshtxt}</a></li>
+<li><a
+href="#binplot_rrd2shtxt-binplot_rrd2shtxt-binplot_rrd2shtxt-binplot_rrd2shtxt"
+id="toc-binplot_rrd2shtxt-binplot_rrd2shtxt-binplot_rrd2shtxt-binplot_rrd2shtxt">./bin/plot_rrd2.sh.txt
+{#binplot_rrd2shtxt} {#binplot_rrd2shtxt-binplot_rrd2shtxt}</a></li>
+<li><a
+href="#binwritershtxt-binwritershtxt-binwritershtxt-binwritershtxt"
+id="toc-binwritershtxt-binwritershtxt-binwritershtxt-binwritershtxt">./bin/writer.sh.txt
+{#binwritershtxt} {#binwritershtxt-binwritershtxt}</a></li>
+<li><a href="#mkdocshtxt-mkdocshtxt-mkdocshtxt-mkdocshtxt"
+id="toc-mkdocshtxt-mkdocshtxt-mkdocshtxt-mkdocshtxt">./mkdoc.sh.txt
+{#mkdocshtxt} {#mkdocshtxt-mkdocshtxt}</a></li>
+<li><a href="#plugincputxt-plugincputxt-plugincputxt-plugincputxt"
+id="toc-plugincputxt-plugincputxt-plugincputxt-plugincputxt">./plugin/cpu.txt
+{#plugincputxt} {#plugincputxt-plugincputxt}</a></li>
+<li><a
+href="#pluginibm_acpi_fantxt-pluginibm_acpi_fantxt-pluginibm_acpi_fantxt-pluginibm_acpi_fantxt"
+id="toc-pluginibm_acpi_fantxt-pluginibm_acpi_fantxt-pluginibm_acpi_fantxt-pluginibm_acpi_fantxt">./plugin/ibm_acpi_fan.txt
+{#pluginibm_acpi_fantxt}
+{#pluginibm_acpi_fantxt-pluginibm_acpi_fantxt}</a></li>
+<li><a
+href="#pluginibm_acpitxt-pluginibm_acpitxt-pluginibm_acpitxt-pluginibm_acpitxt"
+id="toc-pluginibm_acpitxt-pluginibm_acpitxt-pluginibm_acpitxt-pluginibm_acpitxt">./plugin/ibm_acpi.txt
+{#pluginibm_acpitxt} {#pluginibm_acpitxt-pluginibm_acpitxt}</a></li>
+<li><a href="#pluginirqtxt-pluginirqtxt-pluginirqtxt-pluginirqtxt"
+id="toc-pluginirqtxt-pluginirqtxt-pluginirqtxt-pluginirqtxt">./plugin/irq.txt
+{#pluginirqtxt} {#pluginirqtxt-pluginirqtxt}</a></li>
+<li><a
+href="#pluginopen_filestxt-pluginopen_filestxt-pluginopen_filestxt-pluginopen_filestxt"
+id="toc-pluginopen_filestxt-pluginopen_filestxt-pluginopen_filestxt-pluginopen_filestxt">./plugin/open_files.txt
+{#pluginopen_filestxt}
+{#pluginopen_filestxt-pluginopen_filestxt}</a></li>
+<li><a
+href="#pluginprocessestxt-pluginprocessestxt-pluginprocessestxt-pluginprocessestxt"
+id="toc-pluginprocessestxt-pluginprocessestxt-pluginprocessestxt-pluginprocessestxt">./plugin/processes.txt
+{#pluginprocessestxt} {#pluginprocessestxt-pluginprocessestxt}</a></li>
+<li><a href="#pluginstattxt-pluginstattxt-pluginstattxt-pluginstattxt"
+id="toc-pluginstattxt-pluginstattxt-pluginstattxt-pluginstattxt">./plugin/stat.txt
+{#pluginstattxt} {#pluginstattxt-pluginstattxt}</a></li>
+<li><a href="#plugintcptxt-plugintcptxt-plugintcptxt-plugintcptxt"
+id="toc-plugintcptxt-plugintcptxt-plugintcptxt-plugintcptxt">./plugin/tcp.txt
+{#plugintcptxt} {#plugintcptxt-plugintcptxt}</a></li>
+<li><a href="#pubsubshtxt-pubsubshtxt-pubsubshtxt-pubsubshtxt"
+id="toc-pubsubshtxt-pubsubshtxt-pubsubshtxt-pubsubshtxt">./pubsub.sh.txt
+{#pubsubshtxt} {#pubsubshtxt-pubsubshtxt}</a></li>
+<li><a href="#startshtxt-startshtxt-startshtxt-startshtxt"
+id="toc-startshtxt-startshtxt-startshtxt-startshtxt">./start.sh.txt
+{#startshtxt} {#startshtxt-startshtxt}</a></li>
+<li><a href="#stopshtxt-stopshtxt-stopshtxt-stopshtxt"
+id="toc-stopshtxt-stopshtxt-stopshtxt-stopshtxt">./stop.sh.txt
+{#stopshtxt} {#stopshtxt-stopshtxt}</a></li>
+</ul></li>
+<li><a href="#quickstart-1" id="toc-quickstart-1">Quickstart</a>
+<ul>
+<li><a href="#requirements-1"
+id="toc-requirements-1">Requirements</a></li>
+<li><a href="#starting-the-probe-1"
+id="toc-starting-the-probe-1">Starting the probe</a></li>
+<li><a href="#starting-the-collect-of-data-1"
+id="toc-starting-the-collect-of-data-1">Starting the collect of
+data</a></li>
+</ul></li>
+<li><a href="#state-machine-of-the-system-1"
+id="toc-state-machine-of-the-system-1">State Machine of the
+system</a></li>
+<li><a href="#agent-oriented-programming-1"
+id="toc-agent-oriented-programming-1">Agent Oriented
+Programming</a></li>
+<li><a href="#documentation-of-each-scripts-1"
+id="toc-documentation-of-each-scripts-1">Documentation of each
+scripts</a>
+<ul>
+<li><a href="#binasci_plotshtxt-binasci_plotshtxt"
+id="toc-binasci_plotshtxt-binasci_plotshtxt">./bin/asci_plot.sh.txt
+{#binasci_plotshtxt}</a></li>
+<li><a href="#binbasic_plotshtxt-binbasic_plotshtxt"
+id="toc-binbasic_plotshtxt-binbasic_plotshtxt">./bin/basic_plot.sh.txt
+{#binbasic_plotshtxt}</a></li>
+<li><a href="#binclockshtxt-binclockshtxt"
+id="toc-binclockshtxt-binclockshtxt">./bin/clock.sh.txt
+{#binclockshtxt}</a></li>
+<li><a href="#binlaunch_lurkershtxt-binlaunch_lurkershtxt"
+id="toc-binlaunch_lurkershtxt-binlaunch_lurkershtxt">./bin/launch_lurker.sh.txt
+{#binlaunch_lurkershtxt}</a></li>
+<li><a href="#binlaunch_writershtxt-binlaunch_writershtxt"
+id="toc-binlaunch_writershtxt-binlaunch_writershtxt">./bin/launch_writer.sh.txt
+{#binlaunch_writershtxt}</a></li>
+<li><a href="#binlurkershtxt-binlurkershtxt"
+id="toc-binlurkershtxt-binlurkershtxt">./bin/lurker.sh.txt
+{#binlurkershtxt}</a></li>
+<li><a href="#binmkhtmlshtxt-binmkhtmlshtxt"
+id="toc-binmkhtmlshtxt-binmkhtmlshtxt">./bin/mkhtml.sh.txt
+{#binmkhtmlshtxt}</a></li>
+<li><a href="#binplot_histo_gshtxt-binplot_histo_gshtxt"
+id="toc-binplot_histo_gshtxt-binplot_histo_gshtxt">./bin/plot_histo_g.sh.txt
+{#binplot_histo_gshtxt}</a></li>
+<li><a href="#binplot_histoshtxt-binplot_histoshtxt"
+id="toc-binplot_histoshtxt-binplot_histoshtxt">./bin/plot_histo.sh.txt
+{#binplot_histoshtxt}</a></li>
+<li><a href="#binplot_rrd2shtxt-binplot_rrd2shtxt"
+id="toc-binplot_rrd2shtxt-binplot_rrd2shtxt">./bin/plot_rrd2.sh.txt
+{#binplot_rrd2shtxt}</a></li>
+<li><a href="#binwritershtxt-binwritershtxt"
+id="toc-binwritershtxt-binwritershtxt">./bin/writer.sh.txt
+{#binwritershtxt}</a></li>
+<li><a href="#mkdocshtxt-mkdocshtxt"
+id="toc-mkdocshtxt-mkdocshtxt">./mkdoc.sh.txt {#mkdocshtxt}</a></li>
+<li><a href="#plugincputxt-plugincputxt"
+id="toc-plugincputxt-plugincputxt">./plugin/cpu.txt
+{#plugincputxt}</a></li>
+<li><a href="#pluginibm_acpi_fantxt-pluginibm_acpi_fantxt"
+id="toc-pluginibm_acpi_fantxt-pluginibm_acpi_fantxt">./plugin/ibm_acpi_fan.txt
+{#pluginibm_acpi_fantxt}</a></li>
+<li><a href="#pluginibm_acpitxt-pluginibm_acpitxt"
+id="toc-pluginibm_acpitxt-pluginibm_acpitxt">./plugin/ibm_acpi.txt
+{#pluginibm_acpitxt}</a></li>
+<li><a href="#pluginirqtxt-pluginirqtxt"
+id="toc-pluginirqtxt-pluginirqtxt">./plugin/irq.txt
+{#pluginirqtxt}</a></li>
+<li><a href="#pluginopen_filestxt-pluginopen_filestxt"
+id="toc-pluginopen_filestxt-pluginopen_filestxt">./plugin/open_files.txt
+{#pluginopen_filestxt}</a></li>
+<li><a href="#pluginprocessestxt-pluginprocessestxt"
+id="toc-pluginprocessestxt-pluginprocessestxt">./plugin/processes.txt
+{#pluginprocessestxt}</a></li>
+<li><a href="#pluginstattxt-pluginstattxt"
+id="toc-pluginstattxt-pluginstattxt">./plugin/stat.txt
+{#pluginstattxt}</a></li>
+<li><a href="#plugintcptxt-plugintcptxt"
+id="toc-plugintcptxt-plugintcptxt">./plugin/tcp.txt
+{#plugintcptxt}</a></li>
+<li><a href="#pubsubshtxt-pubsubshtxt"
+id="toc-pubsubshtxt-pubsubshtxt">./pubsub.sh.txt {#pubsubshtxt}</a></li>
+<li><a href="#startshtxt-startshtxt"
+id="toc-startshtxt-startshtxt">./start.sh.txt {#startshtxt}</a></li>
+<li><a href="#stopshtxt-stopshtxt"
+id="toc-stopshtxt-stopshtxt">./stop.sh.txt {#stopshtxt}</a></li>
+</ul></li>
+<li><a href="#quickstart-2" id="toc-quickstart-2">Quickstart</a>
+<ul>
+<li><a href="#requirements-2"
+id="toc-requirements-2">Requirements</a></li>
+<li><a href="#starting-the-probe-2"
+id="toc-starting-the-probe-2">Starting the probe</a></li>
+<li><a href="#starting-the-collect-of-data-2"
+id="toc-starting-the-collect-of-data-2">Starting the collect of
+data</a></li>
+</ul></li>
+<li><a href="#caveat" id="toc-caveat">CAVEAT</a>
+<ul>
+<li><a href="#freebsd-jails" id="toc-freebsd-jails">FreeBSD
+jails</a></li>
+<li><a href="#qemu" id="toc-qemu">Qemu</a></li>
+</ul></li>
+<li><a href="#state-machine-of-the-system-2"
+id="toc-state-machine-of-the-system-2">State Machine of the
+system</a></li>
+<li><a href="#agent-oriented-programming-2"
+id="toc-agent-oriented-programming-2">Agent Oriented
+Programming</a></li>
+<li><a href="#documentation-of-each-scripts-2"
+id="toc-documentation-of-each-scripts-2">Documentation of each
+scripts</a>
+<ul>
+<li><a href="#binasci_plotshtxt"
+id="toc-binasci_plotshtxt">./bin/asci_plot.sh.txt</a></li>
+<li><a href="#binbasic_plotshtxt"
+id="toc-binbasic_plotshtxt">./bin/basic_plot.sh.txt</a></li>
+<li><a href="#binclockshtxt"
+id="toc-binclockshtxt">./bin/clock.sh.txt</a></li>
+<li><a href="#binlaunch_lurkershtxt"
+id="toc-binlaunch_lurkershtxt">./bin/launch_lurker.sh.txt</a></li>
+<li><a href="#binlaunch_writershtxt"
+id="toc-binlaunch_writershtxt">./bin/launch_writer.sh.txt</a></li>
+<li><a href="#binlurkershtxt"
+id="toc-binlurkershtxt">./bin/lurker.sh.txt</a></li>
+<li><a href="#binmkhtmlshtxt"
+id="toc-binmkhtmlshtxt">./bin/mkhtml.sh.txt</a></li>
+<li><a href="#binplot_histo_gshtxt"
+id="toc-binplot_histo_gshtxt">./bin/plot_histo_g.sh.txt</a></li>
+<li><a href="#binplot_histoshtxt"
+id="toc-binplot_histoshtxt">./bin/plot_histo.sh.txt</a></li>
+<li><a href="#binplot_rrd2shtxt"
+id="toc-binplot_rrd2shtxt">./bin/plot_rrd2.sh.txt</a></li>
+<li><a href="#binwritershtxt"
+id="toc-binwritershtxt">./bin/writer.sh.txt</a></li>
+<li><a href="#mkdocshtxt" id="toc-mkdocshtxt">./mkdoc.sh.txt</a></li>
+<li><a href="#plugincputxt"
+id="toc-plugincputxt">./plugin/cpu.txt</a></li>
+<li><a href="#pluginibm_acpi_fantxt"
+id="toc-pluginibm_acpi_fantxt">./plugin/ibm_acpi_fan.txt</a></li>
+<li><a href="#pluginibm_acpitxt"
+id="toc-pluginibm_acpitxt">./plugin/ibm_acpi.txt</a></li>
+<li><a href="#pluginirqtxt"
+id="toc-pluginirqtxt">./plugin/irq.txt</a></li>
+<li><a href="#pluginopen_filestxt"
+id="toc-pluginopen_filestxt">./plugin/open_files.txt</a></li>
+<li><a href="#pluginprocessestxt"
+id="toc-pluginprocessestxt">./plugin/processes.txt</a></li>
+<li><a href="#pluginstattxt"
+id="toc-pluginstattxt">./plugin/stat.txt</a></li>
+<li><a href="#plugintcptxt"
+id="toc-plugintcptxt">./plugin/tcp.txt</a></li>
+<li><a href="#pubsubshtxt" id="toc-pubsubshtxt">./pubsub.sh.txt</a></li>
+<li><a href="#startshtxt" id="toc-startshtxt">./start.sh.txt</a></li>
+<li><a href="#stopshtxt" id="toc-stopshtxt">./stop.sh.txt</a></li>
+</ul></li>
+</ul>
+<p>% Fast Adaptive Insecure Monitoring: the monitoring system that
+should never have been invented, that is fun % jul % 2024-07-07</p>
+<h1 id="intro">Intro</h1>
+<p>This project is an implementation of such a way of thinking
+distributed system. For sake of education I took the most compact
+language for the task : <em>bash</em></p>
+<p>We are gonne realize on this principle a Fast Adaptative Insecure
+Monitoring system.</p>
+<p>FAIM is designed as a funny experiment of doing a munin clone (doing
+less) in bash only that is specialized in high speed (~1 seconde /
+measure) distributed measuring system without a centralized
+collector.</p>
+<p>No broker, no Zmq, no webrtc, no QUIC, no rabbitMQ are used for
+transport but ... BROADCAST UDP.</p>
+<p>Hence, well, this toy is fondamentally insecure and can hardly be
+ciphered in its current form. But, it enables a category of software
+that are both educational for doing your own tool AND for deploying an
+adhoc measuring system.</p>
+<p><a href="https://github.com/jul/FAIM/tree/main/doc">Read full
+documentation here</a></p>
+<figure>
+<img src="./img/example.png" alt="example" />
+<figcaption aria-hidden="true">example</figcaption>
+</figure>
+<p>% Fast Adaptive Insecure Monitoring: the monitoring system that
+should never have been invented, that is fun % jul % 2024-07-07</p>
+<ul>
+<li><a href="#intro" id="toc-intro">Intro</a></li>
+<li><a href="#intro-1" id="toc-intro-1">Intro</a></li>
+<li><a href="#quickstart" id="toc-quickstart">Quickstart</a>
+<ul>
+<li><a href="#requirements" id="toc-requirements">Requirements</a></li>
+<li><a href="#starting-the-probe" id="toc-starting-the-probe">Starting
+the probe</a></li>
+<li><a href="#starting-the-collect-of-data"
+id="toc-starting-the-collect-of-data">Starting the collect of
+data</a></li>
+</ul></li>
+<li><a href="#state-machine-of-the-system"
+id="toc-state-machine-of-the-system">State Machine of the
+system</a></li>
+<li><a href="#agent-oriented-programming"
+id="toc-agent-oriented-programming">Agent Oriented Programming</a></li>
+<li><a href="#documentation-of-each-scripts"
+id="toc-documentation-of-each-scripts">Documentation of each scripts</a>
+<ul>
+<li><a href="#binasci_plotshtxt-binasci_plotshtxt"
+id="toc-binasci_plotshtxt-binasci_plotshtxt">./bin/asci_plot.sh.txt
+{#binasci_plotshtxt}</a></li>
+<li><a href="#binbasic_plotshtxt-binbasic_plotshtxt"
+id="toc-binbasic_plotshtxt-binbasic_plotshtxt">./bin/basic_plot.sh.txt
+{#binbasic_plotshtxt}</a></li>
+<li><a href="#binclockshtxt-binclockshtxt"
+id="toc-binclockshtxt-binclockshtxt">./bin/clock.sh.txt
+{#binclockshtxt}</a></li>
+<li><a href="#binlaunch_lurkershtxt-binlaunch_lurkershtxt"
+id="toc-binlaunch_lurkershtxt-binlaunch_lurkershtxt">./bin/launch_lurker.sh.txt
+{#binlaunch_lurkershtxt}</a></li>
+<li><a href="#binlaunch_writershtxt-binlaunch_writershtxt"
+id="toc-binlaunch_writershtxt-binlaunch_writershtxt">./bin/launch_writer.sh.txt
+{#binlaunch_writershtxt}</a></li>
+<li><a href="#binlurkershtxt-binlurkershtxt"
+id="toc-binlurkershtxt-binlurkershtxt">./bin/lurker.sh.txt
+{#binlurkershtxt}</a></li>
+<li><a href="#binmkhtmlshtxt-binmkhtmlshtxt"
+id="toc-binmkhtmlshtxt-binmkhtmlshtxt">./bin/mkhtml.sh.txt
+{#binmkhtmlshtxt}</a></li>
+<li><a href="#binplot_histo_gshtxt-binplot_histo_gshtxt"
+id="toc-binplot_histo_gshtxt-binplot_histo_gshtxt">./bin/plot_histo_g.sh.txt
+{#binplot_histo_gshtxt}</a></li>
+<li><a href="#binplot_histoshtxt-binplot_histoshtxt"
+id="toc-binplot_histoshtxt-binplot_histoshtxt">./bin/plot_histo.sh.txt
+{#binplot_histoshtxt}</a></li>
+<li><a href="#binplot_rrd2shtxt-binplot_rrd2shtxt"
+id="toc-binplot_rrd2shtxt-binplot_rrd2shtxt">./bin/plot_rrd2.sh.txt
+{#binplot_rrd2shtxt}</a></li>
+<li><a href="#binwritershtxt-binwritershtxt"
+id="toc-binwritershtxt-binwritershtxt">./bin/writer.sh.txt
+{#binwritershtxt}</a></li>
+<li><a href="#mkdocshtxt-mkdocshtxt"
+id="toc-mkdocshtxt-mkdocshtxt">./mkdoc.sh.txt {#mkdocshtxt}</a></li>
+<li><a href="#plugincputxt-plugincputxt"
+id="toc-plugincputxt-plugincputxt">./plugin/cpu.txt
+{#plugincputxt}</a></li>
+<li><a href="#pluginibm_acpi_fantxt-pluginibm_acpi_fantxt"
+id="toc-pluginibm_acpi_fantxt-pluginibm_acpi_fantxt">./plugin/ibm_acpi_fan.txt
+{#pluginibm_acpi_fantxt}</a></li>
+<li><a href="#pluginibm_acpitxt-pluginibm_acpitxt"
+id="toc-pluginibm_acpitxt-pluginibm_acpitxt">./plugin/ibm_acpi.txt
+{#pluginibm_acpitxt}</a></li>
+<li><a href="#pluginirqtxt-pluginirqtxt"
+id="toc-pluginirqtxt-pluginirqtxt">./plugin/irq.txt
+{#pluginirqtxt}</a></li>
+<li><a href="#pluginopen_filestxt-pluginopen_filestxt"
+id="toc-pluginopen_filestxt-pluginopen_filestxt">./plugin/open_files.txt
+{#pluginopen_filestxt}</a></li>
+<li><a href="#pluginprocessestxt-pluginprocessestxt"
+id="toc-pluginprocessestxt-pluginprocessestxt">./plugin/processes.txt
+{#pluginprocessestxt}</a></li>
+<li><a href="#pluginstattxt-pluginstattxt"
+id="toc-pluginstattxt-pluginstattxt">./plugin/stat.txt
+{#pluginstattxt}</a></li>
+<li><a href="#plugintcptxt-plugintcptxt"
+id="toc-plugintcptxt-plugintcptxt">./plugin/tcp.txt
+{#plugintcptxt}</a></li>
+<li><a href="#pubsubshtxt-pubsubshtxt"
+id="toc-pubsubshtxt-pubsubshtxt">./pubsub.sh.txt {#pubsubshtxt}</a></li>
+<li><a href="#startshtxt-startshtxt"
+id="toc-startshtxt-startshtxt">./start.sh.txt {#startshtxt}</a></li>
+<li><a href="#stopshtxt-stopshtxt"
+id="toc-stopshtxt-stopshtxt">./stop.sh.txt {#stopshtxt}</a></li>
+</ul></li>
+<li><a href="#quickstart-1" id="toc-quickstart-1">Quickstart</a>
+<ul>
+<li><a href="#requirements-1"
+id="toc-requirements-1">Requirements</a></li>
+<li><a href="#starting-the-probe-1"
+id="toc-starting-the-probe-1">Starting the probe</a></li>
+<li><a href="#starting-the-collect-of-data-1"
+id="toc-starting-the-collect-of-data-1">Starting the collect of
+data</a></li>
+</ul></li>
+<li><a href="#state-machine-of-the-system-1"
+id="toc-state-machine-of-the-system-1">State Machine of the
+system</a></li>
+<li><a href="#agent-oriented-programming-1"
+id="toc-agent-oriented-programming-1">Agent Oriented
+Programming</a></li>
+<li><a href="#documentation-of-each-scripts-1"
+id="toc-documentation-of-each-scripts-1">Documentation of each
+scripts</a>
+<ul>
+<li><a href="#binasci_plotshtxt"
+id="toc-binasci_plotshtxt">./bin/asci_plot.sh.txt</a></li>
+<li><a href="#binbasic_plotshtxt"
+id="toc-binbasic_plotshtxt">./bin/basic_plot.sh.txt</a></li>
+<li><a href="#binclockshtxt"
+id="toc-binclockshtxt">./bin/clock.sh.txt</a></li>
+<li><a href="#binlaunch_lurkershtxt"
+id="toc-binlaunch_lurkershtxt">./bin/launch_lurker.sh.txt</a></li>
+<li><a href="#binlaunch_writershtxt"
+id="toc-binlaunch_writershtxt">./bin/launch_writer.sh.txt</a></li>
+<li><a href="#binlurkershtxt"
+id="toc-binlurkershtxt">./bin/lurker.sh.txt</a></li>
+<li><a href="#binmkhtmlshtxt"
+id="toc-binmkhtmlshtxt">./bin/mkhtml.sh.txt</a></li>
+<li><a href="#binplot_histo_gshtxt"
+id="toc-binplot_histo_gshtxt">./bin/plot_histo_g.sh.txt</a></li>
+<li><a href="#binplot_histoshtxt"
+id="toc-binplot_histoshtxt">./bin/plot_histo.sh.txt</a></li>
+<li><a href="#binplot_rrd2shtxt"
+id="toc-binplot_rrd2shtxt">./bin/plot_rrd2.sh.txt</a></li>
+<li><a href="#binwritershtxt"
+id="toc-binwritershtxt">./bin/writer.sh.txt</a></li>
+<li><a href="#mkdocshtxt" id="toc-mkdocshtxt">./mkdoc.sh.txt</a></li>
+<li><a href="#plugincputxt"
+id="toc-plugincputxt">./plugin/cpu.txt</a></li>
+<li><a href="#pluginibm_acpi_fantxt"
+id="toc-pluginibm_acpi_fantxt">./plugin/ibm_acpi_fan.txt</a></li>
+<li><a href="#pluginibm_acpitxt"
+id="toc-pluginibm_acpitxt">./plugin/ibm_acpi.txt</a></li>
+<li><a href="#pluginirqtxt"
+id="toc-pluginirqtxt">./plugin/irq.txt</a></li>
+<li><a href="#pluginopen_filestxt"
+id="toc-pluginopen_filestxt">./plugin/open_files.txt</a></li>
+<li><a href="#pluginprocessestxt"
+id="toc-pluginprocessestxt">./plugin/processes.txt</a></li>
+<li><a href="#pluginstattxt"
+id="toc-pluginstattxt">./plugin/stat.txt</a></li>
+<li><a href="#plugintcptxt"
+id="toc-plugintcptxt">./plugin/tcp.txt</a></li>
+<li><a href="#pubsubshtxt" id="toc-pubsubshtxt">./pubsub.sh.txt</a></li>
+<li><a href="#startshtxt" id="toc-startshtxt">./start.sh.txt</a></li>
+<li><a href="#stopshtxt" id="toc-stopshtxt">./stop.sh.txt</a></li>
+</ul></li>
+</ul>
+<p>% Fast Adaptive Insecure Monitoring: the monitoring system that
+should never have been invented, that is fun % jul % 2024-07-07</p>
+<h1 id="intro-1">Intro</h1>
+<p>This project is an implementation of such a way of thinking
+distributed system. For sake of education I took the most compact
+language for the task : <em>bash</em></p>
+<p>We are gonne realize on this principle a Fast Adaptative Insecure
+Monitoring system.</p>
+<p>FAIM is designed as a funny experiment of doing a munin clone (doing
+less) in bash only that is specialized in high speed (~1 seconde /
+measure) distributed measuring system without a centralized
+collector.</p>
+<p>No broker, no Zmq, no webrtc, no QUIC, no rabbitMQ are used for
+transport but ... BROADCAST UDP.</p>
+<p>Hence, well, this toy is fondamentally insecure and can hardly be
+ciphered in its current form. But, it enables a category of software
+that are both educational for doing your own tool AND for deploying an
+adhoc measuring system.</p>
+<p><a href="https://github.com/jul/FAIM/tree/main/doc">Read full
+documentation here</a></p>
+<figure>
+<img src="./img/example.png" alt="example" />
+<figcaption aria-hidden="true">example</figcaption>
+</figure>
+<p>% Fast Adaptive Insecure Monitoring: the monitoring system that
+should never have been invented, that is fun % jul % 2024-07-07</p>
+<ul>
+<li><a href="#intro" id="toc-intro">Intro</a></li>
 <li><a href="#quickstart" id="toc-quickstart">Quickstart</a>
 <ul>
 <li><a href="#requirements" id="toc-requirements">Requirements</a></li>
@@ -63,7 +531,7 @@ id="toc-plugintcptxt">./plugin/tcp.txt</a></li>
 </ul>
 <p>% Fast Adaptive Insecure Monitoring: the monitoring system that
 should never have been invented, that is fun % jul % 2024-07-07</p>
-<h1 id="intro">Intro</h1>
+<h1 id="intro-2">Intro</h1>
 <p>This project is an implementation of such a way of thinking
 distributed system. For sake of education I took the most compact
 language for the task : <em>bash</em></p>
@@ -141,6 +609,521 @@ machine lays.</p></li>
 handled with care.</p></li>
 </ol>
 <h1 id="documentation-of-each-scripts">Documentation of each
+scripts</h1>
+<p>API of each components.</p>
+<h2
+id="binasci_plotshtxt-binasci_plotshtxt-binasci_plotshtxt-binasci_plotshtxt">./bin/asci_plot.sh.txt
+{#binasci_plotshtxt} {#binasci_plotshtxt-binasci_plotshtxt}</h2>
+<h2
+id="binbasic_plotshtxt-binbasic_plotshtxt-binbasic_plotshtxt-binbasic_plotshtxt">./bin/basic_plot.sh.txt
+{#binbasic_plotshtxt} {#binbasic_plotshtxt-binbasic_plotshtxt}</h2>
+<h2
+id="binclockshtxt-binclockshtxt-binclockshtxt-binclockshtxt">./bin/clock.sh.txt
+{#binclockshtxt} {#binclockshtxt-binclockshtxt}</h2>
+<h2
+id="binlaunch_lurkershtxt-binlaunch_lurkershtxt-binlaunch_lurkershtxt-binlaunch_lurkershtxt">./bin/launch_lurker.sh.txt
+{#binlaunch_lurkershtxt}
+{#binlaunch_lurkershtxt-binlaunch_lurkershtxt}</h2>
+<p>NAME launch_lurker.sh</p>
+<p>SYNOPSIS Make data collector available for listening to the
+probes</p>
+<pre><code>    [TICK=2] [BROADCAST=192.168.1.255] [RANGE=24] [PORT=6666] ./launch_writer.sh</code></pre>
+<p>OPTIONS For explanation of options see
+&lt;file:../start.sh.html&gt;</p>
+<h2
+id="binlaunch_writershtxt-binlaunch_writershtxt-binlaunch_writershtxt-binlaunch_writershtxt">./bin/launch_writer.sh.txt
+{#binlaunch_writershtxt}
+{#binlaunch_writershtxt-binlaunch_writershtxt}</h2>
+<p>NAME launch_writer.sh</p>
+<p>SYNOPSIS Make writer emit on BROADCAST/RANGE ono port PORT</p>
+<pre><code>    [TICK=2] [BROADCAST=192.168.1.255] [RANGE=24] [PORT=6666] ./launch_writer.sh</code></pre>
+<p>OPTIONS For explanation of options see
+&lt;file:../start.sh.html&gt;</p>
+<h2
+id="binlurkershtxt-binlurkershtxt-binlurkershtxt-binlurkershtxt">./bin/lurker.sh.txt
+{#binlurkershtxt} {#binlurkershtxt-binlurkershtxt}</h2>
+<p>NAME lurker.sh</p>
+<p>SYNOPSIS Collector of data</p>
+<pre><code>    ./lurker.sh
+
+Can be used as
+
+    while [ 1 ]; do writer.sh | lurker.sh; sleep 30; done
+
+To collect data emitted locally about the machine.
+
+Results are written in ../data</code></pre>
+<h2
+id="binmkhtmlshtxt-binmkhtmlshtxt-binmkhtmlshtxt-binmkhtmlshtxt">./bin/mkhtml.sh.txt
+{#binmkhtmlshtxt} {#binmkhtmlshtxt-binmkhtmlshtxt}</h2>
+<p>NAME mkhtml</p>
+<pre><code>    HTML maker</code></pre>
+<p>SYNOPSIS Generator of HTML output from data collected in ../data</p>
+<pre><code>    [DAEMON=] [SINCE=3600] mkhtml.sh
+
+Can be used as
+
+    ./mkhtml.sh
+
+to generate the web page in ../data</code></pre>
+<p>OPTIONS DAEMON This code will run permanently waking itself up to
+update the web page.</p>
+<pre><code>SINCE
+    The window span time you are interested in in seconds from NOW</code></pre>
+<h2
+id="binplot_histo_gshtxt-binplot_histo_gshtxt-binplot_histo_gshtxt-binplot_histo_gshtxt">./bin/plot_histo_g.sh.txt
+{#binplot_histo_gshtxt}
+{#binplot_histo_gshtxt-binplot_histo_gshtxt}</h2>
+<h2
+id="binplot_histoshtxt-binplot_histoshtxt-binplot_histoshtxt-binplot_histoshtxt">./bin/plot_histo.sh.txt
+{#binplot_histoshtxt} {#binplot_histoshtxt-binplot_histoshtxt}</h2>
+<h2
+id="binplot_rrd2shtxt-binplot_rrd2shtxt-binplot_rrd2shtxt-binplot_rrd2shtxt">./bin/plot_rrd2.sh.txt
+{#binplot_rrd2shtxt} {#binplot_rrd2shtxt-binplot_rrd2shtxt}</h2>
+<h2
+id="binwritershtxt-binwritershtxt-binwritershtxt-binwritershtxt">./bin/writer.sh.txt
+{#binwritershtxt} {#binwritershtxt-binwritershtxt}</h2>
+<p>NAME writer.sh</p>
+<p>SYNOPSIS Emitter of data</p>
+<pre><code>    [TICK=2] ./writer.sh</code></pre>
+<p>OPTIONS For explanation of options see
+&lt;file:../start.sh.html&gt;</p>
+<pre><code>If TICK is set then writer will assume it is to be launched in
+conjunction with &lt;file:./clock.sh.html&gt; and do nothing until clock.sh
+sends a signal to it to write data.</code></pre>
+<h2 id="mkdocshtxt-mkdocshtxt-mkdocshtxt-mkdocshtxt">./mkdoc.sh.txt
+{#mkdocshtxt} {#mkdocshtxt-mkdocshtxt}</h2>
+<p>NAME mkdoc.sh</p>
+<p>SYNOPSIS Generates the doc. Requires pandoc for markdown to html
+conversion</p>
+<pre><code>    ./mkdoc.sh</code></pre>
+<h2
+id="plugincputxt-plugincputxt-plugincputxt-plugincputxt">./plugin/cpu.txt
+{#plugincputxt} {#plugincputxt-plugincputxt}</h2>
+<h2
+id="pluginibm_acpi_fantxt-pluginibm_acpi_fantxt-pluginibm_acpi_fantxt-pluginibm_acpi_fantxt">./plugin/ibm_acpi_fan.txt
+{#pluginibm_acpi_fantxt}
+{#pluginibm_acpi_fantxt-pluginibm_acpi_fantxt}</h2>
+<p>NAME acpi_ibm - Munin plugin to monitor the fan speed returned by
+ACPI probe.</p>
+<p>APPLICABLE SYSTEMS FreeBSD systems with ACPI support. man
+acpi_ibm(4)</p>
+<p>CONFIGURATION add ibm_acpi in loader.conf</p>
+<p>USAGE Link this plugin to @<span class="citation"
+data-cites="CONFDIR">@CONFDIR</span>@@/plugins/ and restart the
+munin-node.</p>
+<p>INTERPRETATION The plugin shows the fans' speeds.</p>
+<p>MAGIC MARKERS #%# family=auto #%# capabilities=autoconf</p>
+<p>BUGS None known.</p>
+<p>VERSION v1.1 - 2024-03-24</p>
+<p>AUTHOR Julien Tayon (<a href="mailto:julien@tayon.net"
+class="email">julien@tayon.net</a>)</p>
+<p>LICENSE GPLv2</p>
+<h2
+id="pluginibm_acpitxt-pluginibm_acpitxt-pluginibm_acpitxt-pluginibm_acpitxt">./plugin/ibm_acpi.txt
+{#pluginibm_acpitxt} {#pluginibm_acpitxt-pluginibm_acpitxt}</h2>
+<p>NAME acpii_ibm - Munin plugin to monitor the temperature in different
+ACPI Thermal zones.</p>
+<p>APPLICABLE SYSTEMS FreeBSD systems with ACPI support. man
+acpi_ibm(4)</p>
+<p>CONFIGURATION add ibm_acpi in loader.conf</p>
+<p>USAGE Link this plugin to @<span class="citation"
+data-cites="CONFDIR">@CONFDIR</span>@@/plugins/ and restart the
+munin-node.</p>
+<p>INTERPRETATION The plugin shows the temperature from the different
+thermal zones.</p>
+<p>MAGIC MARKERS #%# family=auto #%# capabilities=autoconf</p>
+<p>BUGS None known.</p>
+<p>VERSION v1.1 - 2024-03-24</p>
+<p>AUTHOR Julien Tayon (<a href="mailto:julien@tayon.net"
+class="email">julien@tayon.net</a>)</p>
+<p>LICENSE GPLv2</p>
+<h2
+id="pluginirqtxt-pluginirqtxt-pluginirqtxt-pluginirqtxt">./plugin/irq.txt
+{#pluginirqtxt} {#pluginirqtxt-pluginirqtxt}</h2>
+<p>NAME interrupts - list number of interrupts since boot (linux) or the
+interrupt rate per interrupt</p>
+<p>CONFIGURATION No configuration</p>
+<p>AUTHOR Idea and base from Ragnar Wisløff.</p>
+<p>LICENSE GPLv2</p>
+<p>MAGIC MARKERS #%# family=auto #%# capabilities=autoconf</p>
+<h2
+id="pluginopen_filestxt-pluginopen_filestxt-pluginopen_filestxt-pluginopen_filestxt">./plugin/open_files.txt
+{#pluginopen_filestxt} {#pluginopen_filestxt-pluginopen_filestxt}</h2>
+<p>NAME open_files - Plugin to monitor the number of open files in the
+system</p>
+<p>CONFIGURATION No configuration</p>
+<p>AUTHOR Unknown author</p>
+<p>LICENSE GPLv2</p>
+<p>MAGIC MARKERS #%# family=auto #%# capabilities=autoconf</p>
+<h2
+id="pluginprocessestxt-pluginprocessestxt-pluginprocessestxt-pluginprocessestxt">./plugin/processes.txt
+{#pluginprocessestxt} {#pluginprocessestxt-pluginprocessestxt}</h2>
+<p>NAME processes - Plugin to monitor processes and process states.</p>
+<p>ABOUT This plugin requires munin-server version 1.2.5 or 1.3.3 (or
+higher).</p>
+<pre><code>This plugin is backwards compatible with the old processes-plugins found
+on SunOS, Linux and *BSD (i.e. the history is preserved).
+
+All fields have colours associated with them which reflect the type of
+process (sleeping/idle = blue, running = green, stopped/zombie/dead =
+red, etc.)</code></pre>
+<p>CONFIGURATION No configuration for this plugin.</p>
+<p>AUTHOR Copyright (C) 2006 Lars Strand</p>
+<p>LICENSE GNU General Public License, version 2</p>
+<p>MAGIC MARKERS #%# family=auto #%# capabilities=autoconf</p>
+<h2
+id="pluginstattxt-pluginstattxt-pluginstattxt-pluginstattxt">./plugin/stat.txt
+{#pluginstattxt} {#pluginstattxt-pluginstattxt}</h2>
+<p>NAME interrupts - Plugin to monitor the number of interrupts and
+context switches on a system.</p>
+<p>CONFIGURATION No configuration</p>
+<p>AUTHOR Idea and base from Ragnar Wisløff.</p>
+<p>LICENSE GPLv2</p>
+<p>MAGIC MARKERS #%# family=auto #%# capabilities=autoconf</p>
+<h2
+id="plugintcptxt-plugintcptxt-plugintcptxt-plugintcptxt">./plugin/tcp.txt
+{#plugintcptxt} {#plugintcptxt-plugintcptxt}</h2>
+<p>NAME tcp - Plugin to monitor IPV4/6 TCP socket status on a Linux
+host.</p>
+<p>LICENSE GPLv2</p>
+<h2 id="pubsubshtxt-pubsubshtxt-pubsubshtxt-pubsubshtxt">./pubsub.sh.txt
+{#pubsubshtxt} {#pubsubshtxt-pubsubshtxt}</h2>
+<h2 id="startshtxt-startshtxt-startshtxt-startshtxt">./start.sh.txt
+{#startshtxt} {#startshtxt-startshtxt}</h2>
+<p>NAME start.sh</p>
+<p>DESCRIPTION Launches the networked apparatus of measures. It is the
+reciprocal function of stop.sh</p>
+<p>SYNOPSIS All arguments are passed by environment variables</p>
+<pre><code>    [HOST=0.0.0.0] [PORT=6666] [TICK=2] [LURKER=] [BROADCAST=192.168.1.255] [RANGE=24] [SINCE=900] start.sh</code></pre>
+<p>OPTIONS TICK TICK is the initial clock given to the system. It will
+however converge to its computed value.</p>
+<pre><code>LURKER
+    When LURKER is set, the data collecting agent is launched and
+    process all probes sent on the given broadcast address
+
+BROADCAST
+    UDP BROADCAST address to use
+
+RANGE
+    Range in the form [0-32] to specify the BROADCAST range.
+
+    Ex: 24 will specify $BROADCAST/24
+
+SINCE
+    Argument given to the html generator to know how much seconds since
+    NOW must be shown in the graph.</code></pre>
+<h2 id="stopshtxt-stopshtxt-stopshtxt-stopshtxt">./stop.sh.txt
+{#stopshtxt} {#stopshtxt-stopshtxt}</h2>
+<p>NAME stop.sh</p>
+<p>DESCRIPTION stops all agent launched by start</p>
+<p>OPTIONS None</p>
+<h1 id="quickstart-1">Quickstart</h1>
+<h2 id="requirements-1">Requirements</h2>
+<p>Perl, python3, gnuplot (gnuplot-lite maybe enough if 1Gb dependency
+rebukes you), bash, socat, and whatever the plugins have dependencies
+upon.</p>
+<h2 id="starting-the-probe-1">Starting the probe</h2>
+<pre><code>./start.sh</code></pre>
+<p>Starts the probe. It will emit (see API of start for network
+parameters) on the UDP broadcast address in ASCII excactly what
+<code>bin/writer.sh</code> emits on stdout.</p>
+<p>To stop the probe simply type</p>
+<pre><code>./stop.sh</code></pre>
+<h2 id="starting-the-collect-of-data-1">Starting the collect of
+data</h2>
+<pre><code>LURKER=1 ./start.sh</code></pre>
+<p>Will start the probe AND the data collector. The data collector can
+also be caught in a standalone mode with
+<code>./bin/launch_lurker.sh</code> or
+<code>./bin/launch_lurker.py</code>.</p>
+<p>if you go in ./data/ you will see both csv where data are stored
+accumulating and the making of the html resume.</p>
+<p>Just open ./data/index.html to view the graphs.</p>
+<p>You can erase the content of data at any moment, everything will
+reconstruct itself.</p>
+<p>What the lurker sees from the broadcast is log into
+./log/journal.txt.</p>
+<p>CSV files and html can be reconstructed by typing</p>
+<pre><code> cat log/journal.log | bin/lurker
+ bin/mkhtml.sh</code></pre>
+<p>mkhtml is the bash equivalent of PHP or using jinja in python :
+dynamic html generation.</p>
+<p>I seriously advise to install tcpdump, and remember that
+<code>tcpdump -A [-i interface] -s0 udp and port 6666</code> can be a
+serious life saviour while troubleshooting.</p>
+<h1 id="state-machine-of-the-system-1">State Machine of the system</h1>
+<p>See diag.dot</p>
+<figure>
+<img src="./img/diag.png" alt="diag" />
+<figcaption aria-hidden="true">diag</figcaption>
+</figure>
+<h1 id="agent-oriented-programming-1">Agent Oriented Programming</h1>
+<ol type="1">
+<li><p>EverythingIsAnAgent</p></li>
+<li><p>Agent communicate by sending and receiving messages (the way they
+prefer as long as they send messages).</p></li>
+<li><p>Agent have their own memory and autonomy</p></li>
+<li><p>Every Agent is an instance of an artifact (which then as to be
+accounted as an agent).</p></li>
+<li><p>The Agent is accountable for maintaining its consistency as a
+state/transition agent</p></li>
+<li><p>The topology is more important than the code.</p></li>
+<li><p>each state machine is on a plane for which an uncoupled state
+machine lays.</p></li>
+<li><p>violation of uncoupling between layers is bad so it has to be
+handled with care.</p></li>
+</ol>
+<h1 id="documentation-of-each-scripts-1">Documentation of each
+scripts</h1>
+<p>API of each components.</p>
+<h2 id="binasci_plotshtxt-binasci_plotshtxt">./bin/asci_plot.sh.txt
+{#binasci_plotshtxt}</h2>
+<h2 id="binbasic_plotshtxt-binbasic_plotshtxt">./bin/basic_plot.sh.txt
+{#binbasic_plotshtxt}</h2>
+<h2 id="binclockshtxt-binclockshtxt">./bin/clock.sh.txt
+{#binclockshtxt}</h2>
+<h2
+id="binlaunch_lurkershtxt-binlaunch_lurkershtxt">./bin/launch_lurker.sh.txt
+{#binlaunch_lurkershtxt}</h2>
+<p>NAME launch_lurker.sh</p>
+<p>SYNOPSIS Make data collector available for listening to the
+probes</p>
+<pre><code>    [TICK=2] [BROADCAST=192.168.1.255] [RANGE=24] [PORT=6666] ./launch_writer.sh</code></pre>
+<p>OPTIONS For explanation of options see
+&lt;file:../start.sh.html&gt;</p>
+<h2
+id="binlaunch_writershtxt-binlaunch_writershtxt">./bin/launch_writer.sh.txt
+{#binlaunch_writershtxt}</h2>
+<p>NAME launch_writer.sh</p>
+<p>SYNOPSIS Make writer emit on BROADCAST/RANGE ono port PORT</p>
+<pre><code>    [TICK=2] [BROADCAST=192.168.1.255] [RANGE=24] [PORT=6666] ./launch_writer.sh</code></pre>
+<p>OPTIONS For explanation of options see
+&lt;file:../start.sh.html&gt;</p>
+<h2 id="binlurkershtxt-binlurkershtxt">./bin/lurker.sh.txt
+{#binlurkershtxt}</h2>
+<p>NAME lurker.sh</p>
+<p>SYNOPSIS Collector of data</p>
+<pre><code>    ./lurker.sh
+
+Can be used as
+
+    while [ 1 ]; do writer.sh | lurker.sh; sleep 30; done
+
+To collect data emitted locally about the machine.
+
+Results are written in ../data</code></pre>
+<h2 id="binmkhtmlshtxt-binmkhtmlshtxt">./bin/mkhtml.sh.txt
+{#binmkhtmlshtxt}</h2>
+<p>NAME mkhtml</p>
+<pre><code>    HTML maker</code></pre>
+<p>SYNOPSIS Generator of HTML output from data collected in ../data</p>
+<pre><code>    [DAEMON=] [SINCE=3600] mkhtml.sh
+
+Can be used as
+
+    ./mkhtml.sh
+
+to generate the web page in ../data</code></pre>
+<p>OPTIONS DAEMON This code will run permanently waking itself up to
+update the web page.</p>
+<pre><code>SINCE
+    The window span time you are interested in in seconds from NOW</code></pre>
+<h2
+id="binplot_histo_gshtxt-binplot_histo_gshtxt">./bin/plot_histo_g.sh.txt
+{#binplot_histo_gshtxt}</h2>
+<h2 id="binplot_histoshtxt-binplot_histoshtxt">./bin/plot_histo.sh.txt
+{#binplot_histoshtxt}</h2>
+<h2 id="binplot_rrd2shtxt-binplot_rrd2shtxt">./bin/plot_rrd2.sh.txt
+{#binplot_rrd2shtxt}</h2>
+<h2 id="binwritershtxt-binwritershtxt">./bin/writer.sh.txt
+{#binwritershtxt}</h2>
+<p>NAME writer.sh</p>
+<p>SYNOPSIS Emitter of data</p>
+<pre><code>    [TICK=2] ./writer.sh</code></pre>
+<p>OPTIONS For explanation of options see
+&lt;file:../start.sh.html&gt;</p>
+<pre><code>If TICK is set then writer will assume it is to be launched in
+conjunction with &lt;file:./clock.sh.html&gt; and do nothing until clock.sh
+sends a signal to it to write data.</code></pre>
+<h2 id="mkdocshtxt-mkdocshtxt">./mkdoc.sh.txt {#mkdocshtxt}</h2>
+<p>NAME mkdoc.sh</p>
+<p>SYNOPSIS Generates the doc. Requires pandoc for markdown to html
+conversion</p>
+<pre><code>    ./mkdoc.sh</code></pre>
+<h2 id="plugincputxt-plugincputxt">./plugin/cpu.txt {#plugincputxt}</h2>
+<h2
+id="pluginibm_acpi_fantxt-pluginibm_acpi_fantxt">./plugin/ibm_acpi_fan.txt
+{#pluginibm_acpi_fantxt}</h2>
+<p>NAME acpi_ibm - Munin plugin to monitor the fan speed returned by
+ACPI probe.</p>
+<p>APPLICABLE SYSTEMS FreeBSD systems with ACPI support. man
+acpi_ibm(4)</p>
+<p>CONFIGURATION add ibm_acpi in loader.conf</p>
+<p>USAGE Link this plugin to @<span class="citation"
+data-cites="CONFDIR">@CONFDIR</span>@@/plugins/ and restart the
+munin-node.</p>
+<p>INTERPRETATION The plugin shows the fans' speeds.</p>
+<p>MAGIC MARKERS #%# family=auto #%# capabilities=autoconf</p>
+<p>BUGS None known.</p>
+<p>VERSION v1.1 - 2024-03-24</p>
+<p>AUTHOR Julien Tayon (<a href="mailto:julien@tayon.net"
+class="email">julien@tayon.net</a>)</p>
+<p>LICENSE GPLv2</p>
+<h2 id="pluginibm_acpitxt-pluginibm_acpitxt">./plugin/ibm_acpi.txt
+{#pluginibm_acpitxt}</h2>
+<p>NAME acpii_ibm - Munin plugin to monitor the temperature in different
+ACPI Thermal zones.</p>
+<p>APPLICABLE SYSTEMS FreeBSD systems with ACPI support. man
+acpi_ibm(4)</p>
+<p>CONFIGURATION add ibm_acpi in loader.conf</p>
+<p>USAGE Link this plugin to @<span class="citation"
+data-cites="CONFDIR">@CONFDIR</span>@@/plugins/ and restart the
+munin-node.</p>
+<p>INTERPRETATION The plugin shows the temperature from the different
+thermal zones.</p>
+<p>MAGIC MARKERS #%# family=auto #%# capabilities=autoconf</p>
+<p>BUGS None known.</p>
+<p>VERSION v1.1 - 2024-03-24</p>
+<p>AUTHOR Julien Tayon (<a href="mailto:julien@tayon.net"
+class="email">julien@tayon.net</a>)</p>
+<p>LICENSE GPLv2</p>
+<h2 id="pluginirqtxt-pluginirqtxt">./plugin/irq.txt {#pluginirqtxt}</h2>
+<p>NAME interrupts - list number of interrupts since boot (linux) or the
+interrupt rate per interrupt</p>
+<p>CONFIGURATION No configuration</p>
+<p>AUTHOR Idea and base from Ragnar Wisløff.</p>
+<p>LICENSE GPLv2</p>
+<p>MAGIC MARKERS #%# family=auto #%# capabilities=autoconf</p>
+<h2 id="pluginopen_filestxt-pluginopen_filestxt">./plugin/open_files.txt
+{#pluginopen_filestxt}</h2>
+<p>NAME open_files - Plugin to monitor the number of open files in the
+system</p>
+<p>CONFIGURATION No configuration</p>
+<p>AUTHOR Unknown author</p>
+<p>LICENSE GPLv2</p>
+<p>MAGIC MARKERS #%# family=auto #%# capabilities=autoconf</p>
+<h2 id="pluginprocessestxt-pluginprocessestxt">./plugin/processes.txt
+{#pluginprocessestxt}</h2>
+<p>NAME processes - Plugin to monitor processes and process states.</p>
+<p>ABOUT This plugin requires munin-server version 1.2.5 or 1.3.3 (or
+higher).</p>
+<pre><code>This plugin is backwards compatible with the old processes-plugins found
+on SunOS, Linux and *BSD (i.e. the history is preserved).
+
+All fields have colours associated with them which reflect the type of
+process (sleeping/idle = blue, running = green, stopped/zombie/dead =
+red, etc.)</code></pre>
+<p>CONFIGURATION No configuration for this plugin.</p>
+<p>AUTHOR Copyright (C) 2006 Lars Strand</p>
+<p>LICENSE GNU General Public License, version 2</p>
+<p>MAGIC MARKERS #%# family=auto #%# capabilities=autoconf</p>
+<h2 id="pluginstattxt-pluginstattxt">./plugin/stat.txt
+{#pluginstattxt}</h2>
+<p>NAME interrupts - Plugin to monitor the number of interrupts and
+context switches on a system.</p>
+<p>CONFIGURATION No configuration</p>
+<p>AUTHOR Idea and base from Ragnar Wisløff.</p>
+<p>LICENSE GPLv2</p>
+<p>MAGIC MARKERS #%# family=auto #%# capabilities=autoconf</p>
+<h2 id="plugintcptxt-plugintcptxt">./plugin/tcp.txt {#plugintcptxt}</h2>
+<p>NAME tcp - Plugin to monitor IPV4/6 TCP socket status on a Linux
+host.</p>
+<p>LICENSE GPLv2</p>
+<h2 id="pubsubshtxt-pubsubshtxt">./pubsub.sh.txt {#pubsubshtxt}</h2>
+<h2 id="startshtxt-startshtxt">./start.sh.txt {#startshtxt}</h2>
+<p>NAME start.sh</p>
+<p>DESCRIPTION Launches the networked apparatus of measures. It is the
+reciprocal function of stop.sh</p>
+<p>SYNOPSIS All arguments are passed by environment variables</p>
+<pre><code>    [HOST=0.0.0.0] [PORT=6666] [TICK=2] [LURKER=] [BROADCAST=192.168.1.255] [RANGE=24] [SINCE=900] start.sh</code></pre>
+<p>OPTIONS TICK TICK is the initial clock given to the system. It will
+however converge to its computed value.</p>
+<pre><code>LURKER
+    When LURKER is set, the data collecting agent is launched and
+    process all probes sent on the given broadcast address
+
+BROADCAST
+    UDP BROADCAST address to use
+
+RANGE
+    Range in the form [0-32] to specify the BROADCAST range.
+
+    Ex: 24 will specify $BROADCAST/24
+
+SINCE
+    Argument given to the html generator to know how much seconds since
+    NOW must be shown in the graph.</code></pre>
+<h2 id="stopshtxt-stopshtxt">./stop.sh.txt {#stopshtxt}</h2>
+<p>NAME stop.sh</p>
+<p>DESCRIPTION stops all agent launched by start</p>
+<p>OPTIONS None</p>
+<h1 id="quickstart-2">Quickstart</h1>
+<h2 id="requirements-2">Requirements</h2>
+<p>Perl, python3, gnuplot (gnuplot-lite maybe enough if 1Gb dependency
+rebukes you), bash, socat, and whatever the plugins have dependencies
+upon.</p>
+<h2 id="starting-the-probe-2">Starting the probe</h2>
+<pre><code>./start.sh</code></pre>
+<p>Starts the probe. It will emit (see API of start for network
+parameters) on the UDP broadcast address in ASCII excactly what
+<code>bin/writer.sh</code> emits on stdout.</p>
+<p>To stop the probe simply type</p>
+<pre><code>./stop.sh</code></pre>
+<h2 id="starting-the-collect-of-data-2">Starting the collect of
+data</h2>
+<pre><code>LURKER=1 ./start.sh</code></pre>
+<p>Will start the probe AND the data collector. The data collector can
+also be caught in a standalone mode with
+<code>./bin/launch_lurker.sh</code> or
+<code>./bin/launch_lurker.py</code>.</p>
+<p>if you go in ./data/ you will see both csv where data are stored
+accumulating and the making of the html resume.</p>
+<p>Just open ./data/index.html to view the graphs.</p>
+<p>You can erase the content of data at any moment, everything will
+reconstruct itself.</p>
+<p>What the lurker sees from the broadcast is log into
+./log/journal.txt.</p>
+<p>CSV files and html can be reconstructed by typing</p>
+<pre><code> cat log/journal.log | bin/lurker
+ bin/mkhtml.sh</code></pre>
+<p>mkhtml is the bash equivalent of PHP or using jinja in python :
+dynamic html generation.</p>
+<p>I seriously advise to install tcpdump, and remember that
+<code>tcpdump -A [-i interface] -s0 udp and port 6666</code> can be a
+serious life saviour while troubleshooting.</p>
+<h1 id="caveat">CAVEAT</h1>
+<h2 id="freebsd-jails">FreeBSD jails</h2>
+<p>In order for freebsd Jails to access UDP broadcast, you need to setup
+<a href="https://docs.freebsd.org/en/books/handbook/jails/#vnet-jails">a
+VNET jails</a></p>
+<h2 id="qemu">Qemu</h2>
+<p>In order for qemu guests to access UDP broadcast, you need to setup a
+<a
+href="https://wiki.archlinux.org/title/QEMU#Tap_networking_with_QEMU">bridge</a></p>
+<h1 id="state-machine-of-the-system-2">State Machine of the system</h1>
+<p>See diag.dot</p>
+<figure>
+<img src="./img/diag.png" alt="diag" />
+<figcaption aria-hidden="true">diag</figcaption>
+</figure>
+<h1 id="agent-oriented-programming-2">Agent Oriented Programming</h1>
+<ol type="1">
+<li><p>EverythingIsAnAgent</p></li>
+<li><p>Agent communicate by sending and receiving messages (the way they
+prefer as long as they send messages).</p></li>
+<li><p>Agent have their own memory and autonomy</p></li>
+<li><p>Every Agent is an instance of an artifact (which then as to be
+accounted as an agent).</p></li>
+<li><p>The Agent is accountable for maintaining its consistency as a
+state/transition agent</p></li>
+<li><p>The topology is more important than the code.</p></li>
+<li><p>each state machine is on a plane for which an uncoupled state
+machine lays.</p></li>
+<li><p>violation of uncoupling between layers is bad so it has to be
+handled with care.</p></li>
+</ol>
+<h1 id="documentation-of-each-scripts-2">Documentation of each
 scripts</h1>
 <p>API of each components.</p>
 <h2 id="binasci_plotshtxt">./bin/asci_plot.sh.txt</h2>

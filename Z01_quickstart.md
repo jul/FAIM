@@ -47,3 +47,17 @@ mkhtml is the bash equivalent of PHP or using jinja in python : dynamic html gen
 I seriously advise to install tcpdump, and remember that ` tcpdump -A [-i interface] -s0 udp and port 6666` can be a serious life saviour while troubleshooting.
 
 
+# CAVEAT
+
+## FreeBSD jails
+
+In order for freebsd Jails to access UDP broadcast, you need to setup [a VNET
+jails](https://docs.freebsd.org/en/books/handbook/jails/#vnet-jails)
+
+## Qemu
+
+In order for qemu guests to access UDP broadcast, you need to setup a
+[bridge](https://wiki.archlinux.org/title/QEMU#Tap_networking_with_QEMU)
+
+
+
