@@ -1,0 +1,27 @@
+digraph design {
+    rankdir="TB"
+    overlap=false
+    spines=false
+    node [shape="rectangle"]
+{ rank = same; "start.sh"; "stop.sh"; }
+{ rank = same; "launch_lurker.sh"; "launch_writer.sh"; }
+{ rank = same; "lurker.sh"; "writer.sh" }
+{ rank = same; "clock.sh"; "mkhtml.sh" }
+    "start.sh" -> "launch_lurker.sh" [label="BEGIN:launches"]
+    "start.sh" -> "launch_writer.sh" [label="BEGIN:launches"]
+    "start.sh" -> "mkhtml.sh" [label="launches"]
+    "stop.sh" -> "launch_lurker.sh" [label="END:kills"]
+    "stop.sh" -> "launch_writer.sh" [label="END:kills"]
+    "stop.sh" -> "mkhtml.sh" [label="END:kills"]
+    "launch_lurker.sh" -> "lurker.sh" [label="connect to network"]
+    "launch_writer.sh" -> "writer.sh" [label="connect to network"]
+    "start.sh" -> "clock.sh" [label="launches"]
+    "clock.sh" -> "writer.sh" [label="1:signals"]
+    "clock.sh" -> "clock.sh" [label="0-n:sleep"]
+    "mkhtml.sh" -> "mkhtml.sh" [label="exec itself each n seconds"]
+    "writer.sh" -> "lurker.sh" [ label="2:writer:on clock signal:send measure" ]
+    "writer.sh" -> "clock.sh" [label="3:writer:on competion:signal speed change"]
+
+
+
+}
