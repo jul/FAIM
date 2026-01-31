@@ -53,5 +53,5 @@ rm ../index.md
 
 cat ./README.md > ../README.md
 
-pandoc README.md -o "index.html"
+pandoc README.md -T "FAIM documentation" --embed-resources -o "index.html"
 pandoc README.md    -o FAIM.pdf
