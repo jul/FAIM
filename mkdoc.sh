@@ -19,7 +19,7 @@ rm doc -rf
 cp img/* doc/img/
 cp *md doc/
 
-for i in $( find . \( -path "./bin/*" -o -path "./plugin/*" \) -type f -not -path "./plugin/*enabled"  ); do 
+for i in $( find . \( -path "./bin/*" -o -path "./plugin/*" \) -type f -not -path "./plugin/*enabled" -not -path "./bin/*py" ); do 
     DST="doc/$( dirname $i )"
     [ -d $DST ] || mkdir -p $DST
     pod2html --noindex "$i" > "$DST/$( basename $i).html"
@@ -38,10 +38,7 @@ API of each components.
 
 EOF
 for i in $( find . -name "*txt" | sort | grep -v .git ); do
-
-
     echo >> API.md 
-
     echo "## $i" >> API.md
     echo >> API.md 
     cat "$i" >> API.md

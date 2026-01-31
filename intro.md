@@ -16,3 +16,24 @@ for deploying an adhoc measuring system.
 
 ![example](./img/example.png)
 
+# Mort de FAIM?
+
+It's funny in french, because it means starving.
+
+But actually, I really don't like the insecure part of this, so as a demontrator
+I have tried [mqtt](https://en.wikipedia.org/wiki/MQTT) as a bus and even though
+it removes the beauty of no broker, it has proven easy and fun to use.
+
+However, I commited a python proof of concept which defeat the concept of *all
+in bash*. I will wait for [curl to fully support
+mqtt(s)](https://curl.se/docs/mqtt.html).
+
+Right now, mqtt is incompletly supported by curl, but I will integrate it when it will be
+ready under the nickname FASM (Fast Adaptative Secure Monitoring).
+
+The PoC with all security turned on is [here for the pub
+part](https://github.com/jul/FAIM/blob/main/bin/mqtt_pub.py),
+[here for the sub part](https://github.com/jul/FAIM/blob/main/bin/mqtt_sub.py).
+
+NB: I could hack a version with  mosquitto\_pub and mosquitto\_sub
+

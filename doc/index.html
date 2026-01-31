@@ -1,5 +1,6 @@
 <ul>
 <li><a href="#intro" id="toc-intro">Intro</a></li>
+<li><a href="#mort-de-faim" id="toc-mort-de-faim">Mort de FAIM?</a></li>
 <li><a href="#quickstart" id="toc-quickstart">Quickstart</a>
 <ul>
 <li><a href="#requirements" id="toc-requirements">Requirements</a></li>
@@ -29,8 +30,6 @@ id="toc-binasci_plotshtxt">./bin/asci_plot.sh.txt</a></li>
 id="toc-binbasic_plotshtxt">./bin/basic_plot.sh.txt</a></li>
 <li><a href="#binclockshtxt"
 id="toc-binclockshtxt">./bin/clock.sh.txt</a></li>
-<li><a href="#binlaunch_lurkerpytxt"
-id="toc-binlaunch_lurkerpytxt">./bin/launch_lurker.py.txt</a></li>
 <li><a href="#binlaunch_lurkershtxt"
 id="toc-binlaunch_lurkershtxt">./bin/launch_lurker.sh.txt</a></li>
 <li><a href="#binlaunch_writershtxt"
@@ -45,10 +44,10 @@ id="toc-binplot_histo_gshtxt">./bin/plot_histo_g.sh.txt</a></li>
 id="toc-binplot_histoshtxt">./bin/plot_histo.sh.txt</a></li>
 <li><a href="#binplot_rrd2shtxt"
 id="toc-binplot_rrd2shtxt">./bin/plot_rrd2.sh.txt</a></li>
+<li><a href="#bintestshtxt"
+id="toc-bintestshtxt">./bin/test.sh.txt</a></li>
 <li><a href="#binwritershtxt"
 id="toc-binwritershtxt">./bin/writer.sh.txt</a></li>
-<li><a href="#plugincpuswptxt"
-id="toc-plugincpuswptxt">./plugin/.cpu.swp.txt</a></li>
 <li><a href="#plugincputxt"
 id="toc-plugincputxt">./plugin/cpu.txt</a></li>
 <li><a href="#pluginibm_acpi_fantxt"
@@ -91,6 +90,26 @@ documentation here</a></p>
 <img src="./img/example.png" alt="example" />
 <figcaption aria-hidden="true">example</figcaption>
 </figure>
+<h1 id="mort-de-faim">Mort de FAIM?</h1>
+<p>It's funny in french, because it means starving.</p>
+<p>But actually, I really don't like the insecure part of this, so as a
+demontrator I have tried <a
+href="https://en.wikipedia.org/wiki/MQTT">mqtt</a> as a bus and even
+though it removes the beauty of no broker, it has proven easy and fun to
+use.</p>
+<p>However, I commited a python proof of concept which defeat the
+concept of <em>all in bash</em>. I will wait for <a
+href="https://curl.se/docs/mqtt.html">curl to fully support
+mqtt(s)</a>.</p>
+<p>Right now, mqtt is incompletly supported by curl, but I will
+integrate it when it will be ready under the nickname FASM (Fast
+Adaptative Secure Monitoring).</p>
+<p>The PoC with all security turned on is <a
+href="https://github.com/jul/FAIM/blob/main/bin/mqtt_pub.py">here for
+the pub part</a>, <a
+href="https://github.com/jul/FAIM/blob/main/bin/mqtt_sub.py">here for
+the sub part</a>.</p>
+<p>NB: I could hack a version with mosquitto_pub and mosquitto_sub</p>
 <h1 id="quickstart">Quickstart</h1>
 <h2 id="requirements">Requirements</h2>
 <p>Perl, python3, gnuplot (gnuplot-lite maybe enough if 1Gb dependency
@@ -161,14 +180,6 @@ scripts</h1>
 <h2 id="binasci_plotshtxt">./bin/asci_plot.sh.txt</h2>
 <h2 id="binbasic_plotshtxt">./bin/basic_plot.sh.txt</h2>
 <h2 id="binclockshtxt">./bin/clock.sh.txt</h2>
-<h2 id="binlaunch_lurkerpytxt">./bin/launch_lurker.py.txt</h2>
-<h3 id="NAME">NAME</h3>
-<p>launch_lurker.py</p>
-<h4 id="SYNOPSYS">SYNOPSYS</h4>
-<p>[HOST=0.0.0.0] [PORT=6666] ./launch_lurker</p>
-<h4 id="OPTIONS">OPTIONS</h4>
-<p>see &lt;file:../start.sh.html&gt; for explanation of the options
-=back</p>
 <h2 id="binlaunch_lurkershtxt">./bin/launch_lurker.sh.txt</h2>
 <h3 id="NAME">NAME</h3>
 <pre><code>launch_lurker.sh</code></pre>
@@ -221,6 +232,7 @@ page.</p>
 <h2 id="binplot_histo_gshtxt">./bin/plot_histo_g.sh.txt</h2>
 <h2 id="binplot_histoshtxt">./bin/plot_histo.sh.txt</h2>
 <h2 id="binplot_rrd2shtxt">./bin/plot_rrd2.sh.txt</h2>
+<h2 id="bintestshtxt">./bin/test.sh.txt</h2>
 <h2 id="binwritershtxt">./bin/writer.sh.txt</h2>
 <h3 id="NAME">NAME</h3>
 <pre><code>writer.sh</code></pre>
@@ -232,7 +244,6 @@ page.</p>
 <p>If TICK is set then writer will assume it is to be launched in
 conjunction with "clock.sh.html" in . and do nothing until clock.sh
 sends a signal to it to write data.</p>
-<h2 id="plugincpuswptxt">./plugin/.cpu.swp.txt</h2>
 <h2 id="plugincputxt">./plugin/cpu.txt</h2>
 <h3 id="NAME">NAME</h3>
 <pre><code>cpu - FAIM plugin to monitor the CPU load</code></pre>

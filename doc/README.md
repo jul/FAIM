@@ -4,6 +4,7 @@
 
 
 -   [Intro](#intro){#toc-intro}
+-   [Mort de FAIM?](#mort-de-faim){#toc-mort-de-faim}
 -   [Quickstart](#quickstart){#toc-quickstart}
     -   [Requirements](#requirements){#toc-requirements}
     -   [Starting the
@@ -22,7 +23,6 @@
     -   [./bin/asci_plot.sh.txt](#binasci_plotshtxt){#toc-binasci_plotshtxt}
     -   [./bin/basic_plot.sh.txt](#binbasic_plotshtxt){#toc-binbasic_plotshtxt}
     -   [./bin/clock.sh.txt](#binclockshtxt){#toc-binclockshtxt}
-    -   [./bin/launch_lurker.py.txt](#binlaunch_lurkerpytxt){#toc-binlaunch_lurkerpytxt}
     -   [./bin/launch_lurker.sh.txt](#binlaunch_lurkershtxt){#toc-binlaunch_lurkershtxt}
     -   [./bin/launch_writer.sh.txt](#binlaunch_writershtxt){#toc-binlaunch_writershtxt}
     -   [./bin/lurker.sh.txt](#binlurkershtxt){#toc-binlurkershtxt}
@@ -30,8 +30,8 @@
     -   [./bin/plot_histo_g.sh.txt](#binplot_histo_gshtxt){#toc-binplot_histo_gshtxt}
     -   [./bin/plot_histo.sh.txt](#binplot_histoshtxt){#toc-binplot_histoshtxt}
     -   [./bin/plot_rrd2.sh.txt](#binplot_rrd2shtxt){#toc-binplot_rrd2shtxt}
+    -   [./bin/test.sh.txt](#bintestshtxt){#toc-bintestshtxt}
     -   [./bin/writer.sh.txt](#binwritershtxt){#toc-binwritershtxt}
-    -   [./plugin/.cpu.swp.txt](#plugincpuswptxt){#toc-plugincpuswptxt}
     -   [./plugin/cpu.txt](#plugincputxt){#toc-plugincputxt}
     -   [./plugin/ibm_acpi_fan.txt](#pluginibm_acpi_fantxt){#toc-pluginibm_acpi_fantxt}
     -   [./plugin/ibm_acpi.txt](#pluginibm_acpitxt){#toc-pluginibm_acpitxt}
@@ -69,6 +69,29 @@ adhoc measuring system.
 here](https://github.com/jul/FAIM/tree/main/doc)
 
 ![example](./img/example.png)
+
+# Mort de FAIM?
+
+It\'s funny in french, because it means starving.
+
+But actually, I really don\'t like the insecure part of this, so as a
+demontrator I have tried [mqtt](https://en.wikipedia.org/wiki/MQTT) as a
+bus and even though it removes the beauty of no broker, it has proven
+easy and fun to use.
+
+However, I commited a python proof of concept which defeat the concept
+of *all in bash*. I will wait for [curl to fully support
+mqtt(s)](https://curl.se/docs/mqtt.html).
+
+Right now, mqtt is incompletly supported by curl, but I will integrate
+it when it will be ready under the nickname FASM (Fast Adaptative Secure
+Monitoring).
+
+The PoC with all security turned on is [here for the pub
+part](https://github.com/jul/FAIM/blob/main/bin/mqtt_pub.py), [here for
+the sub part](https://github.com/jul/FAIM/blob/main/bin/mqtt_sub.py).
+
+NB: I could hack a version with mosquitto_pub and mosquitto_sub
 
 # Quickstart
 
@@ -172,20 +195,6 @@ API of each components.
 
 ## ./bin/clock.sh.txt {#binclockshtxt}
 
-## ./bin/launch_lurker.py.txt {#binlaunch_lurkerpytxt}
-
-### NAME {#NAME}
-
-launch_lurker.py
-
-#### SYNOPSYS {#SYNOPSYS}
-
-\[HOST=0.0.0.0\] \[PORT=6666\] ./launch_lurker
-
-#### OPTIONS {#OPTIONS}
-
-see <file:../start.sh.html> for explanation of the options =back
-
 ## ./bin/launch_lurker.sh.txt {#binlaunch_lurkershtxt}
 
 ### NAME {#NAME}
@@ -275,6 +284,8 @@ SINCE
 
 ## ./bin/plot_rrd2.sh.txt {#binplot_rrd2shtxt}
 
+## ./bin/test.sh.txt {#bintestshtxt}
+
 ## ./bin/writer.sh.txt {#binwritershtxt}
 
 ### NAME {#NAME}
@@ -294,8 +305,6 @@ For explanation of options see \"start.sh.html\" in .
 If TICK is set then writer will assume it is to be launched in
 conjunction with \"clock.sh.html\" in . and do nothing until clock.sh
 sends a signal to it to write data.
-
-## ./plugin/.cpu.swp.txt {#plugincpuswptxt}
 
 ## ./plugin/cpu.txt {#plugincputxt}
 
