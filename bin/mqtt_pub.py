@@ -6,23 +6,28 @@ from subprocess import Popen,PIPE
 import os
 import paho.mqtt.client as mqtt
 import pathlib
+import socket
+
+client_id = socket.gethostname()
 
 # The callback for when the client receives a CONNACK response from the server.
 def on_connect(client, userdata, flags, reason_code, properties):
     print(f"Connected with result code {reason_code}")
-    client.subscribe("SENSOR/")
+    client.subscribe("BUS/" + client.client_id)
+    client.subscribe("BUS/")
 
 # The callback for when a PUBLISH message is received from the server.
 def on_message(client, userdata, msg):
     # do something
     pass
 
-mqttc = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2, client_id="pub")
+mqttc = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2, client_id=client_id)
 mqttc.on_connect = on_connect
 mqttc.on_message = on_message
 
 mqttc.username = "pub"
 mqttc.password= "pub"
+mqttc.client_id = socket.gethostname()
 mqttc.tls_set(
     keyfile="./cfg/pub.key",
     certfile="./cfg/pub.crt",
@@ -30,6 +35,7 @@ mqttc.tls_set(
     tls_version=2
 )
 mqttc.connect("badass.home", 8883, 60)
+mqttc.loop_start()
 os.chdir(os.path.dirname(__file__))
 plugins = pathlib.Path("../plugin")
 while True:
@@ -40,6 +46,6 @@ while True:
             while res := writer.stdout.read():
                 writer.stdout.flush()
                 for msg in res.split():
-                    mqttc.publish("SENSOR", msg.decode())
+                    mqttc.publish(f"DATA", msg.decode())
     sleep(1 - (time() - start))
 
