@@ -25,11 +25,13 @@
     -   [./bin/clock.sh.txt](#binclockshtxt){#toc-binclockshtxt}
     -   [./bin/launch_lurker.sh.txt](#binlaunch_lurkershtxt){#toc-binlaunch_lurkershtxt}
     -   [./bin/launch_writer.sh.txt](#binlaunch_writershtxt){#toc-binlaunch_writershtxt}
+    -   [./bin/listen.sh.txt](#binlistenshtxt){#toc-binlistenshtxt}
     -   [./bin/lurker.sh.txt](#binlurkershtxt){#toc-binlurkershtxt}
     -   [./bin/mkhtml.sh.txt](#binmkhtmlshtxt){#toc-binmkhtmlshtxt}
     -   [./bin/plot_histo_g.sh.txt](#binplot_histo_gshtxt){#toc-binplot_histo_gshtxt}
     -   [./bin/plot_histo.sh.txt](#binplot_histoshtxt){#toc-binplot_histoshtxt}
     -   [./bin/plot_rrd2.sh.txt](#binplot_rrd2shtxt){#toc-binplot_rrd2shtxt}
+    -   [./bin/pub.sh.txt](#binpubshtxt){#toc-binpubshtxt}
     -   [./bin/test.sh.txt](#bintestshtxt){#toc-bintestshtxt}
     -   [./bin/writer.sh.txt](#binwritershtxt){#toc-binwritershtxt}
     -   [./plugin/cpu.txt](#plugincputxt){#toc-plugincputxt}
@@ -227,6 +229,8 @@ Make writer emit on BROADCAST/RANGE ono port PORT
 
 For explanation of options see <file:../start.sh.html>
 
+## ./bin/listen.sh.txt {#binlistenshtxt}
+
 ## ./bin/lurker.sh.txt {#binlurkershtxt}
 
 ### NAME {#NAME}
@@ -283,6 +287,8 @@ SINCE
 ## ./bin/plot_histo.sh.txt {#binplot_histoshtxt}
 
 ## ./bin/plot_rrd2.sh.txt {#binplot_rrd2shtxt}
+
+## ./bin/pub.sh.txt {#binpubshtxt}
 
 ## ./bin/test.sh.txt {#bintestshtxt}
 

@@ -95,7 +95,7 @@ while True:
                     writer.stdout.flush()
                     for msg in res.split():
                         mqttc.publish("DATA", msg.decode())
-        mqttc.publish("RES/", f"{client_id}:core.processing_time:{time()-start}:GAUGE")
+        mqttc.publish("DATA/", f"{client_id}:core.processing_time:{time()-start}:GAUGE")
         if time() -start < ctx["time_slice"]:
             sleep(ctx["time_slice"] - (time() - start))
 
